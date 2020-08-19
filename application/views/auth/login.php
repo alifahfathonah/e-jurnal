@@ -1,5 +1,7 @@
 <div class="login-box" style="margin-left: auto; margin-right: 90px;">
   <!-- /.login-logo -->
+<?php $this->load->view('layouts/components/alert-bootstrap'); ?>
+
   <div class="card">
     <div class="card-body login-card-body">
       <div class="row">
@@ -19,7 +21,7 @@
             </div>
           </div>
         </div>
-        <?= form_error('email', ' <p style="color: red; font-weight: bold; font-style: italic;font-size: 10px;margin-left:5px;">', '</p>') ?>
+        <?= form_error('email', ' <small class="text-danger">', '</small>') ?>
         <div class="input-group mt-3">
           <input type="password" class="form-control" placeholder="Password" name="password">
           <div class="input-group-append">
@@ -28,6 +30,7 @@
             </div>
           </div>
         </div>
+        <?= form_error('password', ' <small class="text-danger">', '</small>') ?>
         <a href="<?= base_url('Auth/Forgot_Password') ?>" style="margin-left: 160px; margin-bottom: 0px;">forgot password?</a>
         <!-- /.col -->
         <div class="col-12">

@@ -23,73 +23,61 @@
               <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                   <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                  <li class="nav-header">ADMIN</li>
-                  <li class="nav-item">
-                      <a href="pages/widgets.html" class="nav-link">
-                          <i class="nav-icon fas fa-tachometer-alt"></i>
-                          <p>
-                              Dashboard
-                          </p>
-                      </a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="pages/widgets.html" class="nav-link">
-                          <i class="nav-icon fas fa-chart-bar"></i>
-                          <p>
-                              Persentase Kehadiran
-                          </p>
-                      </a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="<?= base_url('Admin/Crud/Tbl_Absen'); ?>" class="nav-link">
-                          <i class="nav-icon fas fa-calendar-alt"></i>
-                          <p>
-                              Absen
-                          </p>
-                      </a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="<?= base_url('admin/crud') ?>" class="nav-link">
-                          <i class="nav-icon fas fa-table"></i>
-                          <p>
-                              Tabel Data
-                          </p>
-                      </a>
-                  </li>
-                  <li class="nav-header">PEMBIMBING</li>
-                  <li class="nav-item">
-                      <a href="pages/widgets.html" class="nav-link">
-                          <i class="nav-icon fas fa-user-tie"></i>
-                          <p>
-                              Kehadiran
-                          </p>
-                      </a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="pages/widgets.html" class="nav-link">
-                          <i class="nav-icon fas fa-calendar-alt"></i>
-                          <p>
-                              Kalender
-                          </p>
-                      </a>
-                  </li>
-                  <li class="nav-header">SISWA</li>
-                  <li class="nav-item">
-                      <a href="pages/widgets.html" class="nav-link">
-                          <i class="nav-icon fas fa-book"></i>
-                          <p>
-                              Jurnal
-                          </p>
-                      </a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="pages/widgets.html" class="nav-link">
-                          <i class="nav-icon fas fa-user"></i>
-                          <p>
-                              Profile
-                          </p>
-                      </a>
-                  </li>
+                  
+                  <?php 
+                  $role_id=$user['role_id'];
+                  $tbl_menu=$this->db->select('tbl_menu.*,tbl_access_menu.*')
+                  ->from('tbl_menu')
+                  ->join('tbl_access_menu','tbl_menu.id_menu=tbl_access_menu.menu_id')
+                  ->where('tbl_access_menu.role_id',$role_id)
+                  ->order_by('tbl_menu.id_menu','ASC')->get()->result_array(); ?>
+                  <?php foreach ($tbl_menu as $menu): ?>
+                  <?php 
+                    $menu_url = $this->uri->segment(1);
+                    if ($menu['nama_menu']==strtoupper($menu_url)):
+                  ?>
+                    <li class="nav-item has-treeview menu-open">
+                    <a href="#" class="nav-link active">
+                  <?php else: ?>
+                    <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">  
+                  <?php endif ?>
+                  
+                    
+                      <i class="nav-icon far fa-circle"></i>
+                      <p>
+                        <?= $menu['nama_menu'] ?>
+                        <i class="right fas fa-angle-left"></i>
+                      </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                  
+                    <?php 
+                    $menu_id=$menu['id_menu'];
+                    $tbl_submenu=$this->db->select('tbl_submenu.*,tbl_menu.*')
+                    ->from('tbl_submenu')
+                    ->join('tbl_menu','tbl_submenu.menu_id=tbl_menu.id_menu')
+                    ->where('tbl_submenu.menu_id',$menu_id)
+                    ->get()->result_array();
+                     ?>
+                      <?php foreach ($tbl_submenu as $submenu): ?>  
+                      
+                      <li class="nav-item">
+                        <?php if ($submenu['nama_submenu']==$judul): ?>
+                        <a href="<?= base_url($submenu['url_submenu']) ?>" class="nav-link active">
+                        <?php else: ?>
+                        <a href="<?= base_url($submenu['url_submenu']) ?>" class="nav-link">
+                        <?php endif; ?>
+                        
+                          <i class="<?= $submenu['icon_submenu'] ?>"></i>
+                          <p><?= $submenu['nama_submenu'] ?></p>
+                        </a>
+                      </li>
+                      <?php endforeach; ?>
+
+                    </ul>
+                  </li>  
+                  <?php endforeach; ?>
               </ul>
           </nav>
           <!-- /.sidebar-menu -->

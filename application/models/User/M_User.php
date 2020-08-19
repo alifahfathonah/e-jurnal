@@ -7,6 +7,11 @@ class M_User extends CI_Model {
 	{
 		$user=$this->db->get_where('tbl_user',['id_user' => $this->session->userdata('id_user')])->row_array();
 		return $user;
+	}
+
+	public function update($id_user,$data=[])
+	{
+		$this->db->where('id_user',$id_user)->update('tbl_user',$data);
 	}	
 
 }

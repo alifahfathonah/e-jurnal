@@ -16,7 +16,7 @@ class Jurnal extends CI_Controller {
 	
 	public function index()
 	{
-		$data['judul'] = 'Home';
+		$data['judul'] = 'Jurnal';
 		$data['user'] = $this->user;
 		$data['siswa'] = $this->siswa;
 		$this->load->view('layouts/_templates/header',$data);

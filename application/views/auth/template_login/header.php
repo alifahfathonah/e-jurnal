@@ -21,4 +21,4 @@
 </head>
 
 <body class="hold-transition login-page" style="background-image: url(<?= base_url('assets/img/background/auth/'); ?>ypc.jpg); background-repeat: no-repeat;
-background-size: 930px 700px; ">
+background-size: 900px 700px; ">

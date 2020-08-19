@@ -30,7 +30,17 @@
         
 
         <div class="jumbotron bg-dark">
-          <h4 class="display">Selamat datang di E-JURNAL, <?= $siswa['nama_siswa'] ?> !</h4>
+          <h4 class="display">Selamat datang di E-JURNAL, 
+            <?php if ($user['role_id']=='1'): ?>
+            <?= $user['username']; ?> !  
+            <?php elseif($user['role_id']=='2'): ?>
+            <?= $user['username']; ?> !
+            <?php elseif($user['role_id']=='3'): ?>
+            <?= $siswa['nama_siswa']; ?> !
+            <?php else: ?>
+              Who Are You ?
+            <?php endif; ?>
+            </h4>
           <hr class="bg-light">
           <p class="lead">E-JURNAL adalah WEBSITE sistem jurnal prakerin berbasis WEB , yang bertujuan untuk memudahkan para siswa/siswi dalam melaksanakan Magang/Prakerin Secara Online.</p>
           <hr class="my-4 bg-light">

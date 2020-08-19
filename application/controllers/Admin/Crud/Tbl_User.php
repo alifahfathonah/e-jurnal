@@ -6,16 +6,21 @@ class Tbl_User extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model("Admin/Crud/M_Tbl_User","M_User");	
+		$this->load->model("Admin/Crud/M_Tbl_User");
+        $this->load->model('User/M_User');
+        $this->load->helper(['auth']);
+        $this->user=$this->M_User->getUserLoginData();
+        isLoggedIn();	
 	}
 
     public function index()
     {
         $data['judul'] = 'Tabel User';
-    	$data['all_user'] = $this->M_User->getAll();
-    	$this->load->view('layouts/_templates/header');
-        $this->load->view('layouts/_templates/navbar');
-        $this->load->view('layouts/_templates/sidebar');
+    	$data['all_user'] = $this->M_Tbl_User->getAll();
+    	$data['user'] = $this->M_User->getUserLoginData();
+        $this->load->view('layouts/_templates/header',$data);
+        $this->load->view('layouts/_templates/navbar',$data);
+        $this->load->view('layouts/_templates/sidebar',$data);
         $this->load->view('admin/crud/tbl_user/index',$data);
         $this->load->view('layouts/_templates/footer');
     }
@@ -24,7 +29,7 @@ class Tbl_User extends CI_Controller
     {	
     	if ($this->form_validation->run($this->_tambahUserValidate())==FALSE) {
     		$data['judul'] = 'Tambah Data User';
-    		$data['all_role']=$this->M_User->getAllRole();
+    		$data['all_role']=$this->M_Tbl_User->getAllRole();
 	    	$this->load->view('layouts/_templates/header',$data);
 	        $this->load->view('layouts/_templates/navbar');
 	        $this->load->view('layouts/_templates/sidebar');
@@ -36,7 +41,7 @@ class Tbl_User extends CI_Controller
     				'password' =>   password_hash($this->input->post('password'), PASSWORD_DEFAULT),
                     'role_id' =>    $this->input->post('role_id'),
                     ];
-    		$this->M_User->tambah($data);
+    		$this->M_Tbl_User->tambah($data);
     		redirect('admin/crud/tbl-user');
     	}
     }
@@ -45,8 +50,8 @@ class Tbl_User extends CI_Controller
     {
     	if ($this->form_validation->run($this->_ubahUserValidate())==FALSE) {
             $data['judul'] = 'Edit Data User';
-    		$data['user']=$this->M_User->getById($id);
-            $data['all_role']=$this->M_User->getAllRole();
+    		$data['user']=$this->M_Tbl_User->getById($id);
+            $data['all_role']=$this->M_Tbl_User->getAllRole();
     		$this->load->view('layouts/_templates/header',$data);
 	        $this->load->view('layouts/_templates/navbar');
 	        $this->load->view('layouts/_templates/sidebar');
@@ -72,13 +77,23 @@ class Tbl_User extends CI_Controller
                 'password' =>   $password,
                 'role_id' =>    $this->input->post('role_id'),
                 ];
-        $this->M_User->update($id,$data);
+        $this->M_Tbl_User->update($id,$data);
         redirect('admin/crud/tbl-user');
+    }
+
+    public function printUser()
+    {
+    $data['judul'] = 'Tabel User';
+    $data['all_user'] = $this->M_Tbl_User->getAll();
+    $this->load->library('pdf');
+    $this->pdf->setPaper('A4','potrait');
+    $this->pdf->filename = "User";
+    $this->pdf->load_view('admin/crud/tbl_user/index',$data);
     }
 
     public function hapus($id='')
     {
-    	$this->M_User->hapus($id);
+    	$this->M_Tbl_User->hapus($id);
     	redirect('admin/crud/tbl-user');
     }
 

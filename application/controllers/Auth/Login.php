@@ -23,6 +23,14 @@ class Login extends CI_Controller
 				'required' => 'Email Harus diisi..!'
 			]
 		);
+		$this->form_validation->set_rules(
+			'password',
+			'Password',
+			'required',
+			[
+				'required' => 'Password Harus diisi..!'
+			]
+		);
 		if ($this->form_validation->run() == FALSE) {
 			$this->load->view('auth/template_login/header', $data);
 			$this->load->view('auth/login', $data);
@@ -45,12 +53,15 @@ class Login extends CI_Controller
 					greetings();
 					redirect($authorize['redirect']);
 				} else {
+					$this->session->set_flashdata('error', 'Username atau email salah');
 					redirect('login');
 				}
 			} else {
+				$this->session->set_flashdata('error', 'Password salah');
 				redirect('login');
 			}
 		} else {
+			$this->session->set_flashdata('error','Login gagal');
 			redirect('login');
 		}
 	}

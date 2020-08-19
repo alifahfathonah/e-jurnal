@@ -22,10 +22,11 @@
           <div class="card">
             <div class="card-header">
               <a href="<?= base_url('admin/crud/tbl-user/tambah') ?>" class="btn btn-primary">Tambah Data</a>
+              <a href="<?= base_url('Admin/Crud/Tbl_User/printUser') ?>" class="btn btn-success">Cetak Data</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body table-responsive">
-              <table id="datatable" class="table table-bordered table-striped">
+              <table border="1" width="100%" id="datatable" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>No</th>

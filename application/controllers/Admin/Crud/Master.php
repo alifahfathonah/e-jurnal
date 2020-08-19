@@ -7,6 +7,7 @@ class Master extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('User/M_User');
+		$this->load->helper(['auth']);
 		$this->user=$this->M_User->getUserLoginData();
 		isLoggedIn();
 	}
