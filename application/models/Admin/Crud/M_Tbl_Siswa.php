@@ -3,20 +3,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_Tbl_Siswa extends CI_Model {
 
-	public function getAll()
+	public function getAllSiswa()
 	{
-		return $this->db->order_by('nama_siswa','ASC')->get('tbl_siswa')->result_array();
+		$all_siswa=$this->db->order_by('nama_siswa','ASC')->get('tbl_siswa')->result_array();
+		return $all_siswa;
 	}
 
 	//get user untuk memasukan user_id di tabel siswa
-	public function getUserAll()
+	public function getAllUser()
 	{
-		return $this->db->order_by('username','ASC')->get('tbl_user')->result_array();
+		$all_user=$this->db->order_by('username','ASC')->get('tbl_user')->result_array();
+		return $all_user;
 	}
 
 	public function getById($id)
 	{
-		return $this->db->get_where('tbl_siswa',['id_siswa' => $id])->row_array();
+		$siswa=$this->db->get_where('tbl_siswa',['id_siswa' => $id])->row_array();
+		return $siswa;
 	}
 
 	public function tambah($data=[])
@@ -43,11 +46,29 @@ class M_Tbl_Siswa extends CI_Model {
     	}
     	
     	if (count($data)>0) {
-    		$tbl_user=$this->db->where_not_in('id_user',$data)->where('role_id',3)->order_by('username','ASC')->get('tbl_user')->result_array();	
+    		$tbl_user=$this->db->where_not_in('id_user',$data)->where('role_id',4)->order_by('username','ASC')->get('tbl_user')->result_array();	
     	}else{
-    		$tbl_user=$this->db->where('role_id',3)->order_by('username','ASC')->get('tbl_user')->result_array();
+    		$tbl_user=$this->db->where('role_id',4)->order_by('username','ASC')->get('tbl_user')->result_array();
     	}
     	return $tbl_user;
+	}
+
+	public function getAllKelas()
+	{
+		$all_kelas=$this->db->get('tbl_kelas')->result_array();
+		return $all_kelas;
+	}
+
+	public function getAllJurusan()
+	{
+		$all_jurusan=$this->db->get('tbl_jurusan')->result_array();
+		return $all_jurusan;
+	}
+
+	public function getAllPerusahaan()
+	{
+		$all_perusahaan=$this->db->get('tbl_perusahaan')->result_array();
+		return $all_perusahaan;
 	}
 
 }

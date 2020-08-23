@@ -31,14 +31,12 @@
 
         <div class="jumbotron bg-dark">
           <h4 class="display">Selamat datang di E-JURNAL, 
-            <?php if ($user['role_id']=='1'): ?>
+            <?php if ($user['role_id']=='1'|'2'|'3'): ?>
             <?= $user['username']; ?> !  
-            <?php elseif($user['role_id']=='2'): ?>
-            <?= $user['username']; ?> !
-            <?php elseif($user['role_id']=='3'): ?>
+            <?php elseif($user['role_id']=='4'): ?>
             <?= $siswa['nama_siswa']; ?> !
             <?php else: ?>
-              Who Are You ?
+              
             <?php endif; ?>
             </h4>
           <hr class="bg-light">

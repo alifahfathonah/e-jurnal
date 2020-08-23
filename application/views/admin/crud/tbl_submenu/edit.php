@@ -36,6 +36,10 @@
                 <input value="<?= $submenu['icon_submenu'] ?>" type="" id="icon_submenu" class="form-control" name="icon_submenu">
               </div>
               <div class="form-group">
+                <label for="url_submenu">Url Submenu</label>
+                <input value="<?= $submenu['url_submenu'] ?>" type="" id="url_submenu" class="form-control" name="url_submenu">
+              </div>
+              <div class="form-group">
                 <label for="s">Level</label>
                 
                 <select name="menu_id" id="s" class="form-control">

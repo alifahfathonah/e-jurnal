@@ -58,6 +58,7 @@
                     ->from('tbl_submenu')
                     ->join('tbl_menu','tbl_submenu.menu_id=tbl_menu.id_menu')
                     ->where('tbl_submenu.menu_id',$menu_id)
+                    ->where('tbl_submenu.is_active',1)
                     ->get()->result_array();
                      ?>
                       <?php foreach ($tbl_submenu as $submenu): ?>  

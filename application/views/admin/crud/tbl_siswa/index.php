@@ -41,7 +41,7 @@
                 <tr>
                   <td><?= $no++; ?></td>
                   <td><?= $siswa['nama_siswa'] ?></td>
-                  <td><?= $siswa['nisn'] ?></td>
+                  <td><?= $siswa['nis'] ?></td>
                   <td></td>
                   <td></td>
                   <td>

@@ -32,7 +32,11 @@
               </div>
               <div class="form-group">
                 <label for="icon_submenu">Icon</label>
-                <input type="" id="icon_submenu" class="form-control" name="icon_submenu">
+                <input type="" value="nav-icon " id="icon_submenu" class="form-control" name="icon_submenu">
+              </div>
+              <div class="form-group">
+                <label for="url_submenu">Url Submenu</label>
+                <input type="" id="url_submenu" class="form-control" name="url_submenu">
               </div>
               <div class="form-group">
                 <label for="s">Level</label>
