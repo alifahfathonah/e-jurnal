@@ -103,6 +103,7 @@ $route['admin/crud/tbl-submenu/update'] = 'Admin/Crud/Tbl_Submenu/update';
 $route['admin/crud/tbl-submenu/hapus/(:any)'] = 'Admin/Crud/Tbl_Submenu/hapus/$1';
 ########## Crud ##########
 /****************************************************/
+
 /****************************************************
 *					 Pembimbing
 *****************************************************/
@@ -115,10 +116,22 @@ $route['pembimbing'] = 'Pembimbing/Home';
 //Siswa
 $route['siswa'] = 'Siswa/Home';
 $route['siswa/jurnal'] = 'Siswa/Jurnal';
+//Siswa/Identitas
+$route['siswa/identitas'] = 'Siswa/Identitas';
+$route['siswa/identitas/create'] = 'Siswa/Identitas/create';
+$route['siswa/identitas/lengkapi-identitas'] = 'Siswa/Identitas/create';
+$route['siswa/identitas/store'] = 'Siswa/Identitas/store';
+
+//Siswa/Kehadiran
+$route['siswa/kehadiran/(:any)'] = 'Siswa/Kehadiran/bulan/$1';
+$route['siswa/kehadiran/create'] = 'Siswa/Identitas/create';
+$route['siswa/kehadiran/lengkapi-identitas'] = 'Siswa/Identitas/create';
+$route['siswa/kehadiran/store'] = 'Siswa/Identitas/store';
 /****************************************************/
 /****************************************************
 *						User
 *****************************************************/
 $route['user/settings/change-password'] = 'User/Settings/Change_Password';
 /****************************************************/
+
 $route['blocked'] = 'Blocked';

@@ -18,25 +18,24 @@
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
-        
-          <?php if ($this->session->flashdata('greetings')): ?>
-            <div class="alert alert-info alert-dismissible fade show" role="alert">
-              <strong>Hai <?= $siswa['nama_siswa'] ?>!</strong>, <?= $this->session->flashdata('greetings'); ?>.
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-          <?php endif; ?>
-        
+      <?php $this->load->view('layouts/components/alert-bootstrap') ?>
 
         <div class="jumbotron bg-dark">
           <h4 class="display">Selamat datang di E-JURNAL, 
-            <?php if ($user['role_id']=='1'|'2'|'3'): ?>
+            <?php if ($user['role_id']=='1'): ?>
             <?= $user['username']; ?> !  
+            <?php elseif($user['role_id']=='2'): ?>
+            <?= $user['username']; ?> !
+            <?php elseif($user['role_id']=='3'): ?>
+            <?= $user['username']; ?> !
             <?php elseif($user['role_id']=='4'): ?>
-            <?= $siswa['nama_siswa']; ?> !
+              <?php if ($siswa_exists): ?>
+                <?= $siswa['nama_siswa'] ?>
+              <?php else: ?>
+                <?= $user['username'] ?>
+              <?php endif ?>
             <?php else: ?>
-              
+              <?php redirect('logout'); ?>
             <?php endif; ?>
             </h4>
           <hr class="bg-light">
@@ -45,6 +44,7 @@
           
           
         </div>
+
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->

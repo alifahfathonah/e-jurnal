@@ -1,4 +1,4 @@
-<?php
+  <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_Tbl_Pembimbing extends CI_Model {
@@ -7,7 +7,7 @@ class M_Tbl_Pembimbing extends CI_Model {
 	}
 
 	public function insert($data){
-		$this->db->insert('Tbl_Pembimbing',$data);
+		$this->db->insert('tbl_pembimbing',$data);
 	}
 
 	public function delete($id){
