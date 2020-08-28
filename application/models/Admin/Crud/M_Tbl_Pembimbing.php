@@ -7,7 +7,7 @@ class M_Tbl_Pembimbing extends CI_Model {
 	}
 
 	public function insert($data){
-		$this->db->insert('tbl_pembimbing',$data);
+		$this->db->insert('Tbl_Pembimbing',$data);
 	}
 
 	public function delete($id){

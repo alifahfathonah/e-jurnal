@@ -8,11 +8,10 @@ class M_Siswa extends CI_Model {
 		$siswa=$this->db->get_where('tbl_siswa',['user_id' => $this->session->userdata('id_user')])->row_array();
 		if ($siswa) {
 			$this->session->set_userdata(['id_siswa' => $siswa['id_siswa']]);
-			$siswa=$siswa;
+			return $siswa; 
 		}else{
-			$siswa=$this->M_User->getUserLoginData();
+			return FALSE;
 		}
-		return $siswa; 
 	}
 
 	public function getSiswaLengkapData()
@@ -25,7 +24,8 @@ class M_Siswa extends CI_Model {
 
 	public function isThisSiswaExists()
 	{
-		$siswa=$this->db->get_where('tbl_siswa',['user_id' => $this->session->userdata('id_user')])->num_rows();
+		$siswa=$this->getSiswaLoginData();
+		return $siswa;
 	}
 
 	public function getAllKelas()

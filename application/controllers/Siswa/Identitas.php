@@ -16,9 +16,9 @@ class Identitas extends CI_Controller {
 
 	public function index()
 	{
-		thisSiswaNotExists();
+		justSiswaCanAccessThis();
 		$data['siswa_exists']=$this->M_Siswa->isThisSiswaExists();
-		$data['judul'] = 'Identitas Siswa';
+		$data['judul'] = 'Identitas';
 		$data['user'] = $this->user;
 		$data['siswa'] = $this->siswa;
 		$data['identitas_siswa'] = $this->M_Siswa->getSiswaLengkapData();

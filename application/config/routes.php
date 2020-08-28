@@ -109,6 +109,8 @@ $route['admin/crud/tbl-submenu/hapus/(:any)'] = 'Admin/Crud/Tbl_Submenu/hapus/$1
 *****************************************************/
 //Pembimbing
 $route['pembimbing'] = 'Pembimbing/Home';
+$route['pembimbing/materi-siswa'] = 'Pembimbing/Materi_Siswa';
+$route['pembimbing/materi-siswa/store'] = 'Pembimbing/Materi_Siswa/store';
 /****************************************************/
 /****************************************************
 *					 Siswa
@@ -122,11 +124,8 @@ $route['siswa/identitas/create'] = 'Siswa/Identitas/create';
 $route['siswa/identitas/lengkapi-identitas'] = 'Siswa/Identitas/create';
 $route['siswa/identitas/store'] = 'Siswa/Identitas/store';
 
-//Siswa/Kehadiran
-$route['siswa/kehadiran/(:any)'] = 'Siswa/Kehadiran/bulan/$1';
-$route['siswa/kehadiran/create'] = 'Siswa/Identitas/create';
-$route['siswa/kehadiran/lengkapi-identitas'] = 'Siswa/Identitas/create';
-$route['siswa/kehadiran/store'] = 'Siswa/Identitas/store';
+//Siswa/Identitas
+$route['siswa/materi'] = 'Siswa/Materi';
 /****************************************************/
 /****************************************************
 *						User
