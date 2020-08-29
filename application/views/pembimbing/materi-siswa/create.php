@@ -58,30 +58,7 @@
         <!-- /.col-md-6 -->
         <div class="col-lg-6 table-responsive">
 
-        <?php if ($pembimbing) : ?>
-            <table class="table table-dark" id="datatable">
-              <thead>
-                <tr>
-                  <th scope="col"></th>
-                  <th scope="col">Tgl</th>
-                  <th scope="col">Ket</th>
-                  <th scope="col">Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                
-                  <tr>
-                    <th scope="row"></th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-
-              </tbody>
-            </table>
-          <?php else : ?>
-            
-          <?php endif ?>
+        
 
         </div>
         <!-- /.col-md-6 -->

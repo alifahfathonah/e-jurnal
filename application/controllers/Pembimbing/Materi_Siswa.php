@@ -20,6 +20,7 @@ class Materi_Siswa extends CI_Controller {
         $data['judul'] = 'Materi Siswa';
         $data['user'] = $this->user;
         $data['pembimbing'] = $this->pembimbing;
+        $data['all_tugas_siswa_by_pembimbing'] = $this->M_Materi_Siswa->getTugasSiswaByPembimbingId()->result_array();
         $this->load->view('layouts/_templates/header',$data);
         $this->load->view('layouts/_templates/navbar',$data);
         $this->load->view('layouts/_templates/sidebar',$data);
@@ -52,6 +53,13 @@ class Materi_Siswa extends CI_Controller {
         $this->M_Materi_Siswa->insert('tbl_tugas_siswa',$data);
         $this->session->set_flashdata('success','Materi siswa berhasil di posting');
         redirect('pembimbing/materi-siswa/create');
+    }
+
+    public function delete($id)
+    {
+        $this->M_Materi_Siswa->delete($id);
+        $this->session->set_flashdata('success','Materi berhasil dihapus');
+        redirect('pembimbing/materi-siswa');
     }
 
 }

@@ -111,6 +111,7 @@ $route['admin/crud/tbl-submenu/hapus/(:any)'] = 'Admin/Crud/Tbl_Submenu/hapus/$1
 $route['pembimbing'] = 'Pembimbing/Home';
 $route['pembimbing/materi-siswa'] = 'Pembimbing/Materi_Siswa';
 $route['pembimbing/materi-siswa/store'] = 'Pembimbing/Materi_Siswa/store';
+$route['pembimbing/materi-siswa/delete/(:any)'] = 'Pembimbing/Materi_Siswa/delete/$1';
 /****************************************************/
 /****************************************************
 *					 Siswa

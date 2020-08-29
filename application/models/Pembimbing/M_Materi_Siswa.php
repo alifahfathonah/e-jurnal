@@ -3,9 +3,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_Materi_Siswa extends CI_Model {
 
-	public function FunctionName($value='')
+	public function getTugasSiswaByPembimbingId()
 	{
-		
+		$tugas=$this->db->order_by('created_at','DESC')->get_where('tbl_tugas_siswa',['pembimbing_id' => $this->session->userdata('id_pembimbing')]);
+		return $tugas;
 	}
 
 	public function getAllTipeTugasSiswa()
@@ -17,6 +18,11 @@ class M_Materi_Siswa extends CI_Model {
 	public function insert($table,$data=[])
 	{
 		return $this->db->insert($table,$data);
+	}
+
+	public function delete($id)
+	{
+		$this->db->where('id_tugas',$id)->delete('tbl_tugas_siswa');
 	}	
 
 }
