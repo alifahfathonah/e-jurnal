@@ -14,7 +14,8 @@ class Kegiatan extends CI_Controller
 		$this->user = $this->M_User->getUserLoginData();
 		$this->siswa = $this->M_Siswa->getSiswaLoginData();
 		isLoggedIn();
-		thisSiswaNotExists();
+		justSiswaCanAccessThis();
+		date_default_timezone_set('Asia/Jakarta');
 	}
 
 	public function index()
@@ -30,6 +31,12 @@ class Kegiatan extends CI_Controller
 		$this->load->view('layouts/_templates/footer');
 	}
 
+	/*
+	| -------------------------------------------------------------------------
+	| Mengisi Kegiatan
+	| -------------------------------------------------------------------------
+	| Siswa prakerin mengisi kegiatan sehari-hari 
+	*/
 	public function save()
 	{
 		$data = array(

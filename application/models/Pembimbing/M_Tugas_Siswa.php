@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class M_Materi_Siswa extends CI_Model {
+class M_Tugas_Siswa extends CI_Model {
 
 	public function getTugasSiswaByPembimbingId()
 	{
@@ -27,5 +27,5 @@ class M_Materi_Siswa extends CI_Model {
 
 }
 
-/* End of file M_Materi_Siswa.php */
-/* Location: ./application/models/Pembimbing/M_Materi_Siswa.php */
+/* End of file M_Tugas_Siswa.php */
+/* Location: ./application/models/Pembimbing/M_Tugas_Siswa.php */

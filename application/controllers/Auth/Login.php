@@ -3,13 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Login extends CI_Controller
 {
-
-	public function __construct()
-	{
-		parent::__construct();
-		$this->load->helper('greetings_helper');
-	}
-
+	
 	public function index()
 	{
 		$data['judul'] = "Login";
@@ -37,19 +31,25 @@ class Login extends CI_Controller
 			$this->prosesLogin();
 		}
 	}
+
+	/*
+	| --------------------------------------------------------
+	| Fungsi Untuk Proses Login 
+	| --------------------------------------------------------
+	*/
 	protected function prosesLogin()
 	{
-		$email = $this->input->post('email');
-		$password = $this->input->post('password');
+		$email 		= $this->input->post('email');
+		$password 	= $this->input->post('password');
+		
 		$user = $this->db->where('email',$email)->or_where('username',$email)->limit(1)->get('tbl_user')->row_array();
+		
 		if ($user) {
 			if (password_verify($password, $user['password'])) {
 				$authorize = $this->db->get_where('tbl_role', ['id_role' => $user['role_id']])->row_array();
 				if ($authorize['id_role'] == $user['role_id']) {
 					$userdata = ['id_user' => $user['id_user'],'role_id' => $user['role_id']];
 					$this->session->set_userdata($userdata);
-					//flashdata greetings
-					greetings();
 					redirect($authorize['redirect']);
 				} else {
 					$this->session->set_flashdata('error', 'Username atau email salah');

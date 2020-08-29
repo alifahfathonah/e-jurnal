@@ -27,7 +27,7 @@
         <div class="col-lg-6">
 
         <div class="card card-dark">
-            <form action="<?= base_url('pembimbing/materi-siswa/store') ?>" method="post">
+            <form action="<?= base_url('pembimbing/tugas-siswa/store') ?>" method="post">
               <div class="card-header"></div>
               <div class="card-body">
                 <input required="" type="hidden" name="pembimbing_id" value="<?= $pembimbing['id_pembimbing'] ?>" class="form-control">

@@ -53,20 +53,35 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = TRUE;
 
-//Auth
+/*
+| ---------------------------------------------------------------------
+| Auth (controllers/Auth)
+| ---------------------------------------------------------------------
+| berisi controller untuk autentikasi seperti Login(Multilevel)
+| reset password(via gmail) dan Logout
+*/
 $route['login'] = 'Auth/Login';
 $route['forgot-password'] = 'Auth/Forgot_Password';
 $route['logout'] = 'Auth/Logout';
 
-/****************************************************
-*					 Admin
-*****************************************************/
-//Admin
+
+/*
+| ---------------------------------------------------------------------
+| Admin (controllers/Admin)
+| ---------------------------------------------------------------------
+| berisi controller untuk admin dan tempat crud data.
+| admin bebas mengatur segalanya termasuk hak akses,crud data dll
+*/
 $route['admin'] = 'Admin/Dashboard';
-//Master
 $route['admin/crud'] = 'Admin/Crud/Master';
 
-########## Crud ##########
+
+/*
+| ---------------------------------------------------------------------
+| Crud (controllers/Admin/Crud)
+| ---------------------------------------------------------------------
+| berisi controller untuk crud data database
+*/
 //Tbl Admin
 $route['admin/crud/tbl-admin'] = 'Admin/Crud/Tbl_Admin';
 $route['admin/crud/tbl-admin/tambah'] = 'Admin/Crud/Tbl_Admin/tambah';
@@ -101,37 +116,65 @@ $route['admin/crud/tbl-submenu/tambah'] = 'Admin/Crud/Tbl_Submenu/tambah';
 $route['admin/crud/tbl-submenu/edit/(:any)'] = 'Admin/Crud/Tbl_Submenu/edit/$1';
 $route['admin/crud/tbl-submenu/update'] = 'Admin/Crud/Tbl_Submenu/update';
 $route['admin/crud/tbl-submenu/hapus/(:any)'] = 'Admin/Crud/Tbl_Submenu/hapus/$1';
-########## Crud ##########
-/****************************************************/
 
-/****************************************************
-*					 Pembimbing
-*****************************************************/
-//Pembimbing
+
+/*
+| ---------------------------------------------------------------------
+| Pembimbing (controllers/Pembimbing)
+| ---------------------------------------------------------------------
+| berisi controller untuk pembimbing (pembimbing prakerin)
+*/
 $route['pembimbing'] = 'Pembimbing/Home';
-$route['pembimbing/materi-siswa'] = 'Pembimbing/Materi_Siswa';
-$route['pembimbing/materi-siswa/store'] = 'Pembimbing/Materi_Siswa/store';
-$route['pembimbing/materi-siswa/delete/(:any)'] = 'Pembimbing/Materi_Siswa/delete/$1';
-/****************************************************/
-/****************************************************
-*					 Siswa
-*****************************************************/
-//Siswa
+
+### Kegiatan Siswa ###
+// $route['pembimbing/kehadiran-siswa'] = 'Pembimbing/Kehadiran_Siswa';
+// $route['pembimbing/kehadiran-siswa/konfirmasi-kehadiran'] = 'Pembimbing/Kehadiran_Siswa/confirmKehadiran';
+// $route['pembimbing/kehadiran-siswa/delete/(:any)'] = 'Pembimbing/Tugas_Siswa/delete/$1';
+
+### Kehadiran Siswa ###
+$route['pembimbing/kehadiran-siswa'] = 'Pembimbing/Kehadiran_Siswa';
+$route['pembimbing/kehadiran-siswa/konfirmasi-kehadiran'] = 'Pembimbing/Kehadiran_Siswa/confirmKehadiran';
+$route['pembimbing/kehadiran-siswa/delete/(:any)'] = 'Pembimbing/Tugas_Siswa/delete/$1';
+
+### Tugas Siswa ###
+$route['pembimbing/tugas-siswa'] = 'Pembimbing/Tugas_Siswa';
+$route['pembimbing/tugas-siswa/store'] = 'Pembimbing/Tugas_Siswa/store';
+$route['pembimbing/tugas-siswa/delete/(:any)'] = 'Pembimbing/Tugas_Siswa/delete/$1';
+
+/*
+| ---------------------------------------------------------------------
+| Siswa (controllers/Siswa)
+| ---------------------------------------------------------------------
+| berisi controller untuk siswa (siswa prakerin)
+*/
 $route['siswa'] = 'Siswa/Home';
 $route['siswa/jurnal'] = 'Siswa/Jurnal';
-//Siswa/Identitas
+
+### Identitas ###
 $route['siswa/identitas'] = 'Siswa/Identitas';
 $route['siswa/identitas/create'] = 'Siswa/Identitas/create';
 $route['siswa/identitas/lengkapi-identitas'] = 'Siswa/Identitas/create';
 $route['siswa/identitas/store'] = 'Siswa/Identitas/store';
 
-//Siswa/Identitas
-$route['siswa/materi'] = 'Siswa/Materi';
-/****************************************************/
-/****************************************************
-*						User
-*****************************************************/
-$route['user/settings/change-password'] = 'User/Settings/Change_Password';
-/****************************************************/
+### Tugas ###
+$route['siswa/materi'] = 'Siswa/Tugas';
 
+
+/*
+| ---------------------------------------------------------------------
+| Admin (controllers/Admin)
+| ---------------------------------------------------------------------
+| berisi controller untuk admin dan tempat crud data.
+| admin bebas mengatur segalanya termasuk hak akses,crud data dll
+*/
+$route['user/settings/change-password'] = 'User/Settings/Change_Password';
+
+
+/*
+| ---------------------------------------------------------------------
+| Blocked Controller
+| ---------------------------------------------------------------------
+| controller yang bertugas mengalihkan halaman ketika user mencoba-
+| mengakses halaman yang tidak diizinkan sesuai hak aksesnya
+*/
 $route['blocked'] = 'Blocked';

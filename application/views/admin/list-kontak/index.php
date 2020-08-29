@@ -19,15 +19,15 @@
 
       <ul class="list-group">
         <li class="list-group-item d-flex justify-content-between align-items-center bg-dark">
-          <a href="<?= base_url('admin/kontak/kontak_siswa'); ?>">Kontak Siswa</a>
+          <a href="<?= base_url('admin/list-kontak/kontak_siswa'); ?>">Kontak Siswa</a>
           <span class="badge badge-primary badge-pill"><?= $total_siswa; ?></span>
         </li>
         <li class="list-group-item d-flex justify-content-between align-items-center bg-dark">
-          <a href="<?= base_url('admin/kontak/kontak_pembimbing'); ?>">Kontak Pembimbing</a>
+          <a href="<?= base_url('admin/list-kontak/kontak_pembimbing'); ?>">Kontak Pembimbing</a>
           <span class="badge badge-primary badge-pill"><?= $total_pembimbing; ?></span>
         </li>
         <li class="list-group-item d-flex justify-content-between align-items-center bg-dark">
-          <a href="<?= base_url('admin/kontak/kontak_petugas'); ?>">Kontak Petugas Monitoring</a>
+          <a href="<?= base_url('admin/list-kontak/kontak_petugas'); ?>">Kontak Petugas Monitoring</a>
           <span class="badge badge-primary badge-pill"><?= $total_petugas; ?></span>
         </li>
       </ul>

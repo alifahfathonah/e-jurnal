@@ -12,7 +12,7 @@ class Jurnal extends CI_Controller {
 		$this->user=$this->M_User->getUserLoginData();
 		$this->siswa=$this->M_Siswa->getSiswaLoginData();
 		isLoggedIn();
-		thisSiswaNotExists();
+		justSiswaCanAccessThis();
 	}
 	
 	public function index()

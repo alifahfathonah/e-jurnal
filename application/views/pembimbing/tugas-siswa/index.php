@@ -41,7 +41,7 @@
                     <td><?= $tugas['judul_tugas_siswa'] ?></td>
                     <td><?= date('d-m-Y',strtotime($tugas['created_at'])) ?></td>
                     <td>
-                      <a href="<?= base_url('pembimbing/materi-siswa/delete/'.$tugas['id_tugas']) ?>" class="btn btn-danger"><i class="fas fa-fw fa-trash"></i></a>
+                      <a href="<?= base_url('pembimbing/tugas-siswa/delete/'.$tugas['id_tugas']) ?>" class="btn btn-danger"><i class="fas fa-fw fa-trash"></i></a>
                     </td>
                   </tr>
                 <?php endforeach; ?>

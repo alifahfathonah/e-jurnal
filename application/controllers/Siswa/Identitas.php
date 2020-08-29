@@ -11,12 +11,12 @@ class Identitas extends CI_Controller {
 		$this->load->helper(['auth','siswa']);
 		$this->user=$this->M_User->getUserLoginData();
 		$this->siswa=$this->M_Siswa->getSiswaLoginData();
+		justSiswaCanAccessThis();
 		isLoggedIn();
 	}
 
 	public function index()
 	{
-		justSiswaCanAccessThis();
 		$data['siswa_exists']=$this->M_Siswa->isThisSiswaExists();
 		$data['judul'] = 'Identitas';
 		$data['user'] = $this->user;
@@ -31,7 +31,6 @@ class Identitas extends CI_Controller {
 
 	public function create()
 	{	
-		thisSiswaExists();
 		$data['judul'] = 'Lengkapi Identitas';
 		$data['user'] = $this->user;
 		$data['siswa'] = $this->siswa;

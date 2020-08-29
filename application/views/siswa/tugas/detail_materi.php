@@ -39,7 +39,7 @@
           <!-- /.col-md-6 -->
           <div class="col-lg-4">
 
-            <?php $this->load->view('layouts/components/chat-materi-siswa') ?>
+            <?php $this->load->view('layouts/components/chat-tugas-siswa') ?>
 
           </div>
           <!-- /.col-md-6 -->

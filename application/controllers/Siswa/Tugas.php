@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Materi extends CI_Controller {
+class Tugas extends CI_Controller {
 
      public function __construct()
         {
@@ -14,13 +14,13 @@ class Materi extends CI_Controller {
             $this->user = $this->M_User->getUserLoginData();
             $this->siswa = $this->M_Siswa->getSiswaLoginData();
             $this->load->library('pagination');
+            justSiswaCanAccessThis();
             isLoggedIn();
-            thisSiswaNotExists();
            }
     
         public function index()
         {
-            $data['judul'] = 'Materi';
+            $data['judul'] = 'Tugas & Materi';
             $data['user'] = $this->user;
             $data['siswa'] = $this->siswa;
             ////////////////////////////////////////////////
@@ -35,13 +35,13 @@ class Materi extends CI_Controller {
             $this->load->view('layouts/_templates/header', $data);
             $this->load->view('layouts/_templates/navbar', $data);
             $this->load->view('layouts/_templates/sidebar', $data);
-            $this->load->view('siswa/materi/index', $data);
+            $this->load->view('siswa/tugas/index', $data);
             $this->load->view('layouts/_templates/footer');
         }   
 
-        public function detail_materi($id)
+        public function detail_tugas($id)
         {
-            $data['judul'] = 'Materi';
+            $data['judul'] = 'Detail Tugas';
             $data['user'] = $this->user;
             $data['siswa'] = $this->siswa;
             $data['detail_materi'] = $this->M_Materi->getMateriById($id);
@@ -49,7 +49,7 @@ class Materi extends CI_Controller {
             $this->load->view('layouts/_templates/header', $data);
             $this->load->view('layouts/_templates/navbar', $data);
             $this->load->view('layouts/_templates/sidebar', $data);
-            $this->load->view('siswa/materi/detail_materi', $data);
+            $this->load->view('siswa/tugas/detail_materi', $data);
             $this->load->view('layouts/_templates/footer');
         }
     }

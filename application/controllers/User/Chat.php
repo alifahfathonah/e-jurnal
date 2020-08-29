@@ -25,7 +25,7 @@ class Chat extends CI_Controller {
         $this->load->view('layouts/_templates/footer');
     }
 
-    public function loadMessage($id_tugas)
+    public function loadMessageByTugasSiswa($id_tugas)
     {
     	$id_user=$this->session->userdata('id_user');
     	$data=$this->M_Chat_Group->allMessage($id_tugas);
@@ -63,13 +63,18 @@ class Chat extends CI_Controller {
     	}
     }
 
-    public function sendMessage()
+    public function sendMessageByTugasSiswa()
     {
+    	$this->form_validation->set_rules('isi_chat', 'isi_chat', 'required|max_length[250]');
+    	if ($this->form_validation->run()==TRUE) {
     		$id_user=$this->session->userdata('id_user');
 	    	$data=['user_id' => $id_user,
 	    			'tugas_siswa_id' => $this->input->post('tugas_siswa_id'),
 	    		   'isi_chat' => $this->input->post('isi_chat'),];
-	    	$this->M_Chat_Group->sendMessage($data);		
+	    	$this->M_Chat_Group->sendMessage($data);			
+    	} else {
+    		$data=['message' => 'Komentar gagal dikirim'];
+    	}
     }
 
 }

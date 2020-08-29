@@ -53,7 +53,7 @@
                     </div>
                     <div class="modal-footer">
                       <div class="input-group">
-                        <textarea required="" id="isi_chat" name="isi_chat" required="" placeholder="Tulis Pesan.." class="form-control"></textarea>
+                        <textarea required id="isi_chat" name="isi_chat" required="" placeholder="Tulis Pesan.." class="form-control"></textarea>
                         <input type="hidden" id="tugas_siswa_id" value="<?= $materi_id; ?>" name="tugas_siswa_id">
                         <span class="input-group-append">
                           <button type="button" class="btn btn-primary" id="send" data-id="<?= $user['id_user'] ?>"><i class="fas fa-paper-plane"></i></button>
@@ -81,7 +81,7 @@
       var tugas_siswa_id = $("#tugas_siswa_id").val()
       var isi_chat = $("#isi_chat").val()
       $.ajax({
-        url: "<?= base_url('User/Chat/sendMessage') ?>",
+        url: "<?= base_url('User/Chat/sendMessageByTugasSiswa') ?>",
         method : "POST",
         data: {
           user_id : user_id,
@@ -100,7 +100,7 @@
 
     function loadMsg() {
       var tugas_siswa_id = $('#tugas_siswa_id').val()
-      $.get("<?= base_url('User/Chat/loadMessage/'); ?>"+tugas_siswa_id,function(response){
+      $.get("<?= base_url('User/Chat/loadMessageByTugasSiswa/'); ?>"+tugas_siswa_id,function(response){
         $('#load-msg').html(response)
         $('#load-msg2').html(response)
       })

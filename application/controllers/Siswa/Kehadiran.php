@@ -14,7 +14,7 @@ class Kehadiran extends CI_Controller
 		$this->user = $this->M_User->getUserLoginData();
 		$this->siswa = $this->M_Siswa->getSiswaLoginData();
 		isLoggedIn();
-		thisSiswaNotExists();
+		justSiswaCanAccessThis();
 		date_default_timezone_set('Asia/Jakarta');
 	}
 
@@ -32,6 +32,13 @@ class Kehadiran extends CI_Controller
 		$this->load->view('layouts/_templates/footer');
 	}
 
+	/*
+	| -------------------------------------------------------------------------
+	| Detail bulan absensi kehadiran
+	| -------------------------------------------------------------------------
+	| siswa prakerin dapat melihat dan mengisi data absensi kehadiran di bulan 
+	| sekarang dan bulan sebelumnya. 
+	*/
 	public function bulan($slug = '')
 	{
 		if ($slug) {
@@ -47,9 +54,7 @@ class Kehadiran extends CI_Controller
 					$data['count_kehadiran_saya'] = $this->M_Kehadiran->countKehadiranBySiswaId();
 					$data['all_keterangan_absensi'] = $this->M_Kehadiran->getAllKeteranganAbsensi();
 					$data['slug_bulan'] = $bulan['slug_bulan'];
-					/////////////////////////////////////////////////////////////////////////////
-					// $config['']
-					/////////////////////////////////////////////////////////////////////////////
+
 					$this->load->view('layouts/_templates/header', $data);
 					$this->load->view('layouts/_templates/navbar', $data);
 					$this->load->view('layouts/_templates/sidebar', $data);
@@ -68,11 +73,18 @@ class Kehadiran extends CI_Controller
 	}
 
 	public function storeAbsensi()
-	{
+	{	
+		//memanggil fungsi _doAbsesnsi
 		$this->_doAbsensi();
 		redirect('siswa/kehadiran/bulan/'.$this->input->post('slug_bulan'));
 	}
 
+	/*
+	| -------------------------------------------------------------------------
+	| Melakukan Absensi
+	| -------------------------------------------------------------------------
+	| siswa prakerin melakukan absensi sesuai dengan id_siswa masing-masing 
+	*/
 	private function _doAbsensi()
 	{
 		$siswa_id = $this->input->post('siswa_id');

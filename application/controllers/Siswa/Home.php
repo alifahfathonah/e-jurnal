@@ -8,7 +8,7 @@ class Home extends CI_Controller {
 		parent::__construct();
 		$this->load->model('User/M_User');
 		$this->load->model('Siswa/M_Siswa');
-		$this->load->helper(['greetings','auth']);
+		$this->load->helper(['auth']);
 		$this->user=$this->M_User->getUserLoginData();
 		$this->siswa=$this->M_Siswa->getSiswaLoginData();
 		isLoggedIn();
@@ -16,7 +16,7 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-		$data['judul'] = 'Home';
+		$data['judul'] = 'Siswa';
 		$data['user'] = $this->user;
 		$data['siswa'] = $this->siswa;
 		$data['siswa_exists'] = $this->M_Siswa->isThisSiswaExists();

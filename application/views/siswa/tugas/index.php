@@ -29,7 +29,7 @@
               <span class="info-box-icon"><i class="far fa-bookmark"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Total Materi & Tugas</span>
+                <span class="info-box-text">Total Tugas & Materi</span>
                 <span class="info-box-number"><?= $total_materi; ?></span>
 
                 <div class="progress">
@@ -67,7 +67,7 @@
         </div>
         <!-- /.row -->
 
-    <h5 class="mb-2">Materi & Tugas</h5>
+    <h5 class="mb-2">Tugas & Materi</h5>
     <div class="col-md-6 mb-2">
         
     </div>
@@ -84,7 +84,7 @@
                 <div class="card-text text-bold"><?= $m['judul_tugas_siswa'] ?></div>
                 <span class="info-box-text"><?= $pembimbing['nama_pembimbing'];?></span>
                 <span class="info-box-text">Tanggal : <?= date('d-m-Y',strtotime($m['created_at'])) ?></span>
-                <a href="<?= base_url('Siswa/materi/detail_materi/'.$m['id_tugas']);?>" class="btn btn-primary mt-3">Lihat</a>
+                <a href="<?= base_url('Siswa/tugas/detail_tugas/'.$m['id_tugas']);?>" class="btn btn-primary mt-3">Lihat</a>
               </div>
                 <!-- /.info-box-content -->
             </div>
