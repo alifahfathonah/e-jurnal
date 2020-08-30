@@ -3,6 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_Siswa extends CI_Model {
 
+	/*
+    | -------------------------------------------------------------------------
+    | Mengambil Data Login Dari Siswa Yang Login
+    | -------------------------------------------------------------------------
+    | Ketika user login dan role nya adalah siswa maka fungsi ini akan-
+    | dijalankan.
+    */
 	public function getSiswaLoginData()
 	{
 		$siswa=$this->db->get_where('tbl_siswa',['user_id' => $this->session->userdata('id_user')])->row_array();
@@ -22,6 +29,11 @@ class M_Siswa extends CI_Model {
 					->join('tbl_kelas','tbl_siswa.kelas_id=tbl_kelas.id_kelas')->get()->row_array();
 	}
 
+	/*
+    | -------------------------------------------------------------------------
+    | Mengecek apakah siswa ini (yang login) sudah mengisi identitas 
+    | -------------------------------------------------------------------------
+    */
 	public function isThisSiswaExists()
 	{
 		$siswa=$this->getSiswaLoginData();

@@ -25,6 +25,13 @@ class Chat extends CI_Controller {
         $this->load->view('layouts/_templates/footer');
     }
 
+    /*
+    | -------------------------------------------------------------------------
+    | Mengambil Chat/Komentar Berdasarkan Id Tugas Siswa
+    | -------------------------------------------------------------------------
+    | Fungsi ini akan meload komentar/chat berdasarkan id yang dikirim di-
+    | parameter | $id_tugas berisi id_tugas_siswa |.
+    */
     public function loadMessageByTugasSiswa($id_tugas)
     {
     	$id_user=$this->session->userdata('id_user');
@@ -63,6 +70,11 @@ class Chat extends CI_Controller {
     	}
     }
 
+    /*
+    | -------------------------------------------------------------------------
+    | Kirim Chat/Komentar berdasarkan id_tugas
+    | -------------------------------------------------------------------------
+    */
     public function sendMessageByTugasSiswa()
     {
     	$this->form_validation->set_rules('isi_chat', 'isi_chat', 'required|max_length[250]');

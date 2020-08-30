@@ -66,14 +66,14 @@
                   <script type="text/javascript">
     $(document).ready(function(){
     
-    var mulai=0;
+    var start=0;
 
     $("#load-msg").mousedown(function(){
-        mulai=1               
+        start=1               
     })
 
     $("#load-msg2").mousedown(function(){
-        mulai=1               
+        start=1               
     })
 
     $("#send").click(function() {
@@ -89,7 +89,7 @@
           isi_chat : isi_chat
         },
         success:function(){
-          mulai=0
+          start=0
           $("#isi_chat").val("")      
         },
         error:function(){
@@ -105,7 +105,7 @@
         $('#load-msg2').html(response)
       })
 
-      if (mulai==0) {
+      if (start==0) {
         var objDiv = document.getElementById("load-msg");
         objDiv.scrollTop = objDiv.scrollHeight;
         var objDiv2 = document.getElementById("load-msg2");
@@ -115,7 +115,7 @@
 
     setInterval(function(){
         loadMsg()
-    },1500)
+    },500)
 
 
     })

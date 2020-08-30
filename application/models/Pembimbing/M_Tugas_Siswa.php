@@ -9,6 +9,12 @@ class M_Tugas_Siswa extends CI_Model {
 		return $tugas;
 	}
 
+	public function getTugasById($id)
+	{
+		$tugas=$this->db->get_where('tbl_tugas_siswa',['id_tugas' => $id])->row_array();
+		return $tugas;
+	}
+
 	public function getAllTipeTugasSiswa()
 	{
 		$tipe_tugas=$this->db->get('tbl_tipe_tugas_siswa')->result_array();

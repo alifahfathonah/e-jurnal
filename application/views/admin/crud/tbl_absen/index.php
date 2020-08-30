@@ -45,7 +45,7 @@
                         ?>
                             <tr>
                                 <th scope="row"><?= $i++ ?></th>
-                                <td><?= $abs['nisn']; ?></td>
+                                <td><?= $abs['nis']; ?></td>
                                 <td><?= $abs['nama_siswa']; ?></td>
                                 <td><?= $abs['nama_keterangan']; ?></td>
                                 <td><?= $abs['created_at']; ?></td>

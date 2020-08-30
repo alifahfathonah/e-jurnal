@@ -14,7 +14,7 @@ class Blocked extends CI_Controller {
 
     public function index()
     {
-    	$data['judul'] = 'Unauthorized';
+    	$data['judul'] = 'Access Denied';
 		$data['user'] = $this->user;
         $this->load->view('layouts/_templates/header',$data);
         $this->load->view('layouts/_templates/navbar',$data);

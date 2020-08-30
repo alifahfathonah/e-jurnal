@@ -7,10 +7,7 @@
           <h1 class="m-0 text-dark"><?= $judul; ?></h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
-          <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="<?= base_url('siswa/home') ?>">Home</a></li>
-            <li class="breadcrumb-item"><a href="<?= base_url('siswa/kehadiran') ?>">Kembali</a></li>
-          </ol>
+          
         </div><!-- /.col -->
       </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -23,7 +20,11 @@
 
       <?php $this->load->view('layouts/components/alert-bootstrap') ?>
         <div class="mb-3">
-
+        <div class="card">
+          <div class="card-header">
+            <a href="<?= base_url('pembimbing/tugas-siswa/create') ?>" class="btn btn-primary">Buat Tugas/Materi</a>
+          </div>
+          <div class="card-body">
         <?php if ($pembimbing) : ?>
             <table class="table table-dark" id="datatable">
               <thead>
@@ -41,6 +42,7 @@
                     <td><?= $tugas['judul_tugas_siswa'] ?></td>
                     <td><?= date('d-m-Y',strtotime($tugas['created_at'])) ?></td>
                     <td>
+                      <a href="<?= base_url('pembimbing/tugas-siswa/show/'.$tugas['id_tugas']) ?>" class="btn btn-primary"><i class="fas fa-fw fa-info"></i></a>
                       <a href="<?= base_url('pembimbing/tugas-siswa/delete/'.$tugas['id_tugas']) ?>" class="btn btn-danger"><i class="fas fa-fw fa-trash"></i></a>
                     </td>
                   </tr>
@@ -49,7 +51,9 @@
             </table>
           <?php else : ?>
             
-          <?php endif ?>
+        <?php endif ?>
+        </div>
+        </div>
       </div>
 
     </div><!-- /.container-fluid -->

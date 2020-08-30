@@ -15,12 +15,12 @@ class Change_Password extends CI_Controller {
 	public function index()
 	{
 		if ($this->form_validation->run($this->_changePasswordValidate())==FALSE) {
-			$data['judul'] = 'Ubah Katasandi';
+			$data['judul'] = 'Ubah Password';
 			$data['user'] = $this->user;
 			$this->load->view('layouts/_templates/header',$data);
 			$this->load->view('layouts/_templates/navbar',$data);
 			$this->load->view('layouts/_templates/sidebar',$data);
-			$this->load->view('user/settings/change-password',$data);
+			$this->load->view('user/change-password',$data);
 			$this->load->view('layouts/_templates/footer');
 		}else{
 			$this->_changePassword();
@@ -33,7 +33,7 @@ class Change_Password extends CI_Controller {
 		$password = $this->input->post('password');
 		$this->M_User->update($id_user,['password' => password_hash($password, PASSWORD_DEFAULT)]);
 		$this->session->set_flashdata('success','Password berhasil diubah');
-		redirect('user/settings/change-password');
+		redirect('user/change-password');
 	}
 
 	private function _changePasswordValidate()

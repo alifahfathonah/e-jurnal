@@ -8,10 +8,7 @@ Content Wrapper. Contains page content -->
           <h1 class="m-0 text-dark"><?= $judul; ?></h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
-          <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="<?= base_url('siswa/home') ?>">Home</a></li>
-            <li class="breadcrumb-item"><a href="<?= base_url('siswa/kehadiran') ?>">Kembali</a></li>
-          </ol>
+          
         </div><!-- /.col -->
       </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -28,7 +25,7 @@ Content Wrapper. Contains page content -->
         <div class="col-lg-6">
 
         <div class="card card-dark">
-            <form action="<?= base_url('siswa/kehadiran/storeAbsensi') ?>" method="post">
+            <form action="<?= base_url('siswa/kehadiran/store-absensi') ?>" method="post">
               <div class="card-header"></div>
               <div class="card-body">
                 <input type="hidden" name="slug_bulan" value="<?= $slug_bulan ?>" class="form-control">
@@ -71,7 +68,16 @@ Content Wrapper. Contains page content -->
                     <th scope="row"><?= $no++; ?></th>
                     <td><?= date('d', strtotime($kehadiran['tanggal_absensi'])) ?></td>
                     <td><?= $kehadiran['badge_keterangan_absensi'] ?></td>
-                    <td></td>
+                    <td>
+                      <?php 
+                        if ($kehadiran['is_active']>0) {
+                          $status="<span class='badge badge-success'>dikonfirmasi</span>";
+                        }else{
+                          $status="<span class='badge badge-danger'>belum dikonfirmasi</span>";
+                        }
+                        echo $status;
+                      ?>
+                    </td>
                   </tr>
                 <?php endforeach ?>
               </tbody>

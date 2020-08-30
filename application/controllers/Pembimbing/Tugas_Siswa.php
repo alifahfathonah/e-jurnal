@@ -55,6 +55,20 @@ class Tugas_Siswa extends CI_Controller {
         redirect('pembimbing/tugas-siswa/create');
     }
 
+    public function show($id)
+    {
+        $data['judul'] = 'Detail Tugas';
+        $data['user'] = $this->user;
+        $data['pembimbing'] = $this->pembimbing;
+        $data['materi_id'] = $id;
+        $data['detail_tugas'] = $this->M_Tugas_Siswa->getTugasById($id);
+        $this->load->view('layouts/_templates/header',$data);
+        $this->load->view('layouts/_templates/navbar',$data);
+        $this->load->view('layouts/_templates/sidebar',$data);
+        $this->load->view('pembimbing/tugas-siswa/show',$data);
+        $this->load->view('layouts/_templates/footer');      
+    }
+
     public function delete($id)
     {
         $this->M_Tugas_Siswa->delete($id);

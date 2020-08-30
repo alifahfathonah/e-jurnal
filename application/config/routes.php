@@ -133,12 +133,14 @@ $route['pembimbing'] = 'Pembimbing/Home';
 
 ### Kehadiran Siswa ###
 $route['pembimbing/kehadiran-siswa'] = 'Pembimbing/Kehadiran_Siswa';
-$route['pembimbing/kehadiran-siswa/konfirmasi-kehadiran'] = 'Pembimbing/Kehadiran_Siswa/confirmKehadiran';
+$route['pembimbing/kehadiran-siswa/konfirmasi-kehadiran/(:any)'] = 'Pembimbing/Kehadiran_Siswa/confirmKehadiran/$1';
+$route['pembimbing/kehadiran/konfirmasi-semua-kehadiran'] = 'pembimbing/kehadiran-siswa/confirmAllKehadiran';
 $route['pembimbing/kehadiran-siswa/delete/(:any)'] = 'Pembimbing/Tugas_Siswa/delete/$1';
 
 ### Tugas Siswa ###
 $route['pembimbing/tugas-siswa'] = 'Pembimbing/Tugas_Siswa';
 $route['pembimbing/tugas-siswa/store'] = 'Pembimbing/Tugas_Siswa/store';
+$route['pembimbing/tugas-siswa/show/(:any)'] = 'Pembimbing/Tugas_Siswa/show/$1';
 $route['pembimbing/tugas-siswa/delete/(:any)'] = 'Pembimbing/Tugas_Siswa/delete/$1';
 
 /*
@@ -156,18 +158,21 @@ $route['siswa/identitas/create'] = 'Siswa/Identitas/create';
 $route['siswa/identitas/lengkapi-identitas'] = 'Siswa/Identitas/create';
 $route['siswa/identitas/store'] = 'Siswa/Identitas/store';
 
+### Kehadiran ###
+// $route['siswa/kehadiran/(:any)'] = 'Siswa/Kehadiran/bulan/$1';
+$route['siswa/kehadiran/store-absensi'] = 'Siswa/Kehadiran/storeAbsensi';
 ### Tugas ###
 $route['siswa/materi'] = 'Siswa/Tugas';
 
 
 /*
 | ---------------------------------------------------------------------
-| Admin (controllers/Admin)
+| User (controllers/User)
 | ---------------------------------------------------------------------
 | berisi controller untuk admin dan tempat crud data.
 | admin bebas mengatur segalanya termasuk hak akses,crud data dll
 */
-$route['user/settings/change-password'] = 'User/Settings/Change_Password';
+$route['user/change-password'] = 'User/Change_Password';
 
 
 /*

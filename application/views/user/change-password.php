@@ -22,7 +22,7 @@
         <div class="card">
           <div class="card-header bg-dark"></div>
           <div class="card-body">
-            <form method="POST" action="<?= base_url('user/settings/change-password'); ?>">
+            <form method="POST" action="<?= base_url('user/change-password'); ?>">
             <div class="form-group">
               <label for="password">Password</label>
               <input type="password" class="form-control" placeholder="Masukan password" id="password" name="password"></input>

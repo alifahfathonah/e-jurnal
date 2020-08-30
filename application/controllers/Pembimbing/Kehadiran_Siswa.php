@@ -22,6 +22,7 @@ class Kehadiran_Siswa extends CI_Controller {
         $data['user'] = $this->user;
         $data['pembimbing'] = $this->pembimbing;
         $data['all_kehadiran_this_day'] = $this->M_Kehadiran_Siswa->getKehadiranSiswaByThisDay();
+        $data['count_confirmed_kehadiran_this_day'] = $this->M_Kehadiran_Siswa->countConfirmedKehadiranByThisDay();
         $this->load->view('layouts/_templates/header',$data);
         $this->load->view('layouts/_templates/navbar',$data);
         $this->load->view('layouts/_templates/sidebar',$data);
@@ -29,7 +30,28 @@ class Kehadiran_Siswa extends CI_Controller {
         $this->load->view('layouts/_templates/footer');     
 	}
 
-    public function confirmKehadiran()
+    /*
+    | -------------------------------------------------------------------------
+    | Mengkonfirmasi Kehadiran Siswa Prakerin (per siswa prakerin)
+    | -------------------------------------------------------------------------
+    | Siswa prakerin yang sudah mengisi kehadiran hari ini,maka akan di-
+    | konfirmasi oleh pembimbing prakerin sebagai ganti dari paraf.
+    */
+    public function confirmKehadiran($id_absensi)
+    {
+        $this->M_Kehadiran_Siswa->confirmKehadiranById($id_absensi);
+        redirect('pembimbing/kehadiran-siswa');
+    }
+
+    /*
+    | -------------------------------------------------------------------------
+    | Mengkonfirmasi Semua Kehadiran Siswa Prakerin (semua siswa prakerin)
+    | -------------------------------------------------------------------------
+    | Semua siswa prakerin yang sudah mensubmit hadir hari ini,maka akan-
+    | dikonfirmasi secara bersamaan. 
+    | 
+    */
+    public function confirmAllKehadiran()
     {
 
     }
