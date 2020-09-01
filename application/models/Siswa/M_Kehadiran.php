@@ -10,16 +10,29 @@ class M_Kehadiran extends CI_Model
 		return $bulan;
 	}
 
-	public function getKehadiranBySiswaId()
+	// public function getKehadiranBySiswaId()
+	// {
+	// 	$kehadiran = $this->db->select('tbl_absensi.*,tbl_keterangan_absensi.*')
+	// 		->from('tbl_absensi')
+	// 		->join('tbl_keterangan_absensi', 'tbl_absensi.keterangan_absensi_id=tbl_keterangan_absensi.id_keterangan_absensi')
+	// 		->where('tbl_absensi.siswa_id', $this->session->userdata('id_siswa'))
+	// 		->like('tanggal_absensi', date('m-Y'))
+	// 		->get();
+	// 	return $kehadiran;
+	// }
+
+	public function getKehadiranBySiswaId($bulan='')
 	{
 		$kehadiran = $this->db->select('tbl_absensi.*,tbl_keterangan_absensi.*')
 			->from('tbl_absensi')
 			->join('tbl_keterangan_absensi', 'tbl_absensi.keterangan_absensi_id=tbl_keterangan_absensi.id_keterangan_absensi')
 			->where('tbl_absensi.siswa_id', $this->session->userdata('id_siswa'))
-			->like('tanggal_absensi', date('m-Y'))
+			->like('tanggal_absensi', date($bulan))
 			->get();
 		return $kehadiran;
 	}
+
+
 
 	public function countKehadiranBySiswaId()
 	{

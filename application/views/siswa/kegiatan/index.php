@@ -46,9 +46,9 @@
           <tr>
             <th scope="col">TANGGAL</th>
             <th scope="col">JAM MASUK</th>
-            <th scope="col">JAM PULANG</th>
-            <th scope="col">URAIAN KEGIATAN</th>
+            <th scope="col">JAM PULANG</th> 
             <th scope="col">STATUS</th>
+            <th scope="col">ACTION</th>
           </tr>
         </thead>
         <tbody>
@@ -57,8 +57,8 @@
               <th><?= $kg['tanggal']; ?></th>
               <td><?= $kg['jam_masuk']; ?></td>
               <td><?= $kg['jam_pulang']; ?></td>
-              <td><?= $kg['uraian_kegiatan']; ?></td>
               <td></td>
+              <td> <a href="<?= base_url('Siswa/Kegiatan/detail/'.$kg['id_kegiatan']);?> "class="btn btn-primary">Detail</a></td>
             </tr>
           <?php endforeach ?>
         </tbody>
@@ -66,6 +66,6 @@
 
     </div><!-- /.container-fluid -->
   </div>
-  <!-- /.content -->
+  <!-- /.content<i class="fas fa-fw fa-edit"></i> -->
 </div>
-<!-- /.content-wrapper
+<!-- /.content-wrapper -->

@@ -48,12 +48,16 @@ class Kehadiran extends CI_Controller
 			if ($bulan) {
 				if ($bulan['no_bulan'] <= $no_bulan_sekarang) {
 					$data['judul'] = 'Kehadiran Bulan ' . $bulan['nama_bulan'];
+					
 					$data['user'] = $this->user;
 					$data['siswa'] = $this->siswa;
-					$data['kehadiran_saya'] = $this->M_Kehadiran->getKehadiranBySiswaId()->result_array();
+					
+					$data['slug_bulan'] = $bulan['slug_bulan'];
+					$data['no_bulan'] = $bulan['no_bulan'];
+
+					$data['kehadiran_saya'] = $this->M_Kehadiran->getKehadiranBySiswaId($bulan['no_bulan'].'-Y')->result_array();
 					$data['count_kehadiran_saya'] = $this->M_Kehadiran->countKehadiranBySiswaId();
 					$data['all_keterangan_absensi'] = $this->M_Kehadiran->getAllKeteranganAbsensi();
-					$data['slug_bulan'] = $bulan['slug_bulan'];
 
 					$this->load->view('layouts/_templates/header', $data);
 					$this->load->view('layouts/_templates/navbar', $data);

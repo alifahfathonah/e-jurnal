@@ -116,6 +116,7 @@ $route['admin/crud/tbl-submenu/tambah'] = 'Admin/Crud/Tbl_Submenu/tambah';
 $route['admin/crud/tbl-submenu/edit/(:any)'] = 'Admin/Crud/Tbl_Submenu/edit/$1';
 $route['admin/crud/tbl-submenu/update'] = 'Admin/Crud/Tbl_Submenu/update';
 $route['admin/crud/tbl-submenu/hapus/(:any)'] = 'Admin/Crud/Tbl_Submenu/hapus/$1';
+$route['petugas'] ='admin/crud/tbl_petugas';
 
 
 /*

@@ -23,8 +23,8 @@ Content Wrapper. Contains page content -->
 
       <div class="row">
         <div class="col-lg-6">
-
-        <div class="card card-dark">
+        <?php if ($no_bulan==date('m')): ?>
+          <div class="card card-dark">
             <form action="<?= base_url('siswa/kehadiran/store-absensi') ?>" method="post">
               <div class="card-header"></div>
               <div class="card-body">
@@ -47,6 +47,24 @@ Content Wrapper. Contains page content -->
               </div>
             </form>
           </div>  
+        <?php else: ?>
+            <div class="card card-primary card-outline mb-3">
+              <div class="card-header">
+                <h5 class="m-0"></h5>
+              </div>
+              <div class="card-body">
+                <h6 class="card-title">Special title treatment</h6>
+
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <a href="#" class="btn btn-primary">Total Kehadiran : 19</a>
+              </div>
+            </div>
+        <?php endif; ?>
 
         </div>
         <!-- /.col-md-6 -->
@@ -83,8 +101,10 @@ Content Wrapper. Contains page content -->
               </tbody>
             </table>
           <?php else : ?>
-            
-          <?php endif ?>
+            <div class="alert alert-danger">
+              Belum mengisi kehadiran
+            </div>
+          <?php endif; ?>
 
         </div>
         <!-- /.col-md-6 -->
