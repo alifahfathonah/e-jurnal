@@ -14,7 +14,7 @@ class M_Petugas extends CI_Model {
 	{
 		$petugas=$this->db->get_where('tbl_petugas_monitoring',['user_id' => $this->session->userdata('id_user')])->row_array();
 		if ($petugas) {
-			$this->session->set_userdata('id_petugas_monitoring',$petugas['id_petugas_monitoring']);
+			$this->session->set_userdata('id_petugas',$petugas['id_petugas_monitoring']);
 		}
 		return $petugas;
 	}	

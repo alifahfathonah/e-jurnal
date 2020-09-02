@@ -49,8 +49,8 @@ class Login extends CI_Controller
 				$authorize = $this->db->get_where('tbl_role', ['id_role' => $user['role_id']])->row_array();
 				if ($authorize['id_role'] == $user['role_id']) {
 					$userdata = ['id_user' => $user['id_user'],'role_id' => $user['role_id']];
-					$this->session->set_userdata($userdata);
-					redirect($authorize['redirect']);
+					$this->session->set_userdata($userdata); 
+					redirect($authorize['login_redirect']);
 				} else {
 					$this->session->set_flashdata('error', 'Username atau email salah');
 					redirect('login');

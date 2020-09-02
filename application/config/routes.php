@@ -144,6 +144,18 @@ $route['pembimbing/tugas-siswa/store'] = 'Pembimbing/Tugas_Siswa/store';
 $route['pembimbing/tugas-siswa/show/(:any)'] = 'Pembimbing/Tugas_Siswa/show/$1';
 $route['pembimbing/tugas-siswa/delete/(:any)'] = 'Pembimbing/Tugas_Siswa/delete/$1';
 
+
+/*
+| ---------------------------------------------------------------------
+| 
+| ---------------------------------------------------------------------
+| berisi controller untuk petugas(siswa prakerin)
+*/
+$route['petugas'] = 'Petugas/home';
+$route['petugas/monitoring-kehadiran-siswa'] = 'Petugas/Monitoring_Kehadiran_Siswa';
+$route['petugas/monitoring-kegiatan-siswa'] = 'Petugas/Monitoring_Kegiatan_Siswa';
+
+
 /*
 | ---------------------------------------------------------------------
 | Siswa (controllers/Siswa)

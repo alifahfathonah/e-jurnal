@@ -7,23 +7,24 @@ class Home extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('User/M_User');
-		$this->load->model('Siswa/M_Siswa');
+		$this->load->model('Petugas/M_Monitoring');
+		$this->load->model('Petugas/M_Petugas');
 		$this->load->helper(['auth']);
 		$this->user=$this->M_User->getUserLoginData();
-		$this->siswa=$this->M_Siswa->getSiswaLoginData();
+		$this->petugas=$this->M_Petugas->getPetugasLoginData();
 		isLoggedIn();
 	}
 
 	public function index()
 	{
-		$data['judul'] = 'Siswa';
+		$data['judul'] = 'Petugas';
 		$data['user'] = $this->user;
-		$data['siswa'] = $this->siswa;
-		$data['siswa_exists'] = $this->M_Siswa->isThisSiswaExists();
+		$data['petugas'] = $this->petugas;
+		$this->user=$this->M_User->getUserLoginData();
 		$this->load->view('layouts/_templates/header',$data);
 		$this->load->view('layouts/_templates/navbar',$data);
 		$this->load->view('layouts/_templates/sidebar',$data);
-		$this->load->view('siswa/home/index',$data);
+		$this->load->view('petugas/home/index',$data);
 		$this->load->view('layouts/_templates/footer');		
 	}
 

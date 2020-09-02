@@ -9,7 +9,7 @@ class Home extends CI_Controller {
 		$this->load->model('User/M_User');
 		$this->load->helper(['auth']);
 		$this->user=$this->M_User->getUserLoginData();
-		// isLoggedIn();
+		isLoggedIn();
 	}
 
 	public function template($filename='',$data=[])
@@ -25,7 +25,6 @@ class Home extends CI_Controller {
     public function index()
     {
     	$data['judul'] = 'Home';
-        $data['siswa'] = $this->db->get('tbl_siswa')->result_array();
     	$this->template('errors/home',$data);
     }
 

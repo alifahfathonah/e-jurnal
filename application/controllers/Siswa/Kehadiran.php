@@ -48,15 +48,18 @@ class Kehadiran extends CI_Controller
 			if ($bulan) {
 				if ($bulan['no_bulan'] <= $no_bulan_sekarang) {
 					$data['judul'] = 'Kehadiran Bulan ' . $bulan['nama_bulan'];
-					
+				
 					$data['user'] = $this->user;
 					$data['siswa'] = $this->siswa;
 					
+					$id_siswa=$data['siswa']['id_siswa'];
+
 					$data['slug_bulan'] = $bulan['slug_bulan'];
 					$data['no_bulan'] = $bulan['no_bulan'];
+					$data['id_bulan'] = $bulan['id_bulan'];
 
-					$data['kehadiran_saya'] = $this->M_Kehadiran->getKehadiranBySiswaId($bulan['no_bulan'].'-Y')->result_array();
-					$data['count_kehadiran_saya'] = $this->M_Kehadiran->countKehadiranBySiswaId();
+					$data['kehadiran_saya'] = $this->M_Kehadiran->getKehadiranBySiswaAndBulanId($id_siswa,$bulan['id_bulan'])->result_array();
+					$data['count_kehadiran_saya'] = $this->M_Kehadiran->countKehadiranBySiswaAndBulanId($id_siswa,$bulan['id_bulan']);
 					$data['all_keterangan_absensi'] = $this->M_Kehadiran->getAllKeteranganAbsensi();
 
 					$this->load->view('layouts/_templates/header', $data);
@@ -102,6 +105,7 @@ class Kehadiran extends CI_Controller
 					'siswa_id' => $siswa_id,
 					'is_active' => '0',
 					'keterangan_absensi_id' => $this->input->post('keterangan_absensi_id'),
+					'bulan_id' => $this->input->post('bulan_id'),
 					'tanggal_absensi' => $tanggal_absensi,
 				];
 				$this->M_Kehadiran->insert($data);

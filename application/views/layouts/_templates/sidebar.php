@@ -30,7 +30,7 @@
                   ->from('tbl_menu')
                   ->join('tbl_access_menu','tbl_menu.id_menu=tbl_access_menu.menu_id')
                   ->where('tbl_access_menu.role_id',$role_id)
-                  ->order_by('tbl_menu.id_menu','ASC')->get()->result_array(); ?>
+                  ->order_by('tbl_menu.no_urut_menu','ASC')->get()->result_array(); ?>
                   <?php foreach ($tbl_menu as $menu): ?>
                   <?php 
                     $menu_url = $this->uri->segment(1);

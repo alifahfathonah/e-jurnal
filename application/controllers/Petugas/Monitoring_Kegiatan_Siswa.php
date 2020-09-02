@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Monitoring_Kegiatan_Siswa extends CI_Controller {
 
 	public function __construct()
     {
@@ -18,7 +18,7 @@ class Home extends CI_Controller {
 	{
 		$data['judul'] = 'Pembimbing';
         $data['user'] = $this->user;
-        $data['pembimbing'] = $this->pembimbing;        
+        $data['pembimbing'] = $this->pembimbing;
         $this->load->view('layouts/_templates/header',$data);
         $this->load->view('layouts/_templates/navbar',$data);
         $this->load->view('layouts/_templates/sidebar',$data);
@@ -29,4 +29,4 @@ class Home extends CI_Controller {
 }
 
 /* End of file Home.php */
-/* Location: ./application/controllers/Pembimbing/Home.php */
+/* Location: ./application/controllers/Petugas/Home.php */

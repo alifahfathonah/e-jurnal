@@ -21,22 +21,38 @@ class M_Kehadiran extends CI_Model
 	// 	return $kehadiran;
 	// }
 
-	public function getKehadiranBySiswaId($bulan='')
+	/*
+	| -------------------------------------------------------------------------
+	| Mengambil kehadiran siswa pada bulan ini
+	| -------------------------------------------------------------------------
+	| Fungsi ini memiliki 2 parameter,yaitu $id_siswa dari -
+	| -(id_siswa di tabel tbl_siswa)
+	| dan $bulan_id dari (id_bulan di tabel tbl_bulan).
+	*/
+	public function getKehadiranBySiswaAndBulanId($siswa_id='',$bulan_id='')
 	{
 		$kehadiran = $this->db->select('tbl_absensi.*,tbl_keterangan_absensi.*')
 			->from('tbl_absensi')
 			->join('tbl_keterangan_absensi', 'tbl_absensi.keterangan_absensi_id=tbl_keterangan_absensi.id_keterangan_absensi')
-			->where('tbl_absensi.siswa_id', $this->session->userdata('id_siswa'))
-			->like('tanggal_absensi', date($bulan))
+			->where('tbl_absensi.siswa_id',$siswa_id)
+			->where('tbl_absensi.bulan_id',$bulan_id)
 			->get();
 		return $kehadiran;
 	}
 
 
-
-	public function countKehadiranBySiswaId()
+	/*
+	| -------------------------------------------------------------------------
+	| Menghitung kehadiran siswa pada bulan ini
+	| -------------------------------------------------------------------------
+	| Fungsi ini sangat bergantung pada 
+	| fungsi getKehadiranBySiswaAndBulanId($siswa_id='',$bulan_id=''){} dengan
+	| menambahkan fungsi num_rows() untuk mengembalikan angka
+	| 
+	*/
+	public function countKehadiranBySiswaAndBulanId($siswa_id='',$bulan_id='')
 	{
-		$kehadiran = $this->getKehadiranBySiswaId()->num_rows();
+		$kehadiran = $this->getKehadiranBySiswaAndBulanId($siswa_id,$bulan_id)->num_rows();
 		return $kehadiran;
 	}
 

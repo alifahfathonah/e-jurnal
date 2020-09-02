@@ -41,6 +41,7 @@ Content Wrapper. Contains page content -->
                     <?php endforeach; ?>
                   </select>
                 </div>
+                <input type="hidden" value="<?= $id_bulan; ?>" name="bulan_id">
                 <div class="form-group">
                   <button class="btn btn-primary">KONFIRMASI</button>
                 </div>
@@ -53,8 +54,7 @@ Content Wrapper. Contains page content -->
                 <h5 class="m-0"></h5>
               </div>
               <div class="card-body">
-                <h6 class="card-title">Special title treatment</h6>
-
+                <h6 class="card-title">Kehadiran Bulan Agustus</h6>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo

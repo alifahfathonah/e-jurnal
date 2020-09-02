@@ -22,7 +22,7 @@
         <h2 class="headline text-danger">403</h2>
 
         <div class="error-content">
-          <h3><i class="fas fa-exclamation-triangle text-danger"></i> Oops! You have been Unauthorized.</h3>
+          <h3><i class="fas fa-exclamation-triangle text-danger"></i> Oops! You have been unauthorized.</h3>
 
           <p>
             We found something one to access unauthorized page
