@@ -6,7 +6,7 @@ class Chat extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model(['Siswa/M_Siswa','User/M_User','User/Chat/M_Chat_Group']);
+		$this->load->model(['Siswa/M_Siswa','User/M_User','User/M_Chat_Group']);
 		$this->load->helper(['auth']);
 		$this->user=$this->M_User->getUserLoginData();
 		$this->siswa=$this->M_Siswa->getSiswaLoginData();
@@ -44,7 +44,7 @@ class Chat extends CI_Controller {
 	                      <span class='direct-chat-timestamp float-left'>".date('Y-m-d | h:i:s',strtotime($message['created_at']))."</span>
 	                    </div>
 	                 	
-	                    <img class='direct-chat-img' src='".base_url('assets/img/profile/user.png')."' alt=''>
+	                    <img class='direct-chat-img' src='".base_url('assets/img/profile/user2.png')."' alt=''>
 	                    
 	                    <div class='direct-chat-text'>
 	                      ".$message['isi_chat']."

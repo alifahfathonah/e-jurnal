@@ -27,18 +27,32 @@
                         <a href="<?= base_url('Admin/Crud/Tbl_menu/tambah') ?>" class="btn btn-primary">Tambah</a>
                     </div>
                 </div>-->
-                    <ul class="list-group">
-                        <?php foreach ($tbl_menu as $menu): ?>
-                      <li class="list-group-item"><?=$menu['nama_menu']?>
-                      <div class="row float-right mr-2">
-                        <a href="<?= base_url('Admin/Crud/Tbl_menu/tambah_submenu/').$menu['id_menu']; ?>" class="btn btn-primary mr-2">tambah submenu</a>
-                        <a href="<?= base_url('Admin/Crud/Tbl_menu/'); ?>ubah/<?= $menu['id_menu']; ?>" class="btn btn-success mr-2">Edit</a>
-                        <a href="<?= base_url('Admin/Crud/Tbl_menu/'); ?>hapus/<?= $menu['id_menu'];?>"class="btn btn-danger mr-2">Hapus</a>
-                        </div>
-                      </li>
-
-                        <?php endforeach ?>
-                    </ul>
+                    <table class="table table-dark" id="datatable">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Nama Menu</th>
+                          <th scope="col">No Urut</th>
+                          <th scope="col">Aksi</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php $no=1; foreach ($tbl_menu as $menu): ?>
+                        <tr>
+                          <th scope="row"><?= $no++ ?></th>
+                          <td><?=$menu['nama_menu']?></td>
+                          <td><?=$menu['no_urut_menu']?></td>
+                          <td>
+                            <!-- <div class="row"> -->
+                                <a href="<?= base_url('Admin/Crud/Tbl_menu/tambah_submenu/').$menu['id_menu']; ?>" class="btn btn-primary mr-2">tambah submenu</a>
+                                <a href="<?= base_url('Admin/Crud/Tbl_menu/'); ?>ubah/<?= $menu['id_menu']; ?>" class="btn btn-success mr-2">Edit</a>
+                                <a href="<?= base_url('Admin/Crud/Tbl_menu/'); ?>hapus/<?= $menu['id_menu'];?>"class="btn btn-danger mr-2">Hapus</a>
+                            <!-- </div> -->
+                          </td>
+                        </tr>
+                        <?php endforeach; ?>
+                      </tbody>
+                    </table>
 
             </div>
             <!-- /.card -->

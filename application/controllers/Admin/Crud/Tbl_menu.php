@@ -1,5 +1,5 @@
 <?php
-class Tbl_menu extends CI_Controller
+class Tbl_Menu extends CI_Controller
 {
 
 public function __construct()
@@ -46,10 +46,11 @@ public function index()
     $data = array(
             'id_menu' => $this->input->post('id_menu'),
             'nama_menu' => $this->input->post('nama_menu'),
+            'no_urut_menu' => $this->input->post('no_urut_menu'),
     );
     $this->M_Tbl_Menu->update($data['id_menu'],$data);
     $this->session->set_flashdata('message', ' <script>alert("DATA BERHASIL DIUPDATE");</script>');
-    redirect('Admin/Crud/tbl_menu');
+    redirect('Admin/Crud/tbl_Menu');
  }
  public function tambah()
  { 
@@ -63,21 +64,37 @@ public function index()
  }
  public function simpan()
  {
-    $data = array(
+    $this->form_validation->set_rules('nama_menu','nm','required',[
+        'required' => 'kolom harus diisi',
+
+    ]);
+    $this->form_validation->set_rules('no_urut_menu','num','required|numeric|is_unique[tbl_menu.no_urut_menu]',[
+        'required' => 'kolom harus diisi',
+        'numeric' => 'isian harus berupa angka',
+        'is_unique' => 'nomor urut dilarang sama',
+    ]);
+    if ($this->form_validation->run() == TRUE) {
+        $data = array(
                     'id_menu' => $this->input->post('id'),
-                    'nama_menu' => $this->input->post('nama_menu')
-    );
-    $this->M_Tbl_Menu->tambah($data);
-    redirect ('Admin/Crud/tbl_menu');
+                    'nama_menu' => $this->input->post('nama_menu'),
+                    'no_urut_menu' => $this->input->post('no_urut_menu'),
+        );
+        $this->M_Tbl_Menu->tambah($data);
+        redirect ('Admin/Crud/tbl_Menu');   
+    } else {
+        redirect ('Admin/Crud/tbl_Menu/tambah');
+    }
  }
  public function tambah_submenu($menu_id='')
  {
     $this->form_validation->set_rules('nama_submenu','n','required');
     $this->form_validation->set_rules('icon_submenu','i','required');
+    $this->form_validation->set_rules('no_urut_submenu','nus','required|numeric');
     if ($this->form_validation->run()==FALSE) {
-        $data['menu_id'] = $menu_id;
         $data['judul'] = 'Tambah Submenu';
+        $data['menu_id'] = $menu_id;
         $data['user'] = $this->user;
+        $data['submenu_menu'] = $this->db->get_where('tbl_submenu',['menu_id' => $menu_id])->result_array();
         $this->load->view('layouts/_templates/header',$data);
         $this->load->view('layouts/_templates/navbar',$data);
         $this->load->view('layouts/_templates/sidebar',$data);
@@ -90,9 +107,10 @@ public function index()
                 'url_submenu'   => $this->input->post('url_submenu'),
                 'menu_id'       => $menu_id,
                 'is_active'     => 1,
+                'no_urut_submenu'  => $this->input->post('no_urut_submenu')
         ];
         $this->db->insert('tbl_submenu',$data);
-        redirect('Admin/Crud/Tbl_menu');
+        redirect('Admin/Crud/Tbl_Menu');
     }
  }
 

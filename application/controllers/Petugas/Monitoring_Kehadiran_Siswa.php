@@ -29,7 +29,7 @@ class Monitoring_Kehadiran_Siswa extends CI_Controller {
 	{
 		$data['judul'] = 'Kehadiran Siswa';
 		$data['user'] = $this->user;
-        $data['kehadiranBulan']=$this->M_Monitoring->getKehadiranById()->result_array();
+        $data['bulan_aktif']=$this->M_Kehadiran->getActiveBulan();
         $data['id_siswa'] = $id;
         $this->load->view('layouts/_templates/header',$data);
 		$this->load->view('layouts/_templates/navbar',$data);

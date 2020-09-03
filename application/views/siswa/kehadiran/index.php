@@ -50,7 +50,7 @@
               <span class="list-group-item list-group-item-action">
                 Bulan
               </span>
-              <?php foreach ($some_bulan as $bulan): ?>
+              <?php foreach ($bulan_aktif as $bulan): ?>
                 <?php if ($bulan_sekarang==$bulan['nama_bulan_english']): ?>
                   <a href="<?= base_url('siswa/kehadiran/bulan/').$bulan['slug_bulan']; ?>" class="list-group-item list-group-item-action bg-dark"><?= $bulan['nama_bulan'] ?></a>
                 <?php else: ?>

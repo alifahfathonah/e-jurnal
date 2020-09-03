@@ -24,10 +24,24 @@ class Kegiatan extends CI_Controller
 		$data['user'] = $this->user;
 		$data['siswa'] = $this->siswa;
 		$data['kegiatan'] = $this->M_Kegiatan->getAllData();
+		
 		$this->load->view('layouts/_templates/header', $data);
 		$this->load->view('layouts/_templates/navbar', $data);
 		$this->load->view('layouts/_templates/sidebar', $data);
 		$this->load->view('siswa/kegiatan/index', $data);
+		$this->load->view('layouts/_templates/footer');
+	}
+
+	public function create_kegiatan()
+	{
+		$data['judul'] = 'Kegiatan';
+		$data['user'] = $this->user;
+		$data['siswa'] = $this->siswa;
+		$data['kegiatan'] = $this->M_Kegiatan->getAllData();
+		$this->load->view('layouts/_templates/header', $data);
+		$this->load->view('layouts/_templates/navbar', $data);
+		$this->load->view('layouts/_templates/sidebar', $data);
+		$this->load->view('siswa/kegiatan/tambah-kegiatan', $data);
 		$this->load->view('layouts/_templates/footer');
 	}
 
@@ -40,10 +54,12 @@ class Kegiatan extends CI_Controller
 	public function save()
 	{
 		$data = array(
+			'siswa_id' => $this->input->post('siswa_id'), 
 			'tanggal' => $this->input->post('tgl'),
 			'jam_masuk' => $this->input->post('jam_masuk'),
 			'jam_pulang' => $this->input->post('jam_pulang'),
-			'uraian_kegiatan' => $this->input->post('uraian'),
+			'uraian_kegiatan' => $this->input->post('uraian_kegiatan'),
+			'id_grup_kegiatan' => $this->input->post('id_grup_kegiatan'),
 		);
 		$this->M_Kegiatan->insert($data);
 		redirect('Siswa/kegiatan');

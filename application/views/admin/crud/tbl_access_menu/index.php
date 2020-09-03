@@ -13,7 +13,7 @@
         </div>
         <div class="row mt-2">
             <div class="col">
-                <table class="table">
+                <table class="table" id="datatable">
                     <thead>
                         <tr>
                             <th scope="col">NO</th>

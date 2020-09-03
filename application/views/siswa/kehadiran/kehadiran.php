@@ -1,4 +1,3 @@
-Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <div class="content-header">
@@ -42,6 +41,7 @@ Content Wrapper. Contains page content -->
                   </select>
                 </div>
                 <input type="hidden" value="<?= $id_bulan; ?>" name="bulan_id">
+                <input type="hidden" value="<?= date('dmY'); ?>" name="id_grup_absensi">
                 <div class="form-group">
                   <button class="btn btn-primary">KONFIRMASI</button>
                 </div>
@@ -102,7 +102,7 @@ Content Wrapper. Contains page content -->
             </table>
           <?php else : ?>
             <div class="alert alert-danger">
-              Belum mengisi kehadiran
+              Tidak ada data kehadiran
             </div>
           <?php endif; ?>
 

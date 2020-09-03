@@ -9,10 +9,12 @@
             <div class="col">
                 <form method="post" action="<?= base_url('Admin/Crud/Tbl_menu/simpan');?> ">
                     <div class="form-group">
-                     <input type="text" name="nama_menu" class="form-control" placeholder="Enter Name Menu" >
-                     <hr>
-                    <button type="submit" class="btn btn-primary">Tambah</button>
+                     <input type="text" name="nama_menu" class="form-control" placeholder="Nama Menu" >
                     </div>
+                    <div class="form-group">
+                     <input type="number" min="1" name="no_urut_menu" class="form-control" placeholder="No Urut Menu" >
+                    </div>
+                    <button type="submit" class="btn btn-primary">Tambah</button>
                 </form>
             </div>
         </div>

@@ -13,6 +13,9 @@
                             <label>Name Menu</label>
                           <input type="hidden" name="id_menu" class="form-control col-sm-6" value="<?= $menu ['id_menu']?>" >
                           <input type="text" name="nama_menu" class="form-control col-sm-6" value="<?= $menu ['nama_menu']?>" ><br>
+                          <div class="form-group">
+                           <input type="number" min="1" value="<?= $menu['no_urut_menu'] ?>" name="no_urut_menu" class="form-control" placeholder="No Urut Menu" >
+                          </div>
                           <button type="submit" class="btn btn-primary">Update</button>
                         </div>
                       </form>

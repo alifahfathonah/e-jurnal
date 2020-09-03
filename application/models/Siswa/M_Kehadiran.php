@@ -4,10 +4,26 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class M_Kehadiran extends CI_Model
 {
 
-	public function getSomeBulan($bulan = [])
+	public function getActiveBulan($result_type=NULL)
 	{
-		$bulan = $this->db->where_in('slug_bulan', $bulan)->get('tbl_bulan')->result_array();
-		return $bulan;
+		$bulan = $this->db->get_where('tbl_bulan',['is_active' => 1]);
+		
+		switch ($result_type) {
+			case 'result_array':
+					$result = $bulan->result_array();	
+				break;
+			case 'row_array':
+					$result = $bulan->row_array();	
+				break;
+			case 'num_rows':
+					$result = $bulan->num_rows();
+				break;
+			default:
+					$result = $bulan->result_array();		
+				break;
+		}
+
+		return $result;
 	}
 
 	// public function getKehadiranBySiswaId()

@@ -5,7 +5,8 @@ class M_Kegiatan extends CI_Model
 {
     public function getAllData()
     {
-        $kegiatan = $this->db->get('tbl_kegiatan')->result_array();
+        $siswa_id = $this->session->userdata('id_siswa');
+        $kegiatan = $this->db->get_where('tbl_kegiatan',['siswa_id' => $siswa_id])->result_array();
         return $kegiatan;
     }
     public function insert($data)

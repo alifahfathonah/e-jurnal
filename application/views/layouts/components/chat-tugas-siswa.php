@@ -115,7 +115,7 @@
 
     setInterval(function(){
         loadMsg()
-    },500)
+    },1000)
 
 
     })

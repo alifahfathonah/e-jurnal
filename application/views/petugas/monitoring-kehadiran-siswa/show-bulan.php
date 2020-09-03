@@ -31,7 +31,7 @@
 					<tbody>
 				<?php 
 				$i=1;
-				foreach ($kehadiranBulan as $kB): ?>
+				foreach ($bulan_aktif as $kB): ?>
 					<tr>
 						<td><?= $i++ ?></td>
 						<td><?= $kB['nama_bulan']; ?></td>

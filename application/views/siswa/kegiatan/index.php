@@ -19,51 +19,39 @@
   <div class="content">
     <div class="container-fluid">
       <div class="col-12">
-        <form action="<?= base_url('Siswa/Kegiatan/save'); ?>" method="post">
-          <div class="form-group">
-            <label>TANGGAL</label>
-            <input type="date" class="form-control" name="tgl">
-          </div>
-          <div class="form-group">
-            <label>JAM MASUK</label>
-            <input type="time" class="form-control" name="jam_masuk">
-          </div>
-          <div class="form-group">
-            <label>JAM PULANG</label>
-            <input type="time" class="form-control" name="jam_pulang">
-          </div>
-          <div class="form-group">
-            <label>URAIAN KEGIATAN</label>
-            <textarea name="uraian" id="ckeditor" cols="30" rows="10"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Kirim</button>
-        </form>
+      <div class="card">
+        <div class="card-header">
+          <a href="<?= base_url('siswa/Kegiatan/create_kegiatan') ?>" class="btn btn-primary">Tambah Kegiatan</a>
+        </div>
+        <div class="card-body">
+          <table class="table table-dark" id="datatable">
+            <thead>
+              <tr>
+                <th scope="col">NO</th>
+                <th scope="col">TGL</th>
+                <th scope="col">JAM MASUK</th>
+                <th scope="col">JAM PULANG</th> 
+                <th scope="col">STATUS</th>
+                <th scope="col">ACTION</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php $no=1; foreach ($kegiatan as $kg) : ?>
+                <tr>
+                  <th><?= $no++; ?></th>
+                  <td><?= $kg['tanggal']; ?></td>
+                  <td><?= $kg['jam_masuk']; ?></td>
+                  <td><?= $kg['jam_pulang']; ?></td>
+                  <td></td>
+                  <td> <a href="<?= base_url('Siswa/Kegiatan/detail/'.$kg['id_kegiatan']);?> "class="btn btn-primary">Detail</a></td>
+                </tr>
+              <?php endforeach ?>
+            </tbody>
+          </table>
+        </div>
       </div>
-      <hr>
 
-      <table class="table table-striped table-dark">
-        <thead>
-          <tr>
-            <th scope="col">TANGGAL</th>
-            <th scope="col">JAM MASUK</th>
-            <th scope="col">JAM PULANG</th> 
-            <th scope="col">STATUS</th>
-            <th scope="col">ACTION</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php foreach ($kegiatan as $kg) : ?>
-            <tr>
-              <th><?= $kg['tanggal']; ?></th>
-              <td><?= $kg['jam_masuk']; ?></td>
-              <td><?= $kg['jam_pulang']; ?></td>
-              <td></td>
-              <td> <a href="<?= base_url('Siswa/Kegiatan/detail/'.$kg['id_kegiatan']);?> "class="btn btn-primary">Detail</a></td>
-            </tr>
-          <?php endforeach ?>
-        </tbody>
-      </table>
-
+      </div>
     </div><!-- /.container-fluid -->
   </div>
   <!-- /.content<i class="fas fa-fw fa-edit"></i> -->

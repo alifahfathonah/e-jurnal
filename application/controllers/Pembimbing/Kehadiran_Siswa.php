@@ -23,12 +23,50 @@ class Kehadiran_Siswa extends CI_Controller {
         $data['pembimbing'] = $this->pembimbing;
         $data['all_kehadiran_this_day'] = $this->M_Kehadiran_Siswa->getKehadiranSiswaByThisDay();
         $data['count_confirmed_kehadiran_this_day'] = $this->M_Kehadiran_Siswa->countConfirmedKehadiranByThisDay();
+        $data['bulan_aktif'] = $this->M_Kehadiran_Siswa->getActiveBulan();
+        $data['bulan_sekarang'] = date('m'); 
+
         $this->load->view('layouts/_templates/header',$data);
         $this->load->view('layouts/_templates/navbar',$data);
         $this->load->view('layouts/_templates/sidebar',$data);
         $this->load->view('pembimbing/kehadiran-siswa/index',$data);
         $this->load->view('layouts/_templates/footer');     
 	}
+
+    public function bulan($id_bulan)
+    {
+        $data['judul'] = 'Kehadiran Siswa';
+        $data['user'] = $this->user;
+        $data['pembimbing'] = $this->pembimbing;
+        $data['bulan'] = $this->M_Kehadiran_Siswa->getBulanById($id_bulan);
+        $data['absensi'] = $this->M_Kehadiran_Siswa->getKehadiranSiswaByThisMonth($id_bulan);
+
+        $this->load->view('layouts/_templates/header',$data);
+        $this->load->view('layouts/_templates/navbar',$data);
+        $this->load->view('layouts/_templates/sidebar',$data);
+        $this->load->view('pembimbing/kehadiran-siswa/detail-bulan-kehadiran',$data);
+        $this->load->view('layouts/_templates/footer');   
+    }
+
+    public function detail_kehadiran_per_bulan($bulan_id,$id_grup_absensi)
+    {
+        $data['judul'] = 'Kehadiran Siswa';
+        $data['user'] = $this->user;
+        $data['pembimbing'] = $this->pembimbing;
+
+        $data['kehadiran'] = $this->M_Kehadiran_Siswa->getKehadiranSiswaByIdGrupAbsensi($bulan_id,$id_grup_absensi)->result_array();
+
+        $data['count_kehadiran'] = $this->M_Kehadiran_Siswa->getKehadiranSiswaByIdGrupAbsensi($bulan_id,$id_grup_absensi)->num_rows();
+
+        $data['id_grup_absensi'] = $id_grup_absensi;
+        $data['bulan'] = $this->M_Kehadiran_Siswa->getBulanById($bulan_id);
+
+        $this->load->view('layouts/_templates/header',$data);
+        $this->load->view('layouts/_templates/navbar',$data);
+        $this->load->view('layouts/_templates/sidebar',$data);
+        $this->load->view('pembimbing/kehadiran-siswa/detail-kehadiran-per-bulan',$data);
+        $this->load->view('layouts/_templates/footer');      
+    }
 
     /*
     | -------------------------------------------------------------------------
