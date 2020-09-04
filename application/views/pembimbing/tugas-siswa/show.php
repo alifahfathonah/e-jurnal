@@ -26,7 +26,12 @@
             
             <div class="card card-primary card-outline mb-3">
               <div class="card-header">
-                <h5 class="m-0"><?= $detail_tugas['judul_tugas_siswa'];?></h5>
+                <div class="float-left">
+                  <h5 class="m-0"><?= $detail_tugas['judul_tugas_siswa']; ?></h5>  
+                </div>
+                <div class="float-right">
+                  <a href="<?= base_url('pembimbing/tugas-siswa/edit/').$detail_tugas['id_tugas']; ?>" class="btn btn-primary"><i class="fas fa-edit fa-fw"></i></a>
+                </div>
               </div>
               <div class="card-body">
                 <p class="card-text"><?= $detail_tugas['deskripsi_tugas'];?></p>

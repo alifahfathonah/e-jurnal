@@ -22,11 +22,11 @@
         <div class="row">
           <div class="col-md-6">
             <div class="card card-primary">
-              <div class="card-header">Lengkapi data dibawah ini</div>
+              <div class="card-header">Lengkapi data dengan benar</div>
               <div class="card-body">
                 <div class="form-group">
                   <input type="hidden" value="<?= $user['id_user'] ?>" name="user_id">
-                  <input class="form-control" placeholder="Nama Siswa" name="nama_siswa"></input>
+                  <input class="form-control" placeholder="Nama Lengkap" name="nama_siswa"></input>
                 </div>
                 <div class="form-group">
                   <input class="form-control" placeholder="Nis" name="nis"></input>

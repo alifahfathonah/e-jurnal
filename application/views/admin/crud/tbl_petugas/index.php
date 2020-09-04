@@ -21,7 +21,7 @@
 
           <div class="card">
             <div class="card-header">
-              <a href="<?= base_url('Admin/Crud/Tbl_Pembimbing/add') ?>" class="btn btn-primary">Tambah Data</a>
+              <a href="<?= base_url('admin/crud/Tbl_Pembimbing/add') ?>" class="btn btn-primary">Tambah Data</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body table-responsive">
@@ -32,7 +32,6 @@
                   <th>ID PETUGAS</th>
                   <th>USER ID</th>
                   <th>NAMA PETUGAS</th>
-                  <th>SARAN PETUGAS</th>
                   <th>NO TELP.</th>
                   <th>AKSI</th>
                  </tr>
@@ -45,13 +44,12 @@
                   <td><?= $p['id_petugas_monitoring']; ?></td>
                   <td><?= $p['user_id']; ?></td>
                   <td><?= $p['nama_petugas_monitoring']; ?></td>
-                  <td><?= $p['saran_petugas_monitoring']; ?></td>
                   <td><?= $p['no_telp_petugas']; ?></td>
                   
                   <td>
-                      <a href="<?= base_url('Admin/Crud/Tbl_Petugas/update/').$p['id_petugas_monitoring'] ?>" onclick="return confirm('Yakin ?')" class="btn btn-danger"><i class="fas fa-fw fa-edit"></i></a>
+                      <a href="<?= base_url('admin/crud/Tbl_Petugas/update/').$p['id_petugas_monitoring'] ?>" onclick="return confirm('Yakin ?')" class="btn btn-danger"><i class="fas fa-fw fa-edit"></i></a>
 
-                      <a href="<?= base_url('Admin/Crud/Tbl_Petugas/delete/').$p['id_petugas_monitoring'] ?>" onclick="return confirm('Yakin ?')" class="btn btn-success"><i class="fas fa-fw fa-trash"></i></a>
+                      <a href="<?= base_url('admin/crud/Tbl_Petugas/delete/').$p['id_petugas_monitoring'] ?>" onclick="return confirm('Yakin ?')" class="btn btn-success"><i class="fas fa-fw fa-trash"></i></a>
                   </td>
                 </tr>
                 <?php endforeach; ?>

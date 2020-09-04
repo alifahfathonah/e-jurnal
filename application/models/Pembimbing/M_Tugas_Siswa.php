@@ -26,6 +26,11 @@ class M_Tugas_Siswa extends CI_Model {
 		return $this->db->insert($table,$data);
 	}
 
+	public function update($id_tugas,$data=[])
+	{
+		return $this->db->where('id_tugas',$id_tugas)->update('tbl_tugas_siswa',$data);
+	}
+
 	public function delete($id)
 	{
 		$this->db->where('id_tugas',$id)->delete('tbl_tugas_siswa');

@@ -22,7 +22,7 @@
           <div class="col-lg-7">
             <div class="card">
               <div class="card-header">Kegiatan siswa prakerin hari ini | <?= date('d-m-Y') ?></div>
-              <div class="card-body">
+              <div class="card-body table-responsive">
                 <table class="table table-dark" id="datatable">
                   <thead>
                     <tr>

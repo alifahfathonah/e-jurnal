@@ -19,7 +19,7 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="<?= base_url('assets/templates/admin') ?>https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <!-- jQuery -->
-    <script src="<?= base_url('assets/templates/admin/'); ?>plugins/jquery/jquery.min.js"></script>
+    <script src="<?= base_url('assets/templates/Admin/'); ?>plugins/jquery/jquery.min.js"></script>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed">

@@ -9,9 +9,10 @@ class Kegiatan_Siswa extends CI_Controller {
         $this->load->model('User/M_User');
         $this->load->model('Pembimbing/M_Pembimbing');
         $this->load->model('Pembimbing/M_Kegiatan_Siswa','M_Kegiatan');
-        $this->load->helper('auth');
+        $this->load->helper(['auth','pembimbing']);
         $this->user=$this->M_User->getUserLoginData();
         $this->pembimbing=$this->M_Pembimbing->getPembimbingLoginData();
+        justPembimbingCanAccessThis();
         isLoggedIn();
     }
 

@@ -9,7 +9,7 @@
                     <div class="col-sm-6">
                         <h1 class="m-0 text-dark">Menu</h1>
                         <hr>
-                        <a href="<?= base_url('Admin/Crud/Tbl_menu/tambah'); ?>" class="btn btn-primary">tambah</a>
+                        <a href="<?= base_url('admin/crud/Tbl_Menu/tambah'); ?>" class="btn btn-primary">tambah</a>
 
                     </div><!-- /.col -->
 
@@ -24,7 +24,7 @@
                 <!-- Small boxes (Stat box) -->
                 <!-- <div class="row">
                     <div class="col">
-                        <a href="<?= base_url('Admin/Crud/Tbl_menu/tambah') ?>" class="btn btn-primary">Tambah</a>
+                        <a href="<?= base_url('admin/crud/Tbl_Menu/tambah') ?>" class="btn btn-primary">Tambah</a>
                     </div>
                 </div>-->
                     <table class="table table-dark" id="datatable">
@@ -44,9 +44,9 @@
                           <td><?=$menu['no_urut_menu']?></td>
                           <td>
                             <!-- <div class="row"> -->
-                                <a href="<?= base_url('Admin/Crud/Tbl_menu/tambah_submenu/').$menu['id_menu']; ?>" class="btn btn-primary mr-2">tambah submenu</a>
-                                <a href="<?= base_url('Admin/Crud/Tbl_menu/'); ?>ubah/<?= $menu['id_menu']; ?>" class="btn btn-success mr-2">Edit</a>
-                                <a href="<?= base_url('Admin/Crud/Tbl_menu/'); ?>hapus/<?= $menu['id_menu'];?>"class="btn btn-danger mr-2">Hapus</a>
+                                <a href="<?= base_url('admin/crud/Tbl_Menu/tambah_submenu/').$menu['id_menu']; ?>" class="btn btn-primary mr-2">tambah submenu</a>
+                                <a href="<?= base_url('admin/crud/Tbl_Menu/'); ?>ubah/<?= $menu['id_menu']; ?>" class="btn btn-success mr-2">Edit</a>
+                                <a href="<?= base_url('admin/crud/Tbl_Menu/'); ?>hapus/<?= $menu['id_menu'];?>"class="btn btn-danger mr-2">Hapus</a>
                             <!-- </div> -->
                           </td>
                         </tr>

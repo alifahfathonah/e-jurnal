@@ -21,7 +21,7 @@
 
           <div class="card">
             <div class="card-header">
-            <form action="<?= base_url('Admin/Crud/Tbl_Pembimbing/save'); ?>" method="post" class="form-group ml-3"> -->
+            <form action="<?= base_url('admin/crud/Tbl_Pembimbing/save'); ?>" method="post" class="form-group ml-3"> -->
 		<input type="text" name="nama" placeholder="nama" class="form-control col-lg-4 mt-2">
 		<input type="nip" name="nip" placeholder="nip" class="form-control col-lg-4 mt-3">
 		<input type="submit" name="kirim" class="btn btn-primary mt-3" value="tambah">

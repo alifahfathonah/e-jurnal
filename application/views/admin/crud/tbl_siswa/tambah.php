@@ -22,7 +22,6 @@
           <?php 
           $data['action'] = 'tambah';
           $this->load->view('admin/crud/tbl_siswa/form-input-tbl-siswa',$data) ?>
-
         </div>
         <!-- /.col -->
       </div>

@@ -32,9 +32,7 @@ class Login extends CI_Controller
 			]
 		);
 		if ($this->form_validation->run() == FALSE) {
-			$this->load->view('auth/template_login/header', $data);
-			$this->load->view('auth/login', $data);
-			$this->load->view('auth/template_login/footer', $data);
+			$this->load->view('auth/login-default', $data);
 		} else {
 			$this->prosesLogin();
 		}

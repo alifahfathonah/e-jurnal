@@ -2,7 +2,7 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Tbl_keterangan extends CI_Controller
+class Tbl_Keterangan extends CI_Controller
 {
 
     public function __construct()

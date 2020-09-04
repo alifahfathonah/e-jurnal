@@ -102,6 +102,7 @@ class Kehadiran extends CI_Controller
 		$siswa_id = $this->input->post('siswa_id');
 		$id_grup_absensi = $this->input->post('id_grup_absensi');
 		$tanggal_absensi = $this->input->post('tanggal_absensi');
+		
 		if ($this->M_Kehadiran->isNowAbsensiExists($siswa_id, $tanggal_absensi)->num_rows() > 0) {
 			$this->session->set_flashdata('error', 'Absensi hari ini sudah dilakukan');
 			redirect('siswa/kehadiran/bulan/'.$this->input->post('slug_bulan'));

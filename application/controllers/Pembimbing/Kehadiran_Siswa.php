@@ -9,9 +9,10 @@ class Kehadiran_Siswa extends CI_Controller {
         $this->load->model('User/M_User');
         $this->load->model('Pembimbing/M_Pembimbing');
         $this->load->model('Pembimbing/M_Kehadiran_Siswa');
-        $this->load->helper(['auth','date']);
+        $this->load->helper(['auth','date','pembimbing']);
         $this->user=$this->M_User->getUserLoginData();
         $this->pembimbing=$this->M_Pembimbing->getPembimbingLoginData();
+        justPembimbingCanAccessThis();
         isLoggedIn();
         date_default_timezone_set('Asia/Jakarta');
     }
@@ -23,6 +24,7 @@ class Kehadiran_Siswa extends CI_Controller {
         $data['pembimbing'] = $this->pembimbing;
         $data['all_kehadiran_this_day'] = $this->M_Kehadiran_Siswa->getKehadiranSiswaByThisDay();
         $data['count_confirmed_kehadiran_this_day'] = $this->M_Kehadiran_Siswa->countConfirmedKehadiranByThisDay();
+        $data['count_kehadiran'] = $this->M_Kehadiran_Siswa->countAllKehadiranSiswa();
         $data['bulan_aktif'] = $this->M_Kehadiran_Siswa->getActiveBulan();
         $data['bulan_sekarang'] = date('m'); 
 
@@ -75,7 +77,7 @@ class Kehadiran_Siswa extends CI_Controller {
     | Siswa prakerin yang sudah mengisi kehadiran hari ini,maka akan di-
     | konfirmasi oleh pembimbing prakerin sebagai ganti dari paraf.
     */
-    public function confirmKehadiran($id_absensi)
+    public function confirmKehadiranSiswa($id_absensi)
     {
         $this->M_Kehadiran_Siswa->confirmKehadiranById($id_absensi);
         redirect('pembimbing/kehadiran-siswa');
@@ -89,9 +91,10 @@ class Kehadiran_Siswa extends CI_Controller {
     | dikonfirmasi secara bersamaan. 
     | 
     */
-    public function confirmAllKehadiran()
+    public function confirmAllKehadiranSiswa()
     {
-
+        $this->M_Kehadiran_Siswa->confirmAllKehadiranByToday($id_absensi);
+        redirect('pembimbing/kehadiran-siswa');
     }
 
 }

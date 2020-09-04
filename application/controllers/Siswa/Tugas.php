@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Tugas extends CI_Controller {
 
-     public function __construct()
+        public function __construct()
         {
             parent::__construct();
             $this->load->model('User/M_User');
@@ -16,22 +16,28 @@ class Tugas extends CI_Controller {
             $this->load->library('pagination');
             justSiswaCanAccessThis();
             isLoggedIn();
-           }
+        }
     
         public function index()
-        {
+        {   
+            $keyword = $this->input->get('keyword');
+            if ($keyword) {
+                $data['total_materi'] = $this->M_Materi->searchMateri($keyword)->num_rows();
+                $data['materi'] = $this->M_Materi->searchMateri($keyword)->result_array();
+            }else{
+                $config['base_url'] = base_url('Siswa/Tugas/index');
+                $config['start'] = $this->uri->segment(8);
+                $config['per_page'] = 2;
+                $config['total_rows'] = $this->db->count_all('tbl_tugas_siswa');
+                $this->pagination->initialize($config);
+                /////////////////////////////////////////////////
+                $data['materi'] = $this->M_Materi->getAllMateri($config['per_page'],$config['start'])->result_array();
+                $data['total_materi'] = $config['total_rows'];
+            }
+            /////////
             $data['judul'] = 'Tugas & Materi';
             $data['user'] = $this->user;
             $data['siswa'] = $this->siswa;
-            ////////////////////////////////////////////////
-            $config['base_url'] = base_url('Siswa/Materi/index');
-            $config['start'] = $this->uri->segment(4);
-            $config['per_page'] = 8;
-            $config['total_rows'] = $this->db->count_all('tbl_tugas_siswa');
-            $this->pagination->initialize($config);
-            /////////////////////////////////////////////////
-            $data['materi'] = $this->M_Materi->getAllMateri($config['per_page'],$config['start'])->result_array();
-            $data['total_materi'] = $config['total_rows'];
             $this->load->view('layouts/_templates/header', $data);
             $this->load->view('layouts/_templates/navbar', $data);
             $this->load->view('layouts/_templates/sidebar', $data);

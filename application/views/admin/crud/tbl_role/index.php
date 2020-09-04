@@ -21,7 +21,7 @@
 
           <div class="card">
             <div class="card-header">
-              <a href="<?= base_url('Admin/Crud/Tbl_Role/add') ?>" class="btn btn-primary">Tambah Data</a>
+              <a href="<?= base_url('admin/crud/Tbl_Role/add') ?>" class="btn btn-primary">Tambah Data</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body table-responsive">
@@ -41,9 +41,9 @@
                   <td><?= $p['redirect'] ?></td>
                   
                   <td>
-                      <a href="<?= base_url('Admin/Crud/Tbl_Role/update/').$p['id_role'] ?>" onclick="return confirm('Yakin ?')" class="btn btn-danger"><i class="fas fa-fw fa-edit"></i></a>
+                      <a href="<?= base_url('admin/crud/Tbl_Role/update/').$p['id_role'] ?>" onclick="return confirm('Yakin ?')" class="btn btn-danger"><i class="fas fa-fw fa-edit"></i></a>
 
-                      <a href="<?= base_url('Admin/Crud/Tbl_Role/delete/').$p['id_role'] ?>" onclick="return confirm('Yakin ?')" class="btn btn-danger"><i class="fas fa-fw fa-trash"></i></a>
+                      <a href="<?= base_url('admin/crud/Tbl_Role/delete/').$p['id_role'] ?>" onclick="return confirm('Yakin ?')" class="btn btn-danger"><i class="fas fa-fw fa-trash"></i></a>
                   </td>
                 </tr>
                 <?php endforeach; ?>

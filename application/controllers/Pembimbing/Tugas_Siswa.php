@@ -9,9 +9,10 @@ class Tugas_Siswa extends CI_Controller {
         $this->load->model('User/M_User');
         $this->load->model('Pembimbing/M_Pembimbing');
         $this->load->model('Pembimbing/M_Tugas_Siswa');
-        $this->load->helper(['auth']);
+        $this->load->helper(['auth','pembimbing']);
         $this->user=$this->M_User->getUserLoginData();
         $this->pembimbing=$this->M_Pembimbing->getPembimbingLoginData();
+        justPembimbingCanAccessThis();
         isLoggedIn();
     }
 
@@ -67,6 +68,34 @@ class Tugas_Siswa extends CI_Controller {
         $this->load->view('layouts/_templates/sidebar',$data);
         $this->load->view('pembimbing/tugas-siswa/show',$data);
         $this->load->view('layouts/_templates/footer');      
+    }
+
+    public function edit($id)
+    {
+        $data['judul'] = 'Edit Tugas';
+        $data['user'] = $this->user;
+        $data['pembimbing'] = $this->pembimbing;
+        $data['materi_id'] = $id;
+        $data['detail_tugas'] = $this->M_Tugas_Siswa->getTugasById($id);
+        $this->load->view('layouts/_templates/header',$data);
+        $this->load->view('layouts/_templates/navbar',$data);
+        $this->load->view('layouts/_templates/sidebar',$data);
+        $this->load->view('pembimbing/tugas-siswa/edit',$data);
+        $this->load->view('layouts/_templates/footer');      
+    }
+
+
+    public function update()
+    {
+        $data=[
+            'id_tugas'              => $this->input->post('id_tugas'),
+            'pembimbing_id'         => $this->input->post('pembimbing_id'),
+            'judul_tugas_siswa'     => $this->input->post('judul_tugas_siswa'),
+            'deskripsi_tugas'       => $this->input->post('deskripsi_tugas'),
+        ];
+        $this->M_Tugas_Siswa->update($data['id_tugas'],$data);
+        $this->session->set_flashdata('success','Materi siswa berhasil di update');
+        redirect('pembimbing/tugas-siswa');
     }
 
     public function delete($id)

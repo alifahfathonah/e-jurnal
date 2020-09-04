@@ -8,7 +8,7 @@
                 <div class="row mb-2">
                     <div class="col-sm-12">
                         <h1 class="m-0 text-dark">Update</h1>
-                        <form method="post" action="<?= base_url('Admin/Crud/Tbl_menu/update');?> ">
+                        <form method="post" action="<?= base_url('admin/crud/Tbl_Menu/update');?> ">
                           <div class="form-group"><hr>
                             <label>Name Menu</label>
                           <input type="hidden" name="id_menu" class="form-control col-sm-6" value="<?= $menu ['id_menu']?>" >

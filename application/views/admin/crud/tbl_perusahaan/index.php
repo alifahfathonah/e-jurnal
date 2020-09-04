@@ -9,7 +9,7 @@
         </div>
         <div class="row mb-2">
             <div class="col">
-                <a href="<?= base_url('Admin/Crud/Tbl_Perusahaan/tambah');?>" class="btn btn-primary">Tambah data</a>
+                <a href="<?= base_url('admin/crud/Tbl_Perusahaan/tambah');?>" class="btn btn-primary">Tambah data</a>
             </div>
         </div>
         <div class="row">
@@ -40,8 +40,8 @@
                             <td><?= $p['nama_pimpinan']; ?></td>
                             <td><?= $p['bidang_usaha']; ?></td>
                             <td>
-                                <a href="<?= base_url('Admin/Crud/Tbl_Perusahaan/delete/').$p['id_perusahaan']; ?>" class="btn btn-danger" onclick="return confirm('hapus?') "><i class="fas fa-fw fa-trash"></i>
-                                <a href="<?= base_url('Admin/Crud/Tbl_Perusahaan/edit/').$p['id_perusahaan']; ?>" class="btn btn-primary mt-2"><i class="fas fa-fw fa-edit"></i></a>
+                                <a href="<?= base_url('admin/crud/Tbl_Perusahaan/delete/').$p['id_perusahaan']; ?>" class="btn btn-danger" onclick="return confirm('hapus?') "><i class="fas fa-fw fa-trash"></i>
+                                <a href="<?= base_url('admin/crud/Tbl_Perusahaan/edit/').$p['id_perusahaan']; ?>" class="btn btn-primary mt-2"><i class="fas fa-fw fa-edit"></i></a>
                             </td>
                     </tr>
                     <?php } ?>

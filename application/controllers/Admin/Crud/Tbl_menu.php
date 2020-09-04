@@ -4,12 +4,12 @@ class Tbl_Menu extends CI_Controller
 
 public function __construct()
  {
-       parent::__construct();
-       $this->load->model('Admin/Crud/M_Tbl_Menu', 'M_Tbl_Menu');
-        $this->load->model('User/M_User');
-        $this->load->helper(['auth']);
-        $this->user=$this->M_User->getUserLoginData();
-        isLoggedIn();
+    parent::__construct();
+    $this->load->model('Admin/Crud/M_Tbl_Menu', 'M_Tbl_Menu');
+    $this->load->model('User/M_User');
+    $this->load->helper(['auth']);
+    $this->user=$this->M_User->getUserLoginData();
+    isLoggedIn();
  }
 public function index()
  {
@@ -50,7 +50,7 @@ public function index()
     );
     $this->M_Tbl_Menu->update($data['id_menu'],$data);
     $this->session->set_flashdata('message', ' <script>alert("DATA BERHASIL DIUPDATE");</script>');
-    redirect('Admin/Crud/tbl_Menu');
+    redirect('admin/crud/tbl_Menu');
  }
  public function tambah()
  { 
@@ -94,7 +94,7 @@ public function index()
         $data['judul'] = 'Tambah Submenu';
         $data['menu_id'] = $menu_id;
         $data['user'] = $this->user;
-        $data['submenu_menu'] = $this->db->get_where('tbl_submenu',['menu_id' => $menu_id])->result_array();
+        $data['submenu_menu'] = $this->db->order_by('no_urut_submenu','ASC')->get_where('tbl_submenu',['menu_id' => $menu_id])->result_array();
         $this->load->view('layouts/_templates/header',$data);
         $this->load->view('layouts/_templates/navbar',$data);
         $this->load->view('layouts/_templates/sidebar',$data);
@@ -110,9 +110,18 @@ public function index()
                 'no_urut_submenu'  => $this->input->post('no_urut_submenu')
         ];
         $this->db->insert('tbl_submenu',$data);
-        redirect('Admin/Crud/Tbl_Menu');
+        redirect('admin/crud/Tbl_Menu');
     }
  }
+
+    public function update_no_urut_submenu($id_submenu,$menu_id)
+    {
+        $data = [
+            'no_urut_submenu' => $this->input->post('no_urut_submenu'),
+        ];
+        $this->db->where('id_submenu',$id_submenu)->update('tbl_submenu',$data);
+        redirect('admin/crud/Tbl_Menu/tambah_submenu/'.$menu_id);
+    }
 
 
 }

@@ -16,4 +16,13 @@ class M_Materi extends CI_Model {
         return $materi;
     }
 
+    public function searchMateri($keyword,$limit=NULL,$start=NULL)
+    {
+        $result = $this->db->like('judul_tugas_siswa',$keyword)
+                        ->or_like('deskripsi_tugas',$keyword)
+                        ->or_like('tanggal_tugas_siswa',$keyword)
+                        ->get('tbl_tugas_siswa',$limit,$start);
+        return $result;
+    }
+
 }

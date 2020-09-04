@@ -20,22 +20,22 @@
     <div class="container-fluid">
 
     <!-- =========================================================== -->
-    <h5 class="mb-2">Info Box With <code></code></h5>
+    
         <div class="row">
           <div class="col-md-6 col-sm-6 col-12">
             <div class="info-box bg-info">
-              <span class="info-box-icon"><i class="far fa-bookmark"></i></span>
+              <span class="info-box-icon"><i class="fas fa-book"></i></span>
 
               <div class="info-box-content">
                 <span class="info-box-text">Total Tugas & Materi</span>
                 <span class="info-box-number"><?= $total_materi; ?></span>
 
-                <div class="progress">
+                <!-- <div class="progress">
                   <div class="progress-bar" style="width: 70%"></div>
                 </div>
                 <span class="progress-description">
                   70% Increase in 30 Days
-                </span>
+                </span> -->
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -43,23 +43,14 @@
           </div>
           <!-- /.col -->
           <div class="col-md-6 col-sm-6 col-12">
-            <div class="info-box bg-success">
-              <span class="info-box-icon"><i class="far fa-thumbs-up"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Likes</span>
-                <span class="info-box-number">41,410</span>
-
-                <div class="progress">
-                  <div class="progress-bar" style="width: 70%"></div>
+            <form method="get" action="<?= base_url('siswa/tugas') ?>">
+              <div class="input-group mb-3">
+                <input type="text" name="keyword" class="form-control bg-dark" placeholder="Pencarian" aria-label="Pencarian" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i class="fas fa-search"></i></button>
                 </div>
-                <span class="progress-description">
-                  70% Increase in 30 Days
-                </span>
               </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
+            </form>
           </div>
           <!-- /.col -->
         </div>

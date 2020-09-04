@@ -102,6 +102,18 @@ class M_Crud extends CI_Model {
 		return $this->db->where($field,$params)->delete($table);
 	}
 
+	/*
+	| ------------------------------------------------------------------------------------
+	| Truncate Data
+	| ------------------------------------------------------------------------------------
+	| @	table 	:	nama tabel 
+	|
+	*/
+	public function truncate($table=NULL)
+	{
+		return $this->db->empty_table($table);
+	}
+
 }
 
 /* End of file M_Crud.php */

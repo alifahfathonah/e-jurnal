@@ -41,11 +41,11 @@ class Tbl_Role extends CI_Controller {
  				'redirect' => $this->input->post('redirect')
 		);
 		$this->M_Tbl_Role->insert($data);
-		redirect('Admin/Crud/Tbl_Role');
+		redirect('admin/crud/Tbl_Role');
 	}
 	public function delete($id){
 		$this->M_Tbl_Role->delete($id);
-		redirect('Admin/Crud/Tbl_Role');
+		redirect('admin/crud/Tbl_Role');
 	}
 	public function update($id){
 		$data['judul'] = 'Edit Role';
@@ -59,7 +59,7 @@ class Tbl_Role extends CI_Controller {
 	}
 	public function edit(){
 		$this->M_Tbl_Role->edit(); 
-		redirect('Admin/Crud/Tbl_Role');
+		redirect('admin/crud/Tbl_Role');
 	}
 }
 

@@ -21,7 +21,8 @@
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
                     <div class="col">
-                        <a href="<?= base_url('Admin/Crud/Tbl_absen/tambah') ?>" class="btn btn-primary">Tambah</a>
+                        <a href="<?= base_url('admin/crud/Tbl_absen/tambah') ?>" class="btn btn-primary">Tambah</a>
+                        <a href="<?= base_url('admin/crud/Tbl_absen/clear') ?>" class="btn btn-danger">Kosongkan</a>
                     </div>
                 </div>
 
@@ -50,9 +51,9 @@
                                 <td><?= $abs['nama_keterangan']; ?></td>
                                 <td><?= $abs['created_at']; ?></td>
                                 <td>
-                                    <a href="<?= base_url('Admin/Crud/Tbl_absen/'); ?>hapus/<?= $abs['id_absen']; ?>">hapus</a>
+                                    <a href="<?= base_url('admin/crud/Tbl_Absen/'); ?>hapus/<?= $abs['id_absensi']; ?>">hapus</a>
                                     ||
-                                    <a href="<?= base_url('Admin/Crud/Tbl_absen/'); ?>ubah/<?= $abs['id_absen']; ?>">ubah</a>
+                                    <a href="<?= base_url('admin/crud/Tbl_Absen/'); ?>ubah/<?= $abs['id_absensi']; ?>">ubah</a>
                                 </td>
 
                             </tr>

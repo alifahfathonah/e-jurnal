@@ -45,14 +45,14 @@ class Tbl_Access_Menu extends CI_Controller
             ];
             $this->db->insert('tbl_access_menu', $data);
             $this->session->set_flashdata('message', ' <script>alert("DATA Berhasil ditambahkan");</script>');
-            redirect('Admin/Crud/Tbl_Access_Menu');
+            redirect('admin/crud/Tbl_Access_Menu');
         }
     }
     public function hapus($id)
     {
         $this->db->delete('tbl_access_menu', ['id_access_menu' => $id]);
         $this->session->set_flashdata('message', ' <script>alert("DATA Berhasil Hapus");</script>');
-        redirect('Admin/Crud/Tbl_Access_Menu');
+        redirect('admin/crud/Tbl_Access_Menu');
     }
     public function ubah($id)
     {
@@ -75,7 +75,7 @@ class Tbl_Access_Menu extends CI_Controller
             $this->db->where('id_access_menu', $id);
             $this->db->update('tbl_access_menu', $data);
             $this->session->set_flashdata('message', ' <script>alert("DATA Berhasil diRubah");</script>');
-            redirect('Admin/Crud/Tbl_Access_Menu');
+            redirect('admin/crud/Tbl_Access_Menu');
         }
     }
 }

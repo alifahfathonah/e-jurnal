@@ -41,11 +41,11 @@ class Tbl_Petugas extends CI_Controller
  				'no_telp_petugas' => $this->input->post('telp')
 		);
 		$this->M_Tbl_Pembimbing->insert($data);
-		redirect('Admin/Crud/Tbl_Petugas');
+		redirect('admin/crud/Tbl_Petugas');
 	}
 	public function delete($id){
 		$this->M_Tbl_Pembimbing->delete($id);
-		redirect('Admin/Crud/Tbl_Petugas');
+		redirect('admin/crud/Tbl_Petugas');
 	}
 	public function update($id){
 		$data['judul'] = 'Edit Petugas';
@@ -59,6 +59,6 @@ class Tbl_Petugas extends CI_Controller
 	}
 	public function edit(){
 		$this->M_Tbl_Pembimbing->edit(); 
-		redirect('Admin/Crud/Tbl_Petugas');
+		redirect('admin/crud/Tbl_Petugas');
 	}
 }

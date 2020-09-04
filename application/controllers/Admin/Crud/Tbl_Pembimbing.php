@@ -39,11 +39,11 @@ class Tbl_Pembimbing extends CI_Controller
  				'nip' => $this->input->post('nip')
 		);
 		$this->M_Tbl_Pembimbing->insert($data);
-		redirect('Admin/Crud/Tbl_Pembimbing');
+		redirect('admin/crud/Tbl_Pembimbing');
 	}
 	public function delete($id){
 		$this->M_Tbl_Pembimbing->delete($id);
-		redirect('Admin/Crud/Tbl_Pembimbing');
+		redirect('admin/crud/Tbl_Pembimbing');
 	}
 	public function update($id){
 		$data['judul'] = 'Edit Pembimbing';
@@ -57,6 +57,6 @@ class Tbl_Pembimbing extends CI_Controller
 	}
 	public function edit(){
 		$this->M_Tbl_Pembimbing->edit(); 
-		redirect('Admin/Crud/Tbl_Pembimbing');
+		redirect('admin/crud/Tbl_Pembimbing');
 	}
 }

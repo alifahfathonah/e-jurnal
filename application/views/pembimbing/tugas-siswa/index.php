@@ -24,7 +24,7 @@
           <div class="card-header">
             <a href="<?= base_url('pembimbing/tugas-siswa/create') ?>" class="btn btn-primary">Buat Tugas/Materi</a>
           </div>
-          <div class="card-body">
+          <div class="card-body table-responsive">
         <?php if ($pembimbing) : ?>
             <table class="table table-dark" id="datatable">
               <thead>

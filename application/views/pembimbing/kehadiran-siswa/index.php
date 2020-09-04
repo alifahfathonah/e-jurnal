@@ -63,10 +63,15 @@
                 </table>
               </div>
               <div class="card-footer">
-                <?php if ($count_confirmed_kehadiran_this_day>1): ?>
+                <?php if ($count_kehadiran>0): ?>
+                  <?php if ($count_confirmed_kehadiran_this_day>1): ?>
                   
+                  <?php else: ?>
+                    <a href="<?= base_url('pembimbing/kehadiran-siswa/konfirmasi-semua-kehadiran') ?>" class="btn btn-primary">Konfirmasi semua</a>
+                  <?php endif; ?>
+                
                 <?php else: ?>
-                  <a href="<?= base_url('pembimbing/kehadiran-siswa/konfirmasi-semua-kehadiran') ?>" class="btn btn-primary">Konfirmasi semua</a>
+                
                 <?php endif; ?>
               </div>
             </div>

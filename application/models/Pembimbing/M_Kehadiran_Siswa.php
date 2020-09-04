@@ -49,16 +49,21 @@ class M_Kehadiran_Siswa extends CI_Model {
 		return $this->db->where('id_absensi',$id_absensi)->update('tbl_absensi',['is_active' => 1]);
 	}
 
-	public function confirmAllKehadiranByThisDay()
+	public function confirmAllKehadiranByToday()
 	{
-		$tanggal_sekarang=date('d-m-Y');
-		return $this->db->where('tanggal_absensi',$tanggal_sekarang)->update('tbl_absensi',['is_active' => 1]);		
+		$tanggal_sekarang=date('dmY');
+		return $this->db->where('id_grup_absensi',$tanggal_sekarang)->update('tbl_absensi',['is_active' => 1]);		
 	}
 
 	public function getKehadiranSiswaByThisMonth($id_bulan)
 	{
 		$kehadiran = $this->db->get_where('tbl_absensi',['bulan_id' => $id_bulan])->result_array();
 		return $kehadiran;
+	}
+
+	public function countAllKehadiranSiswa()
+	{
+		$this->db->count_all('tbl_absensi');
 	}
 
 	public function getAllBulan($result_type=NULL)

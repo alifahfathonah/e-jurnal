@@ -49,7 +49,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'welcome';
+$route['default_controller'] = 'Welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = TRUE;
 
@@ -72,8 +72,9 @@ $route['logout'] = 'Auth/Logout';
 | berisi controller untuk admin dan tempat crud data.
 | admin bebas mengatur segalanya termasuk hak akses,crud data dll
 */
-$route['admin'] = 'Admin/Dashboard';
-$route['admin/crud'] = 'Admin/Crud/Master';
+$route['admin'] = 'admin/Dashboard';
+$route['admin/list-kontak'] = 'admin/List_Kontak';
+$route['admin/crud'] = 'admin/crud/Master';
 
 
 /*
@@ -82,41 +83,51 @@ $route['admin/crud'] = 'Admin/Crud/Master';
 | ---------------------------------------------------------------------
 | berisi controller untuk crud data database
 */
+//Tbl Absen
+$route['admin/crud/tbl-absen'] = 'admin/crud/Tbl_Absen';
+$route['admin/crud/tbl-absen/tambah'] = 'admin/crud/Tbl_Absen/tambah';
+$route['admin/crud/tbl-absen/update/(:any)'] = 'admin/crud/Tbl_Absen/ubah/$1';
+$route['admin/crud/tbl-absen/hapus/(:any)'] = 'admin/crud/Tbl_Absen/hapus/$1';
+
 //Tbl Admin
-$route['admin/crud/tbl-admin'] = 'Admin/Crud/Tbl_Admin';
-$route['admin/crud/tbl-admin/tambah'] = 'Admin/Crud/Tbl_Admin/tambah';
-$route['admin/crud/tbl-admin/edit/(:any)'] = 'Admin/Crud/Tbl_Admin/edit/$1';
-$route['admin/crud/tbl-admin/update'] = 'Admin/Crud/Tbl_Admin/update';
-$route['admin/crud/tbl-admin/hapus/(:any)'] = 'Admin/Crud/Tbl_Admin/hapus/$1';
+$route['admin/crud/tbl-admin'] = 'admin/crud/Tbl_Admin';
+$route['admin/crud/tbl-admin/tambah'] = 'admin/crud/Tbl_Admin/tambah';
+$route['admin/crud/tbl-admin/edit/(:any)'] = 'admin/crud/Tbl_Admin/edit/$1';
+$route['admin/crud/tbl-admin/update'] = 'admin/crud/Tbl_Admin/update';
+$route['admin/crud/tbl-admin/hapus/(:any)'] = 'admin/crud/Tbl_Admin/hapus/$1';
 
 //Tbl Access Menu
-$route['admin/crud/tbl-access-menu'] = 'Admin/Crud/Tbl_Access_Menu';
-$route['admin/crud/tbl-access-menu/tambah'] = 'Admin/Crud/Tbl_Access_Menu/tambah';
-$route['admin/crud/tbl-access-menu/edit/(:any)'] = 'Admin/Crud/Tbl_Access_Menu/edit/$1';
-$route['admin/crud/tbl-access-menu/update'] = 'Admin/Crud/Tbl_Access_Menu/update';
-$route['admin/crud/tbl-access-menu/hapus/(:any)'] = 'Admin/Crud/Tbl_Access_Menu/hapus/$1';
+$route['admin/crud/tbl-access-menu'] = 'admin/crud/Tbl_Access_Menu';
+$route['admin/crud/tbl-access-menu/tambah'] = 'admin/crud/Tbl_Access_Menu/tambah';
+$route['admin/crud/tbl-access-menu/edit/(:any)'] = 'admin/crud/Tbl_Access_Menu/edit/$1';
+$route['admin/crud/tbl-access-menu/update'] = 'admin/crud/Tbl_Access_Menu/update';
+$route['admin/crud/tbl-access-menu/hapus/(:any)'] = 'admin/crud/Tbl_Access_Menu/hapus/$1';
+
+//Tbl Chat
+$route['admin/crud/tbl-chat'] = 'admin/crud/Tbl_Chat';
+$route['admin/crud/tbl-chat/hapus/(:any)'] = 'admin/crud/Tbl_Chat/hapus/$1';
 
 //Tbl Siswa
-$route['admin/crud/tbl-siswa'] = 'Admin/Crud/Tbl_Siswa';
-$route['admin/crud/tbl-siswa/tambah'] = 'Admin/Crud/Tbl_Siswa/tambah';
-$route['admin/crud/tbl-siswa/edit/(:any)'] = 'Admin/Crud/Tbl_Siswa/edit/$1';
-$route['admin/crud/tbl-siswa/update'] = 'Admin/Crud/Tbl_Siswa/update';
-$route['admin/crud/tbl-siswa/hapus/(:any)'] = 'Admin/Crud/Tbl_Siswa/hapus/$1';
+$route['admin/crud/tbl-siswa'] = 'admin/crud/Tbl_Siswa';
+$route['admin/crud/tbl-siswa/tambah'] = 'admin/crud/Tbl_Siswa/tambah';
+$route['admin/crud/tbl-siswa/edit/(:any)'] = 'admin/crud/Tbl_Siswa/edit/$1';
+$route['admin/crud/tbl-siswa/update'] = 'admin/crud/Tbl_Siswa/update';
+$route['admin/crud/tbl-siswa/hapus/(:any)'] = 'admin/crud/Tbl_Siswa/hapus/$1';
 
 //Tbl User
-$route['admin/crud/tbl-user'] = 'Admin/Crud/Tbl_User';
-$route['admin/crud/tbl-user/tambah'] = 'Admin/Crud/Tbl_User/tambah';
-$route['admin/crud/tbl-user/edit/(:any)'] = 'Admin/Crud/Tbl_User/edit/$1';
-$route['admin/crud/tbl-user/update'] = 'Admin/Crud/Tbl_User/update';
-$route['admin/crud/tbl-user/hapus/(:any)'] = 'Admin/Crud/Tbl_User/hapus/$1';
+$route['admin/crud/tbl-user'] = 'admin/crud/Tbl_User';
+$route['admin/crud/tbl-user/tambah'] = 'admin/crud/Tbl_User/tambah';
+$route['admin/crud/tbl-user/edit/(:any)'] = 'admin/crud/Tbl_User/edit/$1';
+$route['admin/crud/tbl-user/update'] = 'admin/crud/Tbl_User/update';
+$route['admin/crud/tbl-user/hapus/(:any)'] = 'admin/crud/Tbl_User/hapus/$1';
 
 //Tbl Submenu
-$route['admin/crud/tbl-submenu'] = 'Admin/Crud/Tbl_Submenu';
-$route['admin/crud/tbl-submenu/tambah'] = 'Admin/Crud/Tbl_Submenu/tambah';
-$route['admin/crud/tbl-submenu/edit/(:any)'] = 'Admin/Crud/Tbl_Submenu/edit/$1';
-$route['admin/crud/tbl-submenu/update'] = 'Admin/Crud/Tbl_Submenu/update';
-$route['admin/crud/tbl-submenu/hapus/(:any)'] = 'Admin/Crud/Tbl_Submenu/hapus/$1';
-$route['petugas'] ='admin/crud/tbl_petugas';
+$route['admin/crud/tbl-submenu'] = 'admin/crud/Tbl_Submenu';
+$route['admin/crud/tbl-submenu/tambah'] = 'admin/crud/Tbl_Submenu/tambah';
+$route['admin/crud/tbl-submenu/edit/(:any)'] = 'admin/crud/Tbl_Submenu/edit/$1';
+$route['admin/crud/tbl-submenu/update'] = 'admin/crud/Tbl_Submenu/update';
+$route['admin/crud/tbl-submenu/hapus/(:any)'] = 'admin/crud/Tbl_Submenu/hapus/$1';
+$route['petugas'] ='admin/crud/Tbl_Petugas';
 
 
 /*
@@ -125,57 +136,92 @@ $route['petugas'] ='admin/crud/tbl_petugas';
 | ---------------------------------------------------------------------
 | berisi controller untuk pembimbing (pembimbing prakerin)
 */
-$route['pembimbing'] = 'Pembimbing/Home';
+$route['pembimbing'] = 'pembimbing/Home';
 
-### Kegiatan Siswa ###
-// $route['pembimbing/kehadiran-siswa'] = 'Pembimbing/Kehadiran_Siswa';
-// $route['pembimbing/kehadiran-siswa/konfirmasi-kehadiran'] = 'Pembimbing/Kehadiran_Siswa/confirmKehadiran';
-// $route['pembimbing/kehadiran-siswa/delete/(:any)'] = 'Pembimbing/Tugas_Siswa/delete/$1';
+
+## Bulan Prakerin Siswa ###
+$route['pembimbing/bulan-prakerin-siswa'] = 'pembimbing/Bulan_Prakerin_Siswa';
+$route['pembimbing/bulan-prakerin-siswa/edit-total-hari/(:any)'] = 'pembimbing/Bulan_Prakerin_Siswa/edit_total_hari/$1';
+$route['pembimbing/bulan-prakerin-siswa/konfirmasi-semua-kehadiran'] = 'pembimbing/Bulan_Prakerin_Siswa';
+
+### Identitas ###
+$route['pembimbing/identitas'] = 'pembimbing/Identitas';
+$route['pembimbing/identitas/create'] = 'pembimbing/Identitas/create';
+$route['pembimbing/identitas/store'] = 'pembimbing/Identitas/store';
+
+## Kegiatan Siswa ###
+$route['pembimbing/kegiatan-siswa'] = 'pembimbing/kegiatan_Siswa';
+$route['pembimbing/kegiatan-siswa/konfirmasi-kegiatan/(:any)'] = 'pembimbing/kegiatan_Siswa';
+$route['pembimbing/kegiatan-siswa/konfirmasi-semua-kehadiran'] = 'pembimbing/Kegiatan_Siswa';
 
 ### Kehadiran Siswa ###
-$route['pembimbing/kehadiran-siswa'] = 'Pembimbing/Kehadiran_Siswa';
-$route['pembimbing/kehadiran-siswa/konfirmasi-kehadiran/(:any)'] = 'Pembimbing/Kehadiran_Siswa/confirmKehadiran/$1';
-$route['pembimbing/kehadiran/konfirmasi-semua-kehadiran'] = 'pembimbing/kehadiran-siswa/confirmAllKehadiran';
-$route['pembimbing/kehadiran-siswa/delete/(:any)'] = 'Pembimbing/Tugas_Siswa/delete/$1';
+$route['pembimbing/kehadiran-siswa'] = 'pembimbing/Kehadiran_Siswa';
+$route['pembimbing/kehadiran-siswa/detail-kehadiran-per-bulan/(:any)/(:any)'] = 'pembimbing/Kehadiran_Siswa/detail_kehadiran_per_bulan/$1/$1';
+
+$route['pembimbing/kehadiran-siswa/konfirmasi-kehadiran/(:any)'] = 'pembimbing/Kehadiran_Siswa/confirmKehadiranSiswa/$1';
+
+$route['pembimbing/kehadiran-siswa/konfirmasi-semua-kehadiran'] = 'pembimbing/Kehadiran_Siswa/confirmAllKehadiranSiswa';
+
+$route['pembimbing/kehadiran-siswa/delete/(:any)'] = 'pembimbing/Tugas_Siswa/delete/$1';
 
 ### Tugas Siswa ###
-$route['pembimbing/tugas-siswa'] = 'Pembimbing/Tugas_Siswa';
-$route['pembimbing/tugas-siswa/store'] = 'Pembimbing/Tugas_Siswa/store';
-$route['pembimbing/tugas-siswa/show/(:any)'] = 'Pembimbing/Tugas_Siswa/show/$1';
-$route['pembimbing/tugas-siswa/delete/(:any)'] = 'Pembimbing/Tugas_Siswa/delete/$1';
+$route['pembimbing/tugas-siswa'] = 'pembimbing/Tugas_Siswa';
+$route['pembimbing/tugas-siswa/store'] = 'pembimbing/Tugas_Siswa/store';
+$route['pembimbing/tugas-siswa/show/(:any)'] = 'pembimbing/Tugas_Siswa/show/$1';
+$route['pembimbing/tugas-siswa/edit/(:any)'] = 'pembimbing/Tugas_Siswa/edit/$1';
+$route['pembimbing/tugas-siswa/delete/(:any)'] = 'pembimbing/Tugas_Siswa/delete/$1';
 
 
 /*
 | ---------------------------------------------------------------------
-| 
+| Petugas Monitoring
 | ---------------------------------------------------------------------
 | berisi controller untuk petugas(siswa prakerin)
 */
-$route['petugas'] = 'Petugas/home';
-$route['petugas/monitoring-kehadiran-siswa'] = 'Petugas/Monitoring_Kehadiran_Siswa';
-$route['petugas/monitoring-kegiatan-siswa'] = 'Petugas/Monitoring_Kegiatan_Siswa';
+$route['petugas'] = 'petugas/Home';
+
+### Kehadiran Siswa ###
+$route['petugas/monitoring-kehadiran-siswa'] = 'petugas/Monitoring_Kehadiran_Siswa';
+$route['petugas/monitoring-kegiatan-siswa'] = 'petugas/Monitoring_Kegiatan_Siswa';
+
+### Saran Untuk Siswa ###
+$route['petugas/saran-untuk-siswa'] = 'petugas/Saran_Siswa';
+$route['petugas/saran-untuk-siswa/show/(:any)'] = 'petugas/Saran_Siswa/show_saran/$1';
 
 
 /*
 | ---------------------------------------------------------------------
-| Siswa (controllers/Siswa)
+| Siswa
 | ---------------------------------------------------------------------
 | berisi controller untuk siswa (siswa prakerin)
 */
-$route['siswa'] = 'Siswa/Home';
-$route['siswa/jurnal'] = 'Siswa/Jurnal';
+$route['siswa'] = 'siswa/Home';
+//
+$route['siswa/jurnal'] = 'siswa/Jurnal';
 
 ### Identitas ###
-$route['siswa/identitas'] = 'Siswa/Identitas';
-$route['siswa/identitas/create'] = 'Siswa/Identitas/create';
-$route['siswa/identitas/lengkapi-identitas'] = 'Siswa/Identitas/create';
-$route['siswa/identitas/store'] = 'Siswa/Identitas/store';
+$route['siswa/identitas'] = 'siswa/Identitas';
+$route['siswa/identitas/create'] = 'siswa/Identitas/create';
+$route['siswa/identitas/lengkapi-identitas'] = 'siswa/Identitas/create';
+$route['siswa/identitas/store'] = 'siswa/Identitas/store';
+
+### Kegiatan ###
+$route['siswa/kegiatan'] = 'siswa/Kegiatan';
+$route['siswa/kegiatan/create'] = 'siswa/Kegiatan/create_kegiatan';
+$route['siswa/kegiatan/detail/(:any)'] = 'siswa/Kegiatan/detail/$1';
+$route['siswa/kegiatan/edit/(:any)'] = 'siswa/Kegiatan/update/$1';
 
 ### Kehadiran ###
-// $route['siswa/kehadiran/(:any)'] = 'Siswa/Kehadiran/bulan/$1';
-$route['siswa/kehadiran/store-absensi'] = 'Siswa/Kehadiran/storeAbsensi';
+$route['siswa/kehadiran/(:any)'] = 'siswa/Kehadiran/bulan/$1';
+$route['siswa/kehadiran/store-absensi'] = 'siswa/Kehadiran/storeAbsensi';
+
+### Saran ###
+$route['siswa/saran'] = 'siswa/Saran';
+
 ### Tugas ###
-$route['siswa/materi'] = 'Siswa/Tugas';
+$route['siswa/tugas'] = 'siswa/Tugas/index';
+// $route['siswa/detail-tugas/(:any)'] = 'siswa/Tugas/detail_tugas/$1';
+$route['siswa/detail-tugas/(:any)'] = 'siswa/Tugas/detail_tugas/$1';
 
 
 /*
@@ -185,7 +231,11 @@ $route['siswa/materi'] = 'Siswa/Tugas';
 | berisi controller untuk admin dan tempat crud data.
 | admin bebas mengatur segalanya termasuk hak akses,crud data dll
 */
-$route['user/change-password'] = 'User/Change_Password';
+$route['user'] = 'user/Home';
+$route['user/home'] = 'user/Home';
+$route['user/change-password'] = 'user/Change_Password';
+$route['user/profile'] = 'user/Profile';
+$route['user/profile/edit'] = 'user/Profile/update';
 
 
 /*

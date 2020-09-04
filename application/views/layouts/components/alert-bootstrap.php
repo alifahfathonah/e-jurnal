@@ -33,3 +33,9 @@
       </button>
     </div>
 <?php endif; ?>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    
+  })
+</script>

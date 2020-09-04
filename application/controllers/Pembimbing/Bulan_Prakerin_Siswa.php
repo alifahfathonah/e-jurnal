@@ -10,9 +10,10 @@ class Bulan_Prakerin_Siswa extends CI_Controller {
         $this->load->model('Pembimbing/M_Pembimbing');
         $this->load->model('Pembimbing/M_Bulan_Prakerin_Siswa','M_Bulan');
         $this->load->model('Common/M_Crud');
-        $this->load->helper('auth');
+        $this->load->helper(['auth','pembimbing']);
         $this->user=$this->M_User->getUserLoginData();
         $this->pembimbing=$this->M_Pembimbing->getPembimbingLoginData();
+        justPembimbingCanAccessThis();
         isLoggedIn();
 	}
 

@@ -21,7 +21,7 @@
 
           <div class="card">
             <div class="card-header">
-            	<form action="<?= base_url('Admin/Crud/Tbl_Pembimbing/edit'); ?>" method="post" class="form-group ml-3">
+            	<form action="<?= base_url('admin/crud/Tbl_Pembimbing/edit'); ?>" method="post" class="form-group ml-3">
 		<input type="text" name="id" value="<?=$pembimbing['id_pembimbing']; ?>" class="form-control col-lg-4 mt-2" readonly>
 		<input type="text" name="nama" value="<?=$pembimbing['nama_pembimbing'] ?>" class="form-control col-lg-4 mt-3">
 		<input type="text" name="nip" value="<?=$pembimbing['nip'] ?>" class="form-control col-lg-4 mt-3">

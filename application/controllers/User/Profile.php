@@ -21,13 +21,8 @@ class Profile extends CI_Controller
    	  $this->load->view('layouts/_templates/header',$data);
       $this->load->view('layouts/_templates/navbar',$data);
       $this->load->view('layouts/_templates/sidebar',$data);
-      $this->load->view('user/index',$data);
+      $this->load->view('user/profile',$data);
       $this->load->view('layouts/_templates/footer');
-  }
-
-  public function FunctionName($value='')
-  {
-    
   }
   
   public function update()
@@ -43,8 +38,11 @@ class Profile extends CI_Controller
       $this->load->view('layouts/_templates/footer');
   }
   
-  public function edit($id=NULL)
+  public function edit()
   {
+      $data['user'] = $this->user;
+      $id_user = $data['user']['id_user'];
+
       $config['upload_path'] = './assets/img/profile/';
       $config['encrypt_name'] = TRUE;
       $config['allowed_types'] = 'jpg|png|jfif|gif';
@@ -59,7 +57,7 @@ class Profile extends CI_Controller
                'image' => $filename,
                'username' => $this->input->post('nama'),
                   ];
-      $this->db->where('id_user',$id);
+      $this->db->where('id_user',$id_user);
       $this->db->update('tbl_user',$data);
       redirect('User/Profile');
   }

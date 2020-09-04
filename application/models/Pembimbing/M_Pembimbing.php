@@ -17,6 +17,11 @@ class M_Pembimbing extends CI_Model {
 			$this->session->set_userdata('id_pembimbing',$pembimbing['id_pembimbing']);
 		}
 		return $pembimbing;
+	}
+
+	public function store($table,$data=[])
+	{
+		return $this->db->insert($table,$data);
 	}	
 
 }

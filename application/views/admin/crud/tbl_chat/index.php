@@ -8,6 +8,7 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1 class="m-0 text-dark">Chat</h1>
+                        <a href="<?= base_url('admin/crud/Tbl_Chat/clear') ?>" class="btn btn-danger">Kosongkan</a>
                     </div><!-- /.col -->
 
                 </div><!-- /.row -->

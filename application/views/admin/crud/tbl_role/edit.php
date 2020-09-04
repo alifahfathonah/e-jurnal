@@ -21,7 +21,7 @@
 
           <div class="card">
             <div class="card-header">
-            	<form action="<?= base_url('Admin/Crud/Tbl_Role/edit'); ?>" method="post" class="form-group ml-3">
+            	<form action="<?= base_url('admin/crud/Tbl_Role/edit'); ?>" method="post" class="form-group ml-3">
 		<input type="text" name="id" value="<?=$role['id_role']; ?>" class="form-control col-lg-4 mt-2" readonly>
 		<input type="text" name="nama" value="<?=$role['nama_role'] ?>" class="form-control col-lg-4 mt-3">
 		<input type="text" name="redirect" value="<?=$role['redirect'] ?>" class="form-control col-lg-4 mt-3">
