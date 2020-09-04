@@ -42,8 +42,13 @@
                         <th scope="row">#</th>
                         <td><?= $i; ?></td>
                         <td>
+                          <?php if ($i>=10): ?>
+                          <a href="<?= base_url('Pembimbing/Kehadiran_Siswa/detail_kehadiran_per_bulan/'.$bulan['id_bulan'].'/').$i.$bulan['no_bulan'].date('Y'); ?>" class="btn btn-primary"><i class="fa-fw fas fa-info"></i>
+                          </a>
+                          <?php else: ?>
                           <a href="<?= base_url('Pembimbing/Kehadiran_Siswa/detail_kehadiran_per_bulan/'.$bulan['id_bulan'].'/').'0'.$i.$bulan['no_bulan'].date('Y'); ?>" class="btn btn-primary"><i class="fa-fw fas fa-info"></i>
                           </a>
+                          <?php endif ?>
                         </td>
                       </tr>
                     <?php endfor; ?>

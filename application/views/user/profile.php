@@ -1,13 +1,25 @@
-  <div class="content-wrapper">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col">
-      <h2> Profile Saya</h2>
-    </div>
-    </div>
-    <div class="row mt-2">      
-      <div class="col-md-5">
-         <div class="card card-widget widget-user">
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0 text-dark"><?= $judul; ?></h1>
+        </div><!-- /.col -->
+        
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+
+  <!-- Main content -->
+  <div class="content">
+    <div class="container-fluid">
+      <?php $this->load->view('layouts/components/alert-bootstrap'); ?>
+      <div class="row">
+        <div class="col-lg-6">
+            
+            <div class="card card-widget widget-user">
               <!-- Add the bg color to the header using any of the bg-* classes -->
               <div class="widget-user-header bg-info">
                 <?php $role=$this->db->get_where('tbl_role',['id_role' => $user['role_id']])->row_array(); ?>
@@ -25,7 +37,11 @@
               </div>
             </div>
             <!-- /.widget-user -->
+        
+        </div>  
       </div>
-    </div>
+    </div><!-- /.container-fluid -->
   </div>
+  <!-- /.content -->
 </div>
+<!-- /.content-wrapper

@@ -197,7 +197,6 @@ $route['petugas/saran-untuk-siswa/show/(:any)'] = 'petugas/Saran_Siswa/show_sara
 */
 $route['siswa'] = 'siswa/Home';
 //
-$route['siswa/jurnal'] = 'siswa/Jurnal';
 
 ### Identitas ###
 $route['siswa/identitas'] = 'siswa/Identitas';

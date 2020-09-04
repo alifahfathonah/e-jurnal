@@ -16,7 +16,7 @@ class Profile extends CI_Controller
 
   public function index()
   { 
-   	  $data['judul'] = 'Profile Saya';
+   	  $data['judul'] = 'Profile';
    	  $data['user'] = $this->user;
    	  $this->load->view('layouts/_templates/header',$data);
       $this->load->view('layouts/_templates/navbar',$data);
@@ -25,9 +25,9 @@ class Profile extends CI_Controller
       $this->load->view('layouts/_templates/footer');
   }
   
-  public function update()
+  public function edit()
   {
-     	$data['judul'] = 'Profile Saya';
+     	$data['judul'] = 'Profile';
      	$data['user'] = $this->user;
       $id_user = $data['user']['id_user'];
      	$data['profile'] = $this->db->get_where('tbl_user',['id_user' => $id_user])->row_array();		
@@ -38,28 +38,29 @@ class Profile extends CI_Controller
       $this->load->view('layouts/_templates/footer');
   }
   
-  public function edit()
+  public function update()
   {
       $data['user'] = $this->user;
       $id_user = $data['user']['id_user'];
+      $old_img = $this->input->post('old_img');
 
       $config['upload_path'] = './assets/img/profile/';
       $config['encrypt_name'] = TRUE;
       $config['allowed_types'] = 'jpg|png|jfif|gif';
       $this->load->library('upload',$config);
       if (!$this->upload->do_upload('gambar')) {
-         $this->upload->display_errors();
+        $this->upload->display_errors();
       }else{
-           $filename=$this->upload->data('file_name'); 
+       $filename=$this->upload->data('file_name');
+       unlink(FCPATH.'/assets/img/profile/'.$old_img); 
       }
-        $data = [
-               'id_user' => $this->input->post('id'),
+      $data = [
                'image' => $filename,
-               'username' => $this->input->post('nama'),
-                  ];
+              ];
       $this->db->where('id_user',$id_user);
       $this->db->update('tbl_user',$data);
-      redirect('User/Profile');
+      $this->session->set_flashdata('info','Foto profil berhasil diubah');
+      redirect('user/Profile');
   }
    
 }

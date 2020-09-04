@@ -24,7 +24,7 @@
         <div class="col-lg-6">
         <?php if ($no_bulan==date('m')): ?>
           <div class="card card-dark">
-            <form action="<?= base_url('siswa/kehadiran/store-absensi') ?>" method="post">
+            <form action="<?= base_url('siswa/Kehadiran/storeAbsensi') ?>" method="post">
               <div class="card-header"></div>
               <div class="card-body">
                 <input type="hidden" name="slug_bulan" value="<?= $slug_bulan ?>" class="form-control">

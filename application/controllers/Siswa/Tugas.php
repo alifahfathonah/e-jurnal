@@ -25,9 +25,9 @@ class Tugas extends CI_Controller {
                 $data['total_materi'] = $this->M_Materi->searchMateri($keyword)->num_rows();
                 $data['materi'] = $this->M_Materi->searchMateri($keyword)->result_array();
             }else{
-                $config['base_url'] = base_url('Siswa/Tugas/index');
-                $config['start'] = $this->uri->segment(8);
-                $config['per_page'] = 2;
+                $config['base_url'] = site_url('siswa/Tugas/index');
+                $config['start'] = $this->uri->segment(4);
+                $config['per_page'] = 8;
                 $config['total_rows'] = $this->db->count_all('tbl_tugas_siswa');
                 $this->pagination->initialize($config);
                 /////////////////////////////////////////////////

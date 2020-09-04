@@ -21,27 +21,24 @@
 <body class="hold-transition login-page">
 <div class="login-box mb-5">
   <div class="login-logo">
-    <a href="<?= base_url() ?>"><b>E-</b>MAGANG</a>
+    <a href="../../index2.html"><b>Admin</b>LTE</a>
   </div>
   <!-- /.login-logo -->
-  <?php $this->load->view('layouts/components/alert-bootstrap'); ?>
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Masuk untuk mendpatkan akses anda.</p>
-      
-      <!-- <p class="login-box-msg">Sign in to start your session</p> -->
+      <p class="login-box-msg">You are only one step a way from your new password, recover your password now.</p>
 
-      <form action="<?= base_url('login') ?>" method="post">
+      <form action="login.html" method="post">
         <div class="input-group mb-3">
-          <input class="form-control" name="email" placeholder="Username atau Email">
+          <input type="password" class="form-control" placeholder="Password">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
+              <span class="fas fa-lock"></span>
             </div>
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" name="password" placeholder="Password">
+          <input type="password" class="form-control" placeholder="Confirm Password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -49,21 +46,17 @@
           </div>
         </div>
         <div class="row">
-          
           <div class="col-12">
-            <button type="submit" class="btn btn-primary btn-block">Login</button>
+            <button type="submit" class="btn btn-primary btn-block">Change password</button>
           </div>
           <!-- /.col -->
         </div>
       </form>
-
-      <!-- /.social-auth-links -->
     </div>
     <!-- /.login-card-body -->
   </div>
 </div>
 <!-- /.login-box -->
-
 <!-- jQuery -->
 <script src="<?= base_url('assets/templates/Admin/') ?>plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->

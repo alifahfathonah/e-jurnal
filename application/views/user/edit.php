@@ -21,9 +21,8 @@
 
           <div class="card">
             <div class="card-header">
-            	<form action="<?= base_url('User/Profile/edit/'.$user['id_user']); ?>" method="post" class="form-group ml-3" enctype="multipart/form-data">
-		<input type="text" name="id" value="<?=$user['id_user']; ?>" class="form-control col-lg-4 mt-2" readonly>
-		<input type="text" name="nama" value="<?=$user['username'] ?>" class="form-control col-lg-4 mt-3" required>
+            	<form action="<?= base_url('user/Profile/update'); ?>" method="post" class="form-group ml-3" enctype="multipart/form-data">
+		<input type="hidden" name="old_img" value="<?=$user['image'] ?>" class="form-control col-lg-4 mt-3" required>
     <img src="<?= base_url('assets/img/profile/'.$user['image']); ?>" width="40" class="mt-2">
 		<input type="file" name="gambar" value="<?=$user['image']; ?>" class="form-control col-lg-4 mt-3" required>
 		<input type="submit" name="kirim" class="btn btn-primary mt-3" value="simpan">

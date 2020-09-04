@@ -16,7 +16,7 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-		$data['judul'] = 'Siswa';
+		$data['judul'] = 'Home';
 		$data['user'] = $this->user;
 		$data['siswa'] = $this->siswa;
 		$data['siswa_exists'] = $this->M_Siswa->isThisSiswaExists();

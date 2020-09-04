@@ -39,7 +39,7 @@
             <?php endif; ?>
             </h4>
           <hr class="bg-light">
-          <p class="lead">E-JURNAL adalah WEBSITE sistem jurnal prakerin berbasis WEB , yang bertujuan untuk memudahkan para siswa/siswi dalam melaksanakan Magang/Prakerin Secara Online.</p>
+          <p class="lead">E-JURNAL adalah WEBSITE sistem prakerin berbasis WEB , yang bertujuan untuk memudahkan para siswa/siswi dalam melaksanakan Magang/Prakerin Secara Online.</p>
           <hr class="my-4 bg-light">
           
           
