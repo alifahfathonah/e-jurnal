@@ -81,7 +81,7 @@
       var tugas_siswa_id = $("#tugas_siswa_id").val()
       var isi_chat = $("#isi_chat").val()
       $.ajax({
-        url: "<?= base_url('User/Chat/sendMessageByTugasSiswa') ?>",
+        url: "<?= base_url('user/Chat/sendMessageByTugasSiswa') ?>",
         method : "POST",
         data: {
           user_id : user_id,
@@ -100,7 +100,7 @@
 
     function loadMsg() {
       var tugas_siswa_id = $('#tugas_siswa_id').val()
-      $.get("<?= base_url('User/Chat/loadMessageByTugasSiswa/'); ?>"+tugas_siswa_id,function(response){
+      $.get("<?= base_url('user/Chat/loadMessageByTugasSiswa/'); ?>"+tugas_siswa_id,function(response){
         $('#load-msg').html(response)
         $('#load-msg2').html(response)
       })

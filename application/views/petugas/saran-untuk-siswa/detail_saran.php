@@ -14,7 +14,7 @@
 						</div>
 					
 					<div class="card-footer">
-						<a href="<?= base_url('Petugas/Saran'); ?>" class="btn btn-primary">Kembali</a>
+						<a href="<?= base_url('petugas/Saran'); ?>" class="btn btn-primary">Kembali</a>
 					</div>
 				</div>
 			</div>
@@ -34,7 +34,7 @@
         </button>
       </div>
       <div class="modal-body">
-      	<form method="post" action="<?= base_url('Petugas/Saran_Siswa/update_saran') ?>">
+      	<form method="post" action="<?= base_url('petugas/Saran_Siswa/update_saran') ?>">
         <div class="form-group" id="saran">
         	<input type="hidden" name="id_saran">
         	<textarea id="" class="form-control" name="isi_saran"></textarea>
@@ -58,7 +58,7 @@
 			var id_saran = $(this).data('id-saran')
 			$.ajax({
 				type: 'GET',
-				url: "<?= base_url('Petugas/Saran_Siswa/showEditSaran/') ?>"+id_saran,
+				url: "<?= base_url('petugas/Saran_Siswa/showEditSaran/') ?>"+id_saran,
 				success:function(response){
 					var result = JSON.parse(response)
 					$("#show-saran").modal("show")

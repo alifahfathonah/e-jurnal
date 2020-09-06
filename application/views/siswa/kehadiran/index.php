@@ -26,7 +26,7 @@
             
             <div class="card card-primary card-outline mb-3">
               <div class="card-header">
-                <h5 class="m-0">Penggunaan Kehadiran</h5>
+                <h5 class="m-0">Kehadiran</h5>
               </div>
               <div class="card-body">
                 <h6 class="card-title">Special title treatment</h6>
@@ -37,7 +37,7 @@
                 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
                 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
                 proident, sunt in culpa qui officia deserunt mollit anim id est laborum..</p>
-                <a href="#" class="btn btn-primary">#E-JURNAL</a>
+                <!-- <a href="#" class="btn btn-primary">#E-JURNAL</a> -->
               </div>
             </div>
           

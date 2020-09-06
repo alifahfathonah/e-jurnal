@@ -38,10 +38,10 @@
                 <tr>
                   <td><?= $no++; ?></td>
                   <td><?= $p['nama_role'] ?></td>
-                  <td><?= $p['redirect'] ?></td>
+                  <td><?= $p['login_redirect'] ?></td>
                   
                   <td>
-                      <a href="<?= base_url('admin/crud/Tbl_Role/update/').$p['id_role'] ?>" onclick="return confirm('Yakin ?')" class="btn btn-danger"><i class="fas fa-fw fa-edit"></i></a>
+                      <a href="<?= base_url('admin/crud/Tbl_Role/update/').$p['id_role'] ?>" onclick="return confirm('Yakin ?')" class="btn btn-primary"><i class="fas fa-fw fa-edit"></i></a>
 
                       <a href="<?= base_url('admin/crud/Tbl_Role/delete/').$p['id_role'] ?>" onclick="return confirm('Yakin ?')" class="btn btn-danger"><i class="fas fa-fw fa-trash"></i></a>
                   </td>

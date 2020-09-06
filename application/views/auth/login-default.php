@@ -21,7 +21,7 @@
 <body class="hold-transition login-page">
 <div class="login-box mb-5">
   <div class="login-logo">
-    <a href="<?= base_url() ?>"><b>E-</b>MAGANG</a>
+    <a href="<?= base_url() ?>"><b>E-</b>PRAKERIN</a>
   </div>
   <!-- /.login-logo -->
   <?php $this->load->view('layouts/components/alert-bootstrap'); ?>

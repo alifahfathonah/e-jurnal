@@ -6,9 +6,9 @@ class Monitoring_Kehadiran_Siswa extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('User/M_User');
-		$this->load->model('Petugas/M_Monitoring');
-		$this->load->model('Siswa/M_Kehadiran');
+		$this->load->model('user/M_User');
+		$this->load->model('petugas/M_Monitoring');
+		$this->load->model('siswa/M_Kehadiran');
 		$this->load->helper(['auth']);
 		$this->user=$this->M_User->getUserLoginData();
 		isLoggedIn();

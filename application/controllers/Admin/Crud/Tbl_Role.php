@@ -7,11 +7,11 @@ class Tbl_Role extends CI_Controller {
 	{
 		parent::__construct();
 
-		$this->load->model('User/M_User');
+		$this->load->model('user/M_User');
 		$this->load->helper(['auth']);
 		$this->user=$this->M_User->getUserLoginData();
-		$this->load->model('Admin/M_Dashboard');
-		$this->load->model('Admin/Crud/M_Tbl_Role');
+		$this->load->model('admin/M_Dashboard');
+		$this->load->model('admin/crud/M_Tbl_Role');
 		isLoggedIn();
 		
 	}

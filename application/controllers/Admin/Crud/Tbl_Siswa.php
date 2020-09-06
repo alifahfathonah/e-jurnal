@@ -6,8 +6,8 @@ class Tbl_Siswa extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model("Admin/Crud/M_Tbl_Siswa","M_Siswa");	
-        $this->load->model('User/M_User');
+		$this->load->model("admin/crud/M_Tbl_Siswa","M_Siswa");	
+        $this->load->model('user/M_User');
         $this->load->helper('auth');
         $this->user=$this->M_User->getUserLoginData();
         isLoggedIn();
@@ -54,7 +54,8 @@ class Tbl_Siswa extends CI_Controller
                     'alamat_orang_tua'  =>$this->input->post('alamat_orang_tua'),
                     ];
     		$this->M_Siswa->tambah($data);
-    		redirect('admin/crud/tbl-siswa');
+            $this->session->set_flashdata('success','Data berhasil ditambah');
+    		redirect('admin/crud/Tbl_Siswa');
     	}
     }
 
@@ -80,13 +81,15 @@ class Tbl_Siswa extends CI_Controller
     	$data =	['nama_siswa'  =>  $this->input->post('nama_siswa'),
     			 'nisn'  =>  $this->input->post('nisn')];
     	$this->M_Siswa->update($id,$data);
-    	redirect('admin/crud/tbl-siswa');
+        $this->session->set_flashdata('success','Data berhasil diupdate'); 
+    	redirect('admin/crud/Tbl_Siswa');
     }
 
     public function hapus($id)
     {
     	$this->M_Siswa->hapus($id);
-    	redirect('admin/crud/tbl-siswa');
+        $this->session->set_flashdata('success','Data berhasil dihapus');
+    	redirect('admin/crud/Tbl_Siswa');
     }
 
     private function _tambahSiswaValidate()

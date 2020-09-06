@@ -6,10 +6,10 @@ class Bulan_Prakerin_Siswa extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-        $this->load->model('User/M_User');
-        $this->load->model('Pembimbing/M_Pembimbing');
-        $this->load->model('Pembimbing/M_Bulan_Prakerin_Siswa','M_Bulan');
-        $this->load->model('Common/M_Crud');
+        $this->load->model('user/M_User');
+        $this->load->model('pembimbing/M_Pembimbing');
+        $this->load->model('pembimbing/M_Bulan_Prakerin_Siswa','M_Bulan');
+        $this->load->model('common/M_Crud');
         $this->load->helper(['auth','pembimbing']);
         $this->user=$this->M_User->getUserLoginData();
         $this->pembimbing=$this->M_Pembimbing->getPembimbingLoginData();
@@ -48,7 +48,7 @@ class Bulan_Prakerin_Siswa extends CI_Controller {
 			$data = ['total_hari' => $this->input->post('total_hari')];
 			$this->M_Bulan->update($data,$id_bulan);
 			$this->session->set_flashdata('success','Total hari berhasil di set');
-			redirect('Pembimbing/Bulan_Prakerin_Siswa');
+			redirect('pembimbing/Bulan_Prakerin_Siswa');
 		}	
 	}
 
@@ -56,14 +56,14 @@ class Bulan_Prakerin_Siswa extends CI_Controller {
 	{
 		$this->M_Crud->update('tbl_bulan',['is_active' => 1],'id_bulan',$id_bulan);
 		$this->session->set_flashdata('success','Bulan prakerin berhasil diaktifkan');
-		redirect('Pembimbing/Bulan_Prakerin_Siswa');
+		redirect('pembimbing/Bulan_Prakerin_Siswa');
 	}
 
 	public function nonActivateBulanPrakerin($id_bulan)
 	{
 		$this->M_Crud->update('tbl_bulan',['is_active' => 0],'id_bulan',$id_bulan);
 		$this->session->set_flashdata('success','Bulan prakerin dinonaktifkan');
-		redirect('Pembimbing/Bulan_Prakerin_Siswa');
+		redirect('pembimbing/Bulan_Prakerin_Siswa');
 	}
 
 	private function _editTotalHariValidate()

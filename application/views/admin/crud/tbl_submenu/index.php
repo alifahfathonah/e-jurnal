@@ -19,9 +19,11 @@
       <div class="row">
         <div class="col-12">
 
+          <?php $this->load->view('layouts/components/alert-bootstrap'); ?>
+
           <div class="card">
             <div class="card-header">
-              <a href="<?= base_url('admin/crud/tbl-submenu/tambah') ?>" class="btn btn-primary">Tambah Data</a>
+              <a href="<?= base_url('admin/crud/Tbl_Submenu/tambah') ?>" class="btn btn-primary">Tambah Data</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body table-responsive">
@@ -51,8 +53,8 @@
                   </td>
                   <td></td>
                   <td>
-                      <a href="<?= base_url('admin/crud/tbl-submenu/edit/').$submenu['id_submenu'] ?>" class="btn btn-primary"><i class="fas fa-fw fa-edit"></i></a>
-                      <a href="<?= base_url('admin/crud/tbl-submenu/hapus/').$submenu['id_submenu'] ?>" onclick="return confirm('Yakin ?')" class="btn btn-danger"><i class="fas fa-fw fa-trash"></i></a>
+                      <a href="<?= base_url('admin/crud/Tbl_Submenu/edit/').$submenu['id_submenu'] ?>" class="btn btn-primary"><i class="fas fa-fw fa-edit"></i></a>
+                      <a href="<?= base_url('admin/crud/Tbl_Submenu/hapus/').$submenu['id_submenu'] ?>" onclick="return confirm('Yakin ?')" class="btn btn-danger"><i class="fas fa-fw fa-trash"></i></a>
                   </td>
                 </tr>
                 <?php endforeach; ?>

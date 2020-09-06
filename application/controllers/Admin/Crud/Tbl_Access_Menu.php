@@ -7,8 +7,8 @@ class Tbl_Access_Menu extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model('Admin/Crud/M_Tbl_Access_Menu','M_Access_Menu');
-        $this->load->model('User/M_User');
+        $this->load->model('admin/crud/M_Tbl_Access_Menu','M_Access_Menu');
+        $this->load->model('user/M_User');
         $this->load->helper('auth');
         $this->user=$this->M_User->getUserLoginData();
         isLoggedIn();    

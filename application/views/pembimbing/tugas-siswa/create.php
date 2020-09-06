@@ -37,6 +37,14 @@
                   <textarea required="" class="form-control" name="deskripsi_tugas" id="ckeditor"></textarea>
                 </div>
                 <div class="form-group">
+                  <label>Kirim File</label>
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="customFile">
+                    <label class="custom-file-label" for="customFile">Choose file</label>
+                  </div>
+                  <small class="text-muted"><i>kosongkan jika tidak perlu</i></small>
+                </div>  
+                <div class="form-group">
                   <label for="tipe_tugas">Tipe Tugas</label>
                   <select required="" name="tipe_tugas_siswa_id" id="tipe_tugas" class="form-control">
                     <?php foreach ($all_tipe_tugas as $tipe_tugas): ?>

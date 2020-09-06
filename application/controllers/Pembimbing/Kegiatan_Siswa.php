@@ -6,9 +6,9 @@ class Kegiatan_Siswa extends CI_Controller {
 	public function __construct()
     {
         parent::__construct();
-        $this->load->model('User/M_User');
-        $this->load->model('Pembimbing/M_Pembimbing');
-        $this->load->model('Pembimbing/M_Kegiatan_Siswa','M_Kegiatan');
+        $this->load->model('user/M_User');
+        $this->load->model('pembimbing/M_Pembimbing');
+        $this->load->model('pembimbing/M_Kegiatan_Siswa','M_Kegiatan');
         $this->load->helper(['auth','pembimbing']);
         $this->user=$this->M_User->getUserLoginData();
         $this->pembimbing=$this->M_Pembimbing->getPembimbingLoginData();
@@ -35,12 +35,14 @@ class Kegiatan_Siswa extends CI_Controller {
 	public function confirmKegiatanSiswa($id_kegiatan)
 	{
 		$this->M_Kegiatan->confirmKegiatanById($id_kegiatan);
+        $this->session->set_flashdata('success','kegiatan dikonfirmasi');
         redirect('pembimbing/Kegiatan_Siswa');
 	}
 
 	public function confirmAllKegiatanSiswa()
 	{
 		$this->M_Kegiatan->confirmAllKegiatanByToday();
+        $this->session->set_flashdata('success','semua kegiatan dikonfirmasi');
         redirect('pembimbing/Kegiatan_Siswa');
 	}
 

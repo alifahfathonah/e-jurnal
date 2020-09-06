@@ -6,8 +6,8 @@ class Tbl_User extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model("Admin/Crud/M_Tbl_User");
-        $this->load->model('User/M_User');
+		$this->load->model("admin/crud/M_Tbl_User");
+        $this->load->model('user/M_User');
         $this->load->helper(['auth']);
         $this->user=$this->M_User->getUserLoginData();
         isLoggedIn();	
@@ -43,7 +43,8 @@ class Tbl_User extends CI_Controller
                     'role_id' =>    $this->input->post('role_id'),
                     ];
     		$this->M_Tbl_User->tambah($data);
-    		redirect('admin/crud/tbl-user');
+            $this->session->set_flashdata('success','Data berhasil ditambah');
+    		redirect('admin/crud/Tbl_User');
     	}
     }
 
@@ -80,7 +81,8 @@ class Tbl_User extends CI_Controller
                 'role_id' =>    $this->input->post('role_id'),
                 ];
         $this->M_Tbl_User->update($id,$data);
-        redirect('admin/crud/tbl-user');
+        $this->session->set_flashdata('success','Data berhasil diupdate');
+        redirect('admin/crud/Tbl_User');
     }
 
     public function printUser()
@@ -96,7 +98,8 @@ class Tbl_User extends CI_Controller
     public function hapus($id='')
     {
     	$this->M_Tbl_User->hapus($id);
-    	redirect('admin/crud/tbl-user');
+        $this->session->set_flashdata('success','Data berhsil dihapus');
+    	redirect('admin/crud/Tbl_User');
     }
 
     private function _tambahUserValidate()

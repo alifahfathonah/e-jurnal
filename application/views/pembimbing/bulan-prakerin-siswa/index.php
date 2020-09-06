@@ -45,10 +45,10 @@
                     </td>
                     <td>
                       <?php if ($bulan['is_active']==1): ?>
-                        <a href="<?= base_url('Pembimbing/Bulan_Prakerin_Siswa/nonActivateBulanPrakerin/').$bulan['id_bulan'] ?>" class="badge badge-danger">nonaktifkan
+                        <a href="<?= base_url('pembimbing/Bulan_Prakerin_Siswa/nonActivateBulanPrakerin/').$bulan['id_bulan'] ?>" class="badge badge-danger">nonaktifkan
                         </a>
                       <?php else: ?>
-                        <a href="<?= base_url('Pembimbing/Bulan_Prakerin_Siswa/activateBulanPrakerin/').$bulan['id_bulan'] ?>" class="badge badge-primary">aktifkan
+                        <a href="<?= base_url('pembimbing/Bulan_Prakerin_Siswa/activateBulanPrakerin/').$bulan['id_bulan'] ?>" class="badge badge-primary">aktifkan
                         </a>
                       <?php endif ?>
                       <a href="<?= base_url('Pembimbing/Bulan_Prakerin_Siswa/edit_total_hari/').$bulan['id_bulan'] ?>" class="badge badge-success">total hari

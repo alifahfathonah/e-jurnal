@@ -8,9 +8,9 @@ class Tbl_Chat extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Admin/Crud/M_Tbl_Chat');
-        $this->load->model('Common/M_Crud');
-        $this->load->model('User/M_User');
+        $this->load->model('admin/crud/M_Tbl_Chat');
+        $this->load->model('common/M_Crud');
+        $this->load->model('user/M_User');
         $this->load->helper('auth');
         $this->user=$this->M_User->getUserLoginData();
         isLoggedIn();
@@ -32,14 +32,14 @@ class Tbl_Chat extends CI_Controller
     {
         $this->M_Tbl_Chat->hapus($id);
         $this->session->set_flashdata('message', ' <script>alert("DATA BERHASIL DIIHAPUS");</script>');
-        redirect('Admin/Crud/Tbl_chat');
+        redirect('admin/crud/Tbl_chat');
     }
 
     //clear semua data dari tabel
     public function clear()
     {
         $this->M_Crud->truncate('tbl_chat');
-        redirect('Admin/Crud/Tbl_chat');
+        redirect('admin/crud/Tbl_chat');
     }
 
 }

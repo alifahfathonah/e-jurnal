@@ -5,8 +5,8 @@ class Tbl_Menu extends CI_Controller
 public function __construct()
  {
     parent::__construct();
-    $this->load->model('Admin/Crud/M_Tbl_Menu', 'M_Tbl_Menu');
-    $this->load->model('User/M_User');
+    $this->load->model('admin/crud/M_Tbl_Menu', 'M_Tbl_Menu');
+    $this->load->model('user/M_User');
     $this->load->helper(['auth']);
     $this->user=$this->M_User->getUserLoginData();
     isLoggedIn();
@@ -80,9 +80,9 @@ public function index()
                     'no_urut_menu' => $this->input->post('no_urut_menu'),
         );
         $this->M_Tbl_Menu->tambah($data);
-        redirect ('Admin/Crud/tbl_Menu');   
+        redirect ('admin/crud/tbl_Menu');   
     } else {
-        redirect ('Admin/Crud/tbl_Menu/tambah');
+        redirect ('admin/crud/tbl_Menu/tambah');
     }
  }
  public function tambah_submenu($menu_id='')

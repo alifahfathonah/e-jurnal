@@ -5,8 +5,8 @@ class Tbl_Submenu extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
-		$this->load->model('Admin/Crud/M_Tbl_Submenu','M_Submenu');
-        $this->load->model('User/M_User');
+		$this->load->model('admin/crud/M_Tbl_Submenu','M_Submenu');
+        $this->load->model('user/M_User');
         $this->load->helper('auth');
         $this->user=$this->M_User->getUserLoginData();
         isLoggedIn();
@@ -41,9 +41,11 @@ class Tbl_Submenu extends CI_Controller {
                     'url_submenu' => $this->input->post('url_submenu'),
                     'menu_id' =>    $this->input->post('menu_id'),
                     'is_active' =>    $this->input->post('is_active'),
+                    'no_urut_submenu' => 0,
                     ];
     		$this->M_Submenu->tambah($data);
-    		redirect('admin/crud/tbl-submenu');
+            $this->session->set_flashdata('success','Data berhasil ditambah');
+    		redirect('admin/crud/Tbl_Submenu');
     	}
     }
 
@@ -74,13 +76,14 @@ class Tbl_Submenu extends CI_Controller {
                 'is_active' =>    $this->input->post('is_active'),
                 ];
         $this->M_Submenu->update($id,$data);
-        redirect('admin/crud/tbl-submenu');
+        $this->session->set_flashdata('success','Data berhasil diupdate');
+        redirect('admin/crud/Tbl_Submenu');
     }
 
     public function hapus($id='')
     {
     	$this->M_Submenu->hapus($id);
-    	redirect('admin/crud/tbl-submenu');
+    	redirect('admin/crud/Tbl_Submenu');
     }
 
     private function _tambahSubmenuValidate()

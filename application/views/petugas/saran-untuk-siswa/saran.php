@@ -20,7 +20,7 @@
       <div class="container-fluid">
       <?php $this->load->view('layouts/components/alert-bootstrap') ?>
 
-      <form method="post" action="<?= base_url('Petugas/Saran_Siswa/store'); ?>">
+      <form method="post" action="<?= base_url('petugas/Saran_Siswa/store'); ?>">
       <div class="row">
         <div class="col-lg-6">
           <textarea id="ckeditor" name="isi_saran">

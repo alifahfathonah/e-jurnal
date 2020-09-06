@@ -60,9 +60,9 @@ $route['translate_uri_dashes'] = TRUE;
 | berisi controller untuk autentikasi seperti Login(Multilevel)
 | reset password(via gmail) dan Logout
 */
-$route['login'] = 'Auth/Login';
-$route['forgot-password'] = 'Auth/Forgot_Password';
-$route['logout'] = 'Auth/Logout';
+$route['login'] = 'auth/Login';
+$route['forgot-password'] = 'auth/Forgot_Password';
+$route['logout'] = 'auth/Logout';
 
 
 /*

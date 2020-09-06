@@ -4,7 +4,7 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <form method="post" action="<?= base_url('admin/crud/tbl-siswa/').$action ?>">
+              <form method="post" action="<?= base_url('admin/crud/Tbl_Siswa/').$action ?>">
               <div class="form-group">
                 <label for="nama_siswa">Nama Siswa</label>
                 <input type="" id="nama_siswa" class="form-control" name="nama_siswa">

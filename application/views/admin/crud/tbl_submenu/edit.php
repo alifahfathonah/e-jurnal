@@ -21,11 +21,11 @@
 
           <div class="card">
             <div class="card-header">
-              <a href="<?= base_url('admin/crud/tbl-submenu') ?>" class="btn btn-success">Kembali</a>
+              <a href="<?= base_url('admin/crud/Tbl_Submenu') ?>" class="btn btn-success">Kembali</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <form method="post" action="<?= base_url('admin/crud/tbl-submenu/edit'); ?>">
+              <form method="post" action="<?= base_url('admin/crud/Tbl_Submenu/edit'); ?>">
               <div class="form-group">
                 <input type="hidden" value="<?= $submenu['id_submenu']; ?>" name="id_submenu">
                 <label for="nama_submenu">Nama Submenu</label>

@@ -43,7 +43,7 @@
           </div>
           <!-- /.col -->
           <div class="col-md-6 col-sm-6 col-12">
-            <form method="get" action="<?= base_url('siswa/tugas') ?>">
+            <form method="get" action="<?= base_url('siswa/Tugas') ?>">
               <div class="input-group mb-3">
                 <input type="text" name="keyword" class="form-control bg-dark" placeholder="Pencarian" aria-label="Pencarian" aria-describedby="button-addon2">
                 <div class="input-group-append">

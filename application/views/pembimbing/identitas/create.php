@@ -18,7 +18,7 @@
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
-        <form method="POST" action="<?= base_url('Pembimbing/Identitas/store') ?>">
+        <form method="POST" action="<?= base_url('pembimbing/Identitas/store') ?>">
         <div class="row">
           <div class="col-md-6">
             <div class="card card-primary">

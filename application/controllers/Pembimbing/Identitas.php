@@ -6,8 +6,8 @@ class Identitas extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-        $this->load->model('User/M_User');
-        $this->load->model('Pembimbing/M_Pembimbing');
+        $this->load->model('user/M_User');
+        $this->load->model('pembimbing/M_Pembimbing');
         $this->load->helper(['auth','pembimbing']);
         $this->user=$this->M_User->getUserLoginData();
         $this->pembimbing=$this->M_Pembimbing->getPembimbingLoginData();

@@ -21,7 +21,7 @@
 
           <div class="card">
             <div class="card-header">
-            	<form action="<?= base_url('Siswa/Kegiatan/edit'); ?>" method="post" class="form-group ml-3">
+            	<form action="<?= base_url('siswa/Kegiatan/edit'); ?>" method="post" class="form-group ml-3">
                 <input type="hidden" name="id" value="<?=$uraian_kegiatan['id_kegiatan']; ?>" class="form-control col-lg-4 mt-2" readonly>
                 <div class="form-group">
                 <input type="text" name="tanggal" value="<?=$uraian_kegiatan['tanggal']; ?>" readonly class="form-control col-lg-4 mt-2">

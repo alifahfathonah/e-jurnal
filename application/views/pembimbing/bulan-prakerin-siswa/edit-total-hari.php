@@ -24,7 +24,7 @@
           <div class="card card-dark">
             <div class="card-header">Edit Total Hari</div>
             <div class="card-body">
-              <form method="post" action="<?= base_url('Pembimbing/Bulan_Prakerin_Siswa/edit_total_hari/'.$bulan['id_bulan']) ?>">
+              <form method="post" action="<?= base_url('pembimbing/Bulan_Prakerin_Siswa/edit_total_hari/'.$bulan['id_bulan']) ?>">
                 <input type="hidden" class="form-control" name="id_bulan" value="<?= $bulan['id_bulan'] ?>">
               <div class="form-group">
                 <label>Bulan</label>

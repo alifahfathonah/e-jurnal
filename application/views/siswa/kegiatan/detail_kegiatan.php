@@ -30,12 +30,12 @@
             <div class="card card-primary card-outline mb-3">
               <div class="card-header">
               <div class="row">
-                <h5 class="m-0"><?= $detail_kegiatan ['tanggal'];?></h5>
-                <a href="<?= base_url('Siswa/Kegiatan/update/').$detail_kegiatan['id_kegiatan'] ?>" class="btn btn-primary " style="margin-left: auto;"><i class="fas fa-fw fa-edit"></i></a>     
+                <h5 class="m-0"><?= $kegiatan['tanggal'];?></h5>
+                <a href="<?= base_url('siswa/Kegiatan/update/').$kegiatan['id_kegiatan'] ?>" class="btn btn-primary " style="margin-left: auto;"><i class="fas fa-fw fa-edit"></i></a>     
                 </div>
               </div>
               <div class="card-body">
-                <p class="card-text"><?= $detail_kegiatan['uraian_kegiatan'];?></p>
+                <p class="card-text"><?= $kegiatan['uraian_kegiatan'];?></p>
               </div>
             </div>
           </div>

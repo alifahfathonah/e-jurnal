@@ -6,7 +6,7 @@ class Chat extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model(['Siswa/M_Siswa','User/M_User','User/M_Chat_Group']);
+		$this->load->model(['siswa/M_Siswa','user/M_User','user/M_Chat_Group']);
 		$this->load->helper(['auth']);
 		$this->user=$this->M_User->getUserLoginData();
 		$this->siswa=$this->M_Siswa->getSiswaLoginData();

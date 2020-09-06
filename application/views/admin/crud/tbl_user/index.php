@@ -21,8 +21,8 @@
 
           <div class="card">
             <div class="card-header">
-              <a href="<?= base_url('admin/crud/tbl-user/tambah') ?>" class="btn btn-primary">Tambah Data</a>
-              <a href="<?= base_url('Admin/Crud/Tbl_User/printUser') ?>" class="btn btn-success">Cetak Data</a>
+              <a href="<?= base_url('admin/crud/Tbl_User/tambah') ?>" class="btn btn-primary">Tambah Data</a>
+              <a href="<?= base_url('admin/crud/Tbl_User/printUser') ?>" class="btn btn-success">Cetak Data</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body table-responsive">
@@ -42,8 +42,8 @@
                   <td><?= $user['username'] ?></td>
                   <td><?= $user['email'] ?></td>
                   <td>
-                      <a href="<?= base_url('admin/crud/tbl-user/edit/').$user['id_user'] ?>" class="btn btn-primary"><i class="fas fa-fw fa-edit"></i></a>
-                      <a href="<?= base_url('admin/crud/tbl-user/hapus/').$user['id_user'] ?>" onclick="return confirm('Yakin ?')" class="btn btn-danger"><i class="fas fa-fw fa-trash"></i></a>
+                      <a href="<?= base_url('admin/crud/Tbl_User/edit/').$user['id_user'] ?>" class="btn btn-primary"><i class="fas fa-fw fa-edit"></i></a>
+                      <a href="<?= base_url('admin/crud/Tbl_User/hapus/').$user['id_user'] ?>" onclick="return confirm('Yakin ?')" class="btn btn-danger"><i class="fas fa-fw fa-trash"></i></a>
                   </td>
                 </tr>
                 <?php endforeach; ?>

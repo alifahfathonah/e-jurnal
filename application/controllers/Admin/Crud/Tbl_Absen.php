@@ -7,9 +7,9 @@ class Tbl_Absen extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Admin/Crud/M_Tbl_Absen','M_Absen');
-        $this->load->model('Common/M_Crud');
-        $this->load->model('User/M_User');
+        $this->load->model('admin/crud/M_Tbl_Absen','M_Absen');
+        $this->load->model('common/M_Crud');
+        $this->load->model('user/M_User');
         $this->load->helper('auth');
         $this->user=$this->M_User->getUserLoginData();
         isLoggedIn();
@@ -46,7 +46,7 @@ class Tbl_Absen extends CI_Controller
             ];
             $this->db->insert('tbl_absen', $data);
             $this->session->set_flashdata('message', ' <script>alert("DATA Berhasil ditambahkan");</script>');
-            redirect('Admin/Crud/Tbl_Absen');
+            redirect('admin/crud/Tbl_Absen');
         }
     }
     public function ubah($id)
@@ -70,20 +70,20 @@ class Tbl_Absen extends CI_Controller
             $this->db->where('id_absen', $id);
             $this->db->update('tbl_absen', $data);
             $this->session->set_flashdata('message', ' <script>alert("DATA Berhasil diubah");</script>');
-            redirect('Admin/Crud/Tbl_Absen');
+            redirect('admin/crud/Tbl_Absen');
         }
     }
     
     public function hapus($id)
     {
         $this->M_Absen->hapus($id);
-        redirect('Admin/Crud/Tbl_Absen');
+        redirect('admin/crud/Tbl_Absen');
     }
 
     public function clear()
     {
         $this->M_Crud->truncate('tbl_absensi');
-        redirect('Admin/Crud/Tbl_Absen');
+        redirect('admin/crud/Tbl_Absen');
     }
 
 }

@@ -21,7 +21,11 @@
         <div class="row mb-3">
           <div class="col-lg-8 mb-2">
             <div class="card">
-              <div class="card-header">Bulan <?= $bulan['nama_bulan'] ?></div>
+              <div class="card-header">Bulan <?= $bulan['nama_bulan'] ?>
+                <div class="float-right">
+                  
+                </div>
+              </div>
               <div class="card-body table-responsive ">
                 <table class="table table-dark" id="datatable">
                   <thead>
@@ -43,12 +47,13 @@
                         <td><?= $i; ?></td>
                         <td>
                           <?php if ($i>=10): ?>
-                          <a href="<?= base_url('pembimbing/Kehadiran_Siswa/detail_kehadiran_per_bulan/'.$bulan['id_bulan'].'/').$i.$bulan['no_bulan'].date('Y'); ?>" class="btn btn-primary"><i class="fa-fw fas fa-info"></i>
+                          <a href="<?= base_url('siswa/Kegiatan/show_kegiatan/'.$bulan['id_bulan'].'/').$i.$bulan['no_bulan'].date('Y'); ?>" class="btn btn-primary"><i class="fa-fw fas fa-info"></i>
                           </a>
                           <?php else: ?>
-                          <a href="<?= base_url('pembimbing/Kehadiran_Siswa/detail_kehadiran_per_bulan/'.$bulan['id_bulan'].'/').'0'.$i.$bulan['no_bulan'].date('Y'); ?>" class="btn btn-primary"><i class="fa-fw fas fa-info"></i>
+                          <a href="<?= base_url('siswa/Kegiatan/show_kegiatan/'.$bulan['id_bulan'].'/').'0'.$i.$bulan['no_bulan'].date('Y'); ?>" class="btn btn-primary"><i class="fa-fw fas fa-info"></i>
                           </a>
                           <?php endif ?>
+                          <a href="<?= base_url('siswa/Kegiatan/create_kegiatan/'.$bulan['id_bulan']).'/'.'0'.$i.$bulan['no_bulan'].date('Y'); ?>" class="btn btn-primary ml-3">Tambah Kegiatan</a>
                         </td>
                       </tr>
                     <?php endfor; ?>

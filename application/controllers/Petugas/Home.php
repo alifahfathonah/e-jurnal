@@ -6,9 +6,9 @@ class Home extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('User/M_User');
-		$this->load->model('Petugas/M_Monitoring');
-		$this->load->model('Petugas/M_Petugas');
+		$this->load->model('user/M_User');
+		$this->load->model('petugas/M_Monitoring');
+		$this->load->model('petugas/M_Petugas');
 		$this->load->helper(['auth']);
 		$this->user=$this->M_User->getUserLoginData();
 		$this->petugas=$this->M_Petugas->getPetugasLoginData();

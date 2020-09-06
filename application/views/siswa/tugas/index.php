@@ -43,7 +43,7 @@
           </div>
           <!-- /.col -->
           <div class="col-md-6 col-sm-6 col-12">
-            <form method="get" action="<?= base_url('siswa/tugas') ?>">
+            <form method="get" action="<?= base_url('siswa/Tugas') ?>">
               <div class="input-group mb-3">
                 <input type="text" name="keyword" class="form-control bg-dark" placeholder="Pencarian" aria-label="Pencarian" aria-describedby="button-addon2">
                 <div class="input-group-append">
@@ -73,7 +73,7 @@
                 <div class="card-text text-bold"><?= $m['judul_tugas_siswa'] ?></div>
                 <span class="info-box-text"><?= $pembimbing['nama_pembimbing'];?></span>
                 <span class="info-box-text">Tanggal : <?= date('d-m-Y',strtotime($m['created_at'])) ?></span>
-                <a href="<?= base_url('Siswa/tugas/detail_tugas/'.$m['id_tugas']);?>" class="btn btn-primary mt-3">Lihat</a>
+                <a href="<?= base_url('siswa/Tugas/detail_tugas/'.$m['id_tugas']);?>" class="btn btn-primary mt-3">Lihat</a>
               </div>
                 <!-- /.info-box-content -->
             </div>

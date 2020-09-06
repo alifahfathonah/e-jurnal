@@ -6,9 +6,9 @@ class Kehadiran_Siswa extends CI_Controller {
 	public function __construct()
     {
         parent::__construct();
-        $this->load->model('User/M_User');
-        $this->load->model('Pembimbing/M_Pembimbing');
-        $this->load->model('Pembimbing/M_Kehadiran_Siswa');
+        $this->load->model('user/M_User');
+        $this->load->model('pembimbing/M_Pembimbing');
+        $this->load->model('pembimbing/M_Kehadiran_Siswa');
         $this->load->helper(['auth','date','pembimbing']);
         $this->user=$this->M_User->getUserLoginData();
         $this->pembimbing=$this->M_Pembimbing->getPembimbingLoginData();
@@ -80,6 +80,7 @@ class Kehadiran_Siswa extends CI_Controller {
     public function confirmKehadiranSiswa($id_absensi)
     {
         $this->M_Kehadiran_Siswa->confirmKehadiranById($id_absensi);
+        $this->session->set_flashdata('success','Kehadiran dikonfirmasi');
         redirect('pembimbing/kehadiran-siswa');
     }
 
@@ -94,6 +95,7 @@ class Kehadiran_Siswa extends CI_Controller {
     public function confirmAllKehadiranSiswa()
     {
         $this->M_Kehadiran_Siswa->confirmAllKehadiranByToday($id_absensi);
+        $this->session->set_flashdata('success','Semua kehadiran dikonfirmasi');
         redirect('pembimbing/kehadiran-siswa');
     }
 

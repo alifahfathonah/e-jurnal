@@ -23,9 +23,10 @@
         <div class="card card-dark">
           <div class="card-header"></div>
           <div class="card-body">
-            <form action="<?= base_url('Siswa/Kegiatan/save'); ?>" method="post">
-              <input type="hidden" class="form-control" value="<?= $siswa['id_siswa'] ?>" name="siswa_id">
-              <input type="hidden" class="form-control" value="<?= date('dmy'); ?>" name="id_grup_kegiatan">
+            <form action="<?= base_url('siswa/Kegiatan/save'); ?>" method="post">
+              <input type="hidden" class="form-control" value="<?= $siswa['id_siswa']; ?>" name="siswa_id">
+              <input type="hidden" class="form-control" value="<?= $bulan['id_bulan']; ?>" name="bulan_id">
+              <input type="hidden" class="form-control" value="<?= $id_grup_kegiatan; ?>" name="id_grup_kegiatan">
               <div class="form-group">
                 <label>TANGGAL</label>
                 <input type="date" class="form-control" name="tgl">

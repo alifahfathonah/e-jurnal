@@ -20,6 +20,15 @@ class M_Kegiatan extends CI_Model
         return $kegiatan;
     }
 
+    public function getKegiatanByIdGrupKegiatanAndIdSiswa($id_grup_kegiatan,$id_siswa)
+    {   
+        // $kegiatan = $this->db->get_where('tbl_kegiatan',['id_grup_kegiatan' => $id_grup_kegiatan,'siswa_id' => $id_siswa]);
+        $kegiatan = $this->db->where('siswa_id',$id_siswa)
+                    ->where('id_grup_kegiatan',$id_grup_kegiatan)
+                    ->get('tbl_kegiatan')->row_array(); 
+        return $kegiatan;
+    }
+
     public function edit()
     {
         $data = array(

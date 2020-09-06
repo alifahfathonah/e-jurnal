@@ -32,6 +32,15 @@
                 <p class="card-text"><?= $detail_materi['deskripsi_tugas'];?></p>
               </div>
             </div>
+
+            <div class="form-group">
+                  <label>Kirim File</label>
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="customFile">
+                    <label class="custom-file-label" for="customFile">Choose file</label>
+                  </div>
+                  <small class="text-muted"><i>kosongkan jika tidak perlu</i></small>
+                </div>
           
           </div>
           <!-- /.col-md-6 -->

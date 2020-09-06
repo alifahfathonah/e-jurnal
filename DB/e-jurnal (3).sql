@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Sep 2020 pada 03.52
+-- Waktu pembuatan: 06 Sep 2020 pada 03.00
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.6
 
@@ -37,15 +37,6 @@ CREATE TABLE `tbl_absensi` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `id_grup_absensi` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data untuk tabel `tbl_absensi`
---
-
-INSERT INTO `tbl_absensi` (`id_absensi`, `siswa_id`, `is_active`, `keterangan_absensi_id`, `bulan_id`, `tanggal_absensi`, `created_at`, `id_grup_absensi`) VALUES
-(44, 35, 1, 1, 9, '03-09-2020', '2020-09-03 14:24:50', '03092020'),
-(45, 36, 1, 1, 9, '03-09-2020', '2020-09-03 14:25:47', '03092020'),
-(46, 36, 1, 1, 9, '04-09-2020', '2020-09-03 17:21:22', '04092020');
 
 -- --------------------------------------------------------
 
@@ -86,6 +77,14 @@ CREATE TABLE `tbl_admin` (
   `id_admin` int(11) NOT NULL,
   `user_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data untuk tabel `tbl_admin`
+--
+
+INSERT INTO `tbl_admin` (`id_admin`, `user_id`) VALUES
+(2, 28),
+(3, 39);
 
 -- --------------------------------------------------------
 
@@ -156,8 +155,11 @@ CREATE TABLE `tbl_chat` (
 --
 
 INSERT INTO `tbl_chat` (`id_chat`, `user_id`, `tugas_siswa_id`, `isi_chat`, `created_at`) VALUES
-(60, 25, 19, 'Silahkan Jika Ada yang mau ditanyakan', '2020-09-04 00:13:52'),
-(61, 35, 21, 'Silakan jika ada yang mau ditanyakan mengenai materi ini', '2020-09-04 00:35:39');
+(64, 41, 29, 'oke', '2020-09-05 00:32:58'),
+(65, 41, 29, 'hmm', '2020-09-05 00:33:55'),
+(66, 35, 29, 'o', '2020-09-06 00:40:26'),
+(67, 35, 29, 'ok', '2020-09-06 00:40:35'),
+(68, 35, 29, 'mm', '2020-09-06 00:50:31');
 
 -- --------------------------------------------------------
 
@@ -201,14 +203,6 @@ CREATE TABLE `tbl_kegiatan` (
   `is_active` tinyint(1) NOT NULL,
   `id_grup_kegiatan` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data untuk tabel `tbl_kegiatan`
---
-
-INSERT INTO `tbl_kegiatan` (`id_kegiatan`, `siswa_id`, `bulan_id`, `tanggal`, `jam_masuk`, `jam_pulang`, `uraian_kegiatan`, `is_active`, `id_grup_kegiatan`) VALUES
-(7, 35, 9, '2020-09-03', '09.00', '17.00', 'Membuat Crud Setiap Tabel', 1, ''),
-(8, 36, 9, '2020-09-03', '09.00', '17.00', 'Membuat Apalagi', 1, '');
 
 -- --------------------------------------------------------
 
@@ -345,7 +339,7 @@ INSERT INTO `tbl_menu` (`id_menu`, `nama_menu`, `slug_menu`, `parent_menu_id`, `
 (4, 'SISWA', 'siswa', 0, 4),
 (5, 'TABEL DATA', 'master-data', 0, 5),
 (6, 'MANAGE MENU', 'menu-management', 0, 6),
-(7, 'USER', 'user', 0, 100),
+(7, 'USER', 'user', 0, 8),
 (13, 'JURNAL', 'jurnal', 4, 7);
 
 -- --------------------------------------------------------
@@ -367,8 +361,8 @@ CREATE TABLE `tbl_pembimbing` (
 --
 
 INSERT INTO `tbl_pembimbing` (`id_pembimbing`, `user_id`, `nip`, `nama_pembimbing`, `no_telp_pembimbing`) VALUES
-(13, 35, '19288929', 'Asep Ansori', '085389888734'),
-(14, 25, '19969696', 'Doni Romdoni', '085999888777');
+(15, 40, '19218811', 'Jajang Nur Zaman', '085321540976'),
+(16, 41, '19951995', 'Mang Rasmus', '085321725290');
 
 -- --------------------------------------------------------
 
@@ -463,16 +457,6 @@ CREATE TABLE `tbl_saran` (
   `is_active` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data untuk tabel `tbl_saran`
---
-
-INSERT INTO `tbl_saran` (`id_saran`, `petugas_id`, `siswa_id`, `isi_saran`, `tanggal_saran`, `created_at`, `is_active`) VALUES
-(1, 1, 36, 'belajar lebih baik lagi..', '15-10-2020', '2020-09-02 03:38:34', 1),
-(2, 1, 35, '<p>AWOKAOWAKWOAK</p>\r\n', '02-09-2020', '2020-09-02 04:19:25', 1),
-(3, 1, 35, '<p>serius pklnya eyyy</p>\r\n', '02-09-2020', '2020-09-02 04:24:52', 1),
-(4, 1, 36, '<p>uuuuuu</p>\r\n', '02-09-2020', '2020-09-02 05:41:15', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -501,9 +485,10 @@ CREATE TABLE `tbl_siswa` (
 --
 
 INSERT INTO `tbl_siswa` (`id_siswa`, `user_id`, `kelas_id`, `jurusan_id`, `nama_siswa`, `nis`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `alamat_siswa`, `nama_orang_tua`, `alamat_orang_tua`, `no_telp_siswa`, `foto_siswa`) VALUES
-(35, 34, 4, 3, 'Abdul Malik Ramdani', '01080871', 'sodong', '2001-07-08', 'Laki-laki', 'Cikeusal,Magunreja,Tasikmalaya', 'Ikhsan', 'Cikeusal', '+629092392399', ''),
+(35, 35, 4, 3, 'Abdul Malik Ramdani', '01080871', 'sodong', '2001-07-08', 'Laki-laki', 'Cikeusal,Magunreja,Tasikmalaya', 'Ikhsan', 'Cikeusal', '+629092392399', ''),
 (36, 27, 4, 5, 'Sendi Fajar ', '01080872', 'Tasikmalaya', '2002-08-08', 'Laki-laki', 'Bojongkoneng,Singaparna,Tasikmalaya', 'Martina', 'Bojongkoneng,Singaparna,Tasikmalaya', '+629092392392', ''),
-(37, 36, 4, 2, 'Rahmat Hidayat', '99999999', 'Tasikmalaya', '2002-07-09', 'Laki-laki', 'Cikunten,Singaparna,Tasikmalaya', 'Euis Nurjannah', 'Cikunten,Singaparna,Tasikmalaya', '+629999999999', '');
+(37, 36, 4, 2, 'Rahmat Hidayat', '99999999', 'Tasikmalaya', '2002-07-09', 'Laki-laki', 'Cikunten,Singaparna,Tasikmalaya', 'Euis Nurjannah', 'Cikunten,Singaparna,Tasikmalaya', '+629999999999', ''),
+(38, 44, 4, 2, 'Andi Suhandi', '99998888', 'Paradise Island', '2003-09-12', 'Laki-laki', 'Paradise Island', 'Yeager', 'Paradise Island', '+62876526238723', '');
 
 -- --------------------------------------------------------
 
@@ -527,28 +512,36 @@ CREATE TABLE `tbl_submenu` (
 
 INSERT INTO `tbl_submenu` (`id_submenu`, `nama_submenu`, `icon_submenu`, `url_submenu`, `menu_id`, `is_active`, `no_urut_submenu`) VALUES
 (18, 'Dashboard', 'nav-icon fas fa-tachometer-alt', 'admin', 1, 1, 1),
-(23, 'Data Absensi', 'nav-icon fas fa-book', 'admin/crud/tbl_absen', 5, 1, 0),
-(24, 'Data Access Menu', 'nav-icon fas fa-user-tie', 'admin/crud/tbl_access_menu', 6, 1, 0),
-(25, 'Data Admin', 'nav-icon fas fa-user-secret', 'admin/crud/tbl_admin', 5, 1, 0),
-(26, 'Data Menu', 'nav-icon fas fa-folder', 'admin/crud/tbl_menu', 6, 1, 0),
-(27, 'Data Submenu', 'nav-icon fas fa-folder-open', 'admin/crud/tbl_submenu', 6, 1, 0),
-(28, 'Data Siswa', 'nav-icon fas fa-school', 'admin/crud/tbl_siswa', 5, 1, 0),
-(29, 'Data Petugas', 'nav-icon fas fa-user-tie', 'admin/crud/tbl_petugas', 5, 1, 0),
-(30, 'Data Pembimbing', 'nav-icon fas fa-user-tie', 'admin/crud/tbl_pembimbing', 5, 1, 0),
+(23, 'Data Absensi', 'nav-icon fas fa-book', 'admin/crud/Tbl_Absen', 5, 1, 1),
+(24, 'Data Access Menu', 'nav-icon fas fa-user-tie', 'admin/crud/Tbl_Access_Menu', 6, 1, 0),
+(25, 'Data Admin', 'nav-icon fas fa-user-secret', 'admin/crud/Tbl_Admin', 1, 0, 0),
+(26, 'Data Menu', 'nav-icon fas fa-folder', 'admin/crud/Tbl_Menu', 6, 1, 0),
+(27, 'Data Submenu', 'nav-icon fas fa-folder-open', 'admin/crud/Tbl_Submenu', 6, 1, 0),
+(28, 'Data Siswa', 'nav-icon fas fa-school', 'admin/crud/Tbl_Siswa', 5, 1, 0),
+(29, 'Data Petugas', 'nav-icon fas fa-user-tie', 'admin/crud/Tbl_Petugas', 5, 1, 0),
+(30, 'Data Pembimbing', 'nav-icon fas fa-user-tie', 'admin/crud/Tbl_Pembimbing', 5, 1, 0),
 (31, 'Kehadiran', 'nav-icon fas fa-calendar-check', 'siswa/kehadiran', 13, 1, 0),
 (33, 'Kegiatan', 'nav-icon fas fa-list', 'siswa/kegiatan', 13, 1, 0),
-(34, 'Identitas', 'nav-icon fas fa-user', 'siswa/identitas', 4, 1, 0),
-(35, 'Tugas & Materi', 'nav-icon fas fa-th', 'siswa/tugas', 4, 1, 0),
-(36, 'Tugas Siswa', 'nav-icon fas fa-book', 'pembimbing/tugas-siswa', 2, 1, 0),
-(37, 'Kehadiran Siswa', 'nav-icon fas fa-users', 'pembimbing/kehadiran-siswa', 2, 1, 0),
-(38, 'Ubah Password', 'nav-icon fas fa-lock', 'user/change-password', 7, 1, 0),
-(39, 'Kehadiran Siswa', 'nav-icon fas fa-table', 'Petugas/Monitoring_Kehadiran_Siswa', 3, 1, 0),
-(40, 'Saran Siswa', 'nav-icon fas fa-book', 'Petugas/Saran_SIswa', 3, 1, 0),
-(41, 'List Kontak', 'nav-icon fas fa-phone', 'admin/List_Kontak', 1, 1, 0),
-(42, 'Bulan Aktif Prakerin', 'nav-icon fas fa-user', 'pembimbing/Bulan_Prakerin_Siswa', 2, 1, 1),
-(43, 'Kegiatan Siswa', 'nav-icon fas fa-list', 'pembimbing/Kegiatan_Siswa', 2, 1, 0),
-(44, 'Data User', 'nav-icon fas fa-users', 'admin/crud/tbl-user', 5, 1, 0),
-(45, 'Saran', 'nav-icon fas fa-pen', 'siswa/saran', 13, 1, 0);
+(34, 'Identitas', 'nav-icon fas fa-user', 'siswa/identitas', 4, 1, 2),
+(35, 'Tugas & Materi', 'nav-icon fas fa-th', 'siswa/tugas', 4, 1, 3),
+(36, 'Tugas Siswa', 'nav-icon fas fa-book', 'pembimbing/tugas-siswa', 2, 1, 4),
+(37, 'Kehadiran Siswa', 'nav-icon fas fa-users', 'pembimbing/kehadiran-siswa', 2, 1, 2),
+(38, 'Ubah Password', 'nav-icon fas fa-lock', 'user/change-password', 7, 1, 3),
+(39, 'Kehadiran Siswa', 'nav-icon fas fa-table', 'petugas/Monitoring_Kehadiran_Siswa', 3, 1, 0),
+(40, 'Saran Siswa', 'nav-icon fas fa-book', 'petugas/Saran_SIswa', 3, 1, 0),
+(41, 'List Kontak', 'nav-icon fas fa-phone', 'admin/List_Kontak', 1, 1, 2),
+(42, 'Bulan Aktif Prakerin', 'nav-icon fas fa-user', 'pembimbing/Bulan_Prakerin_Siswa', 2, 1, 5),
+(43, 'Kegiatan Siswa', 'nav-icon fas fa-list', 'pembimbing/Kegiatan_Siswa', 2, 1, 3),
+(44, 'Data User', 'nav-icon fas fa-users', 'admin/crud/Tbl_User', 5, 1, 0),
+(45, 'Saran', 'nav-icon fas fa-pen', 'siswa/saran', 13, 1, 0),
+(46, 'Data Role', 'nav-icon fas fa-user-tie', 'admin/crud/Tbl_Role', 5, 1, 0),
+(47, 'Data Keterangan Absensi', 'nav-icon fas fa-list', 'admin/crud/Tbl_Keterangan', 5, 1, 0),
+(48, 'Identitas', 'nav-icon fas fa-user', 'pembimbing/identitas', 2, 1, 6),
+(49, 'Home', 'nav-icon fas fa-home', 'pembimbing', 2, 1, 1),
+(50, 'Profile', 'nav-icon fas fa-user', 'user/Profile', 7, 1, 2),
+(51, 'Home', 'nav-icon fas fa-home', 'user', 7, 1, 1),
+(52, 'Home', 'nav-icon fas fa-home', 'siswa', 4, 1, 1),
+(53, 'Contoh', 'nav-icon fas fa-list', 'contoh', 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -591,10 +584,7 @@ CREATE TABLE `tbl_tugas_siswa` (
 --
 
 INSERT INTO `tbl_tugas_siswa` (`id_tugas`, `tipe_tugas_siswa_id`, `pembimbing_id`, `judul_tugas_siswa`, `deskripsi_tugas`, `tanggal_tugas_siswa`, `created_at`) VALUES
-(19, 1, 14, 'Web Sederhana Ci', '<p><s><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod<br />\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,<br />\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo<br />\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse<br />\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non<br />\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em></s></p>\r\n\r\n<ul>\r\n	<li><strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</strong></li>\r\n	<li><strong>tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</strong></li>\r\n	<li><strong>quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</strong></li>\r\n	<li><strong>consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse</strong></li>\r\n	<li><strong>cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</strong></li>\r\n	<li><strong>proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</strong></li>\r\n</ul>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<blockquote>\r\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod<br />\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,<br />\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo<br />\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse<br />\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non<br />\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n</blockquote>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod<br />\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,<br />\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo<br />\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse<br />\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non<br />\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n', '04-09-2020', '2020-09-04 00:13:19'),
-(20, 1, 13, 'Membuat Crud menggunakan Framework Codeigniter', '<p><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod<br />\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,<br />\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo<br />\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse<br />\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non<br />\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em></p>\r\n\r\n<ol>\r\n	<li><strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</strong></li>\r\n	<li><strong>tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</strong></li>\r\n	<li><strong>quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</strong></li>\r\n	<li><strong>consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse</strong></li>\r\n	<li><strong>cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</strong></li>\r\n	<li><strong>proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</strong></li>\r\n</ol>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<table align=\"left\" border=\"1\" cellpadding=\"3\" cellspacing=\"0\" style=\"height:50px; width:300px\" summary=\"Requirements\">\r\n	<caption>Tools</caption>\r\n	<thead>\r\n		<tr>\r\n			<th scope=\"col\" style=\"background-color: pink;\">NO</th>\r\n			<th scope=\"col\" style=\"background-color: orange;\">Framework</th>\r\n		</tr>\r\n	</thead>\r\n	<tbody>\r\n		<tr>\r\n			<td>&nbsp;1</td>\r\n			<td>&nbsp;Codeigniter</td>\r\n		</tr>\r\n		<tr>\r\n			<td>&nbsp;2</td>\r\n			<td>&nbsp;Bootstrap</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n', '04-09-2020', '2020-09-04 00:23:03'),
-(21, 1, 13, 'Membuat Login Multilevel dengan PHP & Mysqli', '<blockquote>\r\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod<br />\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,<br />\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo<br />\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse<br />\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non<br />\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n\r\n<p><strong><em><s>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod<br />\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,<br />\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo<br />\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse<br />\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non<br />\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</s></em></strong></p>\r\n</blockquote>\r\n', '04-09-2020', '2020-09-04 00:34:12'),
-(22, 1, 14, 'Membuat Testing', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod<br />\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,<br />\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo<br />\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse<br />\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non<br />\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n', '04-09-2020', '2020-09-04 00:41:10');
+(29, 1, 16, 'Membuat Crud dengan PHP Myqli', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod<br />\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,<br />\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo<br />\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse<br />\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non<br />\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n\r\n<p><s><strong><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod<br />\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,<br />\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo<br />\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse<br />\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non<br />\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em></strong></s></p>\r\n', '05-09-2020', '2020-09-05 00:32:37');
 
 -- --------------------------------------------------------
 
@@ -617,7 +607,6 @@ CREATE TABLE `tbl_user` (
 
 INSERT INTO `tbl_user` (`id_user`, `role_id`, `username`, `email`, `password`, `image`) VALUES
 (24, 1, 'imamamirulloh', 'imamamirulloh123@gmail.com', '$2y$10$QhRwCUhWXoWIWQjGnsy00OUk1EqU/E4qP.LLAuXbJiMa4/2p56aZ6', ''),
-(25, 2, 'doniahmad', 'doniahmad123@gmail.com', '$2y$10$2tV6a8NarcifDZjC7ELu4Ojn/6tPhPbKqRRrugW3w4F3n5lQSCNJG', ''),
 (26, 3, 'heriheryana', 'heriheryana123@gmail.com', '$2y$10$QhRwCUhWXoWIWQjGnsy00OUk1EqU/E4qP.LLAuXbJiMa4/2p56aZ6', ''),
 (27, 4, 'sendifajar', 'sendifajar123@gmail.com', '$2y$10$QhRwCUhWXoWIWQjGnsy00OUk1EqU/E4qP.LLAuXbJiMa4/2p56aZ6', ''),
 (28, 1, 'admin', 'admin@gmail.com', '$2y$10$QhRwCUhWXoWIWQjGnsy00OUk1EqU/E4qP.LLAuXbJiMa4/2p56aZ6', '74529afaf5678a87af2be2ffd71e8484.png'),
@@ -626,10 +615,16 @@ INSERT INTO `tbl_user` (`id_user`, `role_id`, `username`, `email`, `password`, `
 (31, 4, 'mIqbal', 'iqbal123@gmail.com', '$2y$10$QhRwCUhWXoWIWQjGnsy00OUk1EqU/E4qP.LLAuXbJiMa4/2p56aZ6', ''),
 (32, 2, 'nurzaman', 'nurzaman123@gmail.com', '$2y$10$QhRwCUhWXoWIWQjGnsy00OUk1EqU/E4qP.LLAuXbJiMa4/2p56aZ6', ''),
 (33, 3, 'fahmitaufiq', 'fahmitaufiq123@gmail.com', '$2y$10$QhRwCUhWXoWIWQjGnsy00OUk1EqU/E4qP.LLAuXbJiMa4/2p56aZ6', ''),
-(34, 4, 'abdulmalik', 'abdulmalik123@gmail.com', '$2y$10$gUvVuiM./ZvikyY//zkn/uRwMhN2Du4GhctoND/tGRjxLWcp19Zb6', 'Screenshot_(8)2.png'),
-(35, 2, 'asepansori', 'asepansori123@gmail.com', '$2y$10$sHf92wbB.6aDLYsmbE3QJOIBNAjG4hmoTuvZ6onqN.KeLwFsMcHA.', ''),
+(35, 4, 'abdulmalik', 'abdulmalik123@gmail.com', '$2y$10$gUvVuiM./ZvikyY//zkn/uRwMhN2Du4GhctoND/tGRjxLWcp19Zb6', '53d40e962de78459e6c20c45de53a3e4.png'),
 (36, 4, 'matplotlib', 'matplotlib@gmail.com', '$2y$10$slNDZgXoE8WGPusgncgZn.T8/bifF7LQVLw33JKnULGQl90XE8IZO', ''),
-(37, 2, 'dandi', 'dandi123@gmail.com', '$2y$10$uil0Y9qgdq4lUfTzfr1heuVGOP7KCxmn7lqnU7iHuO/Y8PLvDuzKO', '');
+(37, 2, 'dandi', 'dandi123@gmail.com', '$2y$10$uil0Y9qgdq4lUfTzfr1heuVGOP7KCxmn7lqnU7iHuO/Y8PLvDuzKO', ''),
+(38, 2, 'rian', 'rian123@gmail.com', '$2y$10$4H6wQLsFV0gf7WgK7fsXg.maf/5xY8PlOKYr0XKGYhvpvK329Rh.m', ''),
+(39, 1, 'admin2', 'admin2@gmail.com', '$2y$10$R7ttYhOZlA9ypcYAbq29f.wmK2MHNgazt4DIxXIV6ggJpiOGaJoJu', ''),
+(40, 2, 'jajang', 'jajang123@gmail.com', '$2y$10$REkF1yS3ZtbmzIDUKdZaQe6bQScAFYZ0KYGIt06cDLWoEv8ZdOimK', ''),
+(41, 2, 'pembimbing1', 'pembimbing1@gmail.com', '$2y$10$qlOdmqkQF0JyMDaYy4Tt0u3J4N6hj/om3r5BFNlxDY9EHoIO05wq6', ''),
+(42, 3, 'petugas1', 'petugas1@gmail.com', '$2y$10$eVDr1YSJh5FhxB.QgCBCCuZE.SjrjbJ5OxOBM8p2i89XkFaFCrz3u', ''),
+(43, 4, 'nanadaime', 'nanadaime123@gmail.com', '$2y$10$YZDB/hDkcgn3IBH5P198LOiVocgbmLTYytIqTGiXGfvYhHy0dF6TW', ''),
+(44, 4, 'siswa1', 'siswa1@gmail.com', '$2y$10$pxf1n3jYliTbOcqh1mlS0eQ5YNs93L1JtzqpoNg8xlpwh/HBGhI9G', '');
 
 --
 -- Indexes for dumped tables
@@ -829,7 +824,7 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT untuk tabel `tbl_absensi`
 --
 ALTER TABLE `tbl_absensi`
-  MODIFY `id_absensi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id_absensi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_access_menu`
@@ -841,7 +836,7 @@ ALTER TABLE `tbl_access_menu`
 -- AUTO_INCREMENT untuk tabel `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_balasan_tugas_siswa`
@@ -859,7 +854,7 @@ ALTER TABLE `tbl_bulan`
 -- AUTO_INCREMENT untuk tabel `tbl_chat`
 --
 ALTER TABLE `tbl_chat`
-  MODIFY `id_chat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id_chat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_jurusan`
@@ -871,7 +866,7 @@ ALTER TABLE `tbl_jurusan`
 -- AUTO_INCREMENT untuk tabel `tbl_kegiatan`
 --
 ALTER TABLE `tbl_kegiatan`
-  MODIFY `id_kegiatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_kegiatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_kegiatan_absensi`
@@ -919,7 +914,7 @@ ALTER TABLE `tbl_menu`
 -- AUTO_INCREMENT untuk tabel `tbl_pembimbing`
 --
 ALTER TABLE `tbl_pembimbing`
-  MODIFY `id_pembimbing` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_pembimbing` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_penilaian_siswa`
@@ -955,13 +950,13 @@ ALTER TABLE `tbl_saran`
 -- AUTO_INCREMENT untuk tabel `tbl_siswa`
 --
 ALTER TABLE `tbl_siswa`
-  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_submenu`
 --
 ALTER TABLE `tbl_submenu`
-  MODIFY `id_submenu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id_submenu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_tipe_tugas_siswa`
@@ -973,13 +968,13 @@ ALTER TABLE `tbl_tipe_tugas_siswa`
 -- AUTO_INCREMENT untuk tabel `tbl_tugas_siswa`
 --
 ALTER TABLE `tbl_tugas_siswa`
-  MODIFY `id_tugas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_tugas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -1017,7 +1012,8 @@ ALTER TABLE `tbl_balasan_tugas_siswa`
 -- Ketidakleluasaan untuk tabel `tbl_chat`
 --
 ALTER TABLE `tbl_chat`
-  ADD CONSTRAINT `tbl_chat_ibfk_2` FOREIGN KEY (`tugas_siswa_id`) REFERENCES `tbl_tugas_siswa` (`id_tugas`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `tbl_chat_ibfk_2` FOREIGN KEY (`tugas_siswa_id`) REFERENCES `tbl_tugas_siswa` (`id_tugas`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_chat_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `tbl_user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `tbl_kegiatan`

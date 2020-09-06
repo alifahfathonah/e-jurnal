@@ -36,8 +36,8 @@
 							<tr>
 							<td><?= $i++ ?></td>
 							<td><?= $n['nama_siswa']; ?></td>
-							<td><a href="<?= base_url('Petugas/Saran_Siswa/create/').$n['id_siswa']; ?>" title="monitoring siwa" class="btn btn-primary"><i class="fas fa-paper-plane"></i></a> 		
-                             <a href="<?= base_url('Petugas/Saran_Siswa/show_saran/').$n['id_siswa']; ?>"class="btn btn-success"><i class="fas fa-info-circle"></i></a>
+							<td><a href="<?= base_url('petugas/Saran_Siswa/create/').$n['id_siswa']; ?>" title="monitoring siwa" class="btn btn-primary"><i class="fas fa-paper-plane"></i></a> 		
+                             <a href="<?= base_url('petugas/Saran_Siswa/show_saran/').$n['id_siswa']; ?>"class="btn btn-success"><i class="fas fa-info-circle"></i></a>
 							</td>
 						<?php endforeach ?>
 					</tr>

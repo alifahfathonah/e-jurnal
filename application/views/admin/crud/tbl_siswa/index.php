@@ -21,7 +21,7 @@
 
           <div class="card">
             <div class="card-header">
-              <a href="<?= base_url('admin/crud/tbl-siswa/tambah') ?>" class="btn btn-primary">Tambah Data</a>
+              <a href="<?= base_url('admin/crud/Tbl_Siswa/tambah') ?>" class="btn btn-primary">Tambah Data</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body table-responsive">
@@ -45,8 +45,8 @@
                   <td></td>
                   <td></td>
                   <td>
-                      <a href="<?= base_url('admin/crud/tbl-siswa/edit/').$siswa['id_siswa'] ?>" class="btn btn-primary"><i class="fas fa-fw fa-edit"></i></a>
-                      <a href="<?= base_url('admin/crud/tbl-siswa/hapus/').$siswa['id_siswa'] ?>" onclick="return confirm('Yakin ?')" class="btn btn-danger"><i class="fas fa-fw fa-trash"></i></a>
+                      <a href="<?= base_url('admin/crud/Tbl_Siswa/edit/').$siswa['id_siswa'] ?>" class="btn btn-primary"><i class="fas fa-fw fa-edit"></i></a>
+                      <a href="<?= base_url('admin/crud/Tbl_Siswa/hapus/').$siswa['id_siswa'] ?>" onclick="return confirm('Yakin ?')" class="btn btn-danger"><i class="fas fa-fw fa-trash"></i></a>
                   </td>
                 </tr>
                 <?php endforeach; ?>

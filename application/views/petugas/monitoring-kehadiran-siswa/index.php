@@ -35,7 +35,7 @@
 							<tr>
 							<td><?= $i++ ?></td>
 							<td><?= $k['nama_siswa']; ?></td>
-							<td><a href="<?= base_url('Petugas/Monitoring_Kehadiran_Siswa/siswa/').$k['id_siswa']; ?>" title="monitoring siwa" class="btn btn-secondary">kehadiran</a></td>
+							<td><a href="<?= base_url('petugas/Monitoring_Kehadiran_Siswa/siswa/').$k['id_siswa']; ?>" title="monitoring siwa" class="btn btn-secondary">kehadiran</a></td>
 						<?php endforeach ?>
 					</tr>
 					</tbody>

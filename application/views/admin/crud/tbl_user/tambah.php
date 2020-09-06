@@ -21,11 +21,11 @@
 
           <div class="card">
             <div class="card-header">
-              <a href="<?= base_url('admin/crud/tbl-user') ?>" class="btn btn-success">Kembali</a>
+              <a href="<?= base_url('admin/crud/Tbl_User') ?>" class="btn btn-success">Kembali</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <form method="post" action="<?= base_url('admin/crud/tbl-user/tambah') ?>">
+              <form method="post" action="<?= base_url('admin/crud/Tbl_User/tambah') ?>">
               <div class="form-group">
                 <label for="u">Username</label>
                 <input type="" id="u" class="form-control" name="username">

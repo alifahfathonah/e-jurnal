@@ -25,7 +25,7 @@
 
             <div class="row">
                 <div class="col-lg-6">
-
+                    <?php if ($saran): ?>
                     <div class="card card-primary card-outline mb-3">
                         <div class="card-header">
                             <div class="row">
@@ -39,7 +39,9 @@
                             <p class="card-text"><?= $saran['isi_saran'] ?></p>
                         </div>
                     </div>
-
+                    <?php else: ?>
+                    
+                    <?php endif ?>
                 </div>
                 <!-- /.col-md-6 -->
             </div>

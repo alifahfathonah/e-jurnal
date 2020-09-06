@@ -7,10 +7,10 @@ class Tbl_Perusahaan extends CI_Controller {
 	{
 		parent::__construct();
 
-		$this->load->model('User/M_User');
+		$this->load->model('user/M_User');
 		$this->load->helper(['auth']);
 		$this->user=$this->M_User->getUserLoginData();
-		$this->load->model('Admin/Crud/M_Tbl_Perusahaan');
+		$this->load->model('admin/crud/M_Tbl_Perusahaan');
 		isLoggedIn();
 		
 	}
@@ -43,7 +43,7 @@ class Tbl_Perusahaan extends CI_Controller {
 			];
 			$this->db->insert('tbl_perusahaan',$data);
 			$this->session->set_flashdata('message','<script>alert("data berhasil ditambahkan!!!");</script>');
-			redirect('Admin/Crud/Tbl_Perusahaan');
+			redirect('admin/crud/Tbl_Perusahaan');
 		}
         
        
@@ -52,7 +52,7 @@ class Tbl_Perusahaan extends CI_Controller {
 	public function delete($id)
 	{
 		$this->M_Tbl_Perusahaan->delete($id);
-		redirect('Admin/Crud/Tbl_Perusahaan');
+		redirect('admin/crud/Tbl_Perusahaan');
 	}
 	public function edit($id=NULL)
 	{
@@ -76,7 +76,7 @@ class Tbl_Perusahaan extends CI_Controller {
 			$this->db->where('id_perusahaan',$id);
 			$this->db->update('tbl_perusahaan',$data);
 			$this->session->set_flashdata('message','<script>alert("data berhasil diedit!!!");</script>');
-			redirect('Admin/Crud/Tbl_Perusahaan');
+			redirect('admin/crud/Tbl_Perusahaan');
 		}
 	}
 }
